@@ -1,0 +1,483 @@
+{
+  "name": "account_lookup",
+  "tables": [
+    {
+      "name": "currency",
+      "type": "BASE TABLE",
+      "columns": [
+        {
+          "name": "currencyId",
+          "type": "varchar(3)",
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "type": "varchar(128)",
+          "nullable": true
+        },
+        {
+          "name": "isActive",
+          "type": "tinyint(1)",
+          "nullable": false,
+          "default": "1"
+        },
+        {
+          "name": "createdDate",
+          "type": "datetime",
+          "nullable": false,
+          "default": "CURRENT_TIMESTAMP",
+          "extra_def": "DEFAULT_GENERATED"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "PRIMARY",
+          "def": "PRIMARY KEY (currencyId) USING BTREE",
+          "table": "currency",
+          "columns": [
+            "currencyId"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "PRIMARY",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (currencyId)",
+          "table": "currency",
+          "columns": [
+            "currencyId"
+          ]
+        }
+      ],
+      "def": "CREATE TABLE `currency` (\n  `currencyId` varchar(3) NOT NULL,\n  `name` varchar(128) DEFAULT NULL,\n  `isActive` tinyint(1) NOT NULL DEFAULT '1',\n  `createdDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  PRIMARY KEY (`currencyId`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci"
+    },
+    {
+      "name": "endpointType",
+      "type": "BASE TABLE",
+      "columns": [
+        {
+          "name": "endpointTypeId",
+          "type": "int unsigned",
+          "nullable": false,
+          "extra_def": "auto_increment"
+        },
+        {
+          "name": "type",
+          "type": "varchar(50)",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "varchar(512)",
+          "nullable": true
+        },
+        {
+          "name": "isActive",
+          "type": "tinyint(1)",
+          "nullable": false,
+          "default": "1"
+        },
+        {
+          "name": "createdDate",
+          "type": "datetime",
+          "nullable": false,
+          "default": "CURRENT_TIMESTAMP",
+          "extra_def": "DEFAULT_GENERATED"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "PRIMARY",
+          "def": "PRIMARY KEY (endpointTypeId) USING BTREE",
+          "table": "endpointType",
+          "columns": [
+            "endpointTypeId"
+          ]
+        },
+        {
+          "name": "endpointtype_type_unique",
+          "def": "UNIQUE KEY endpointtype_type_unique (type) USING BTREE",
+          "table": "endpointType",
+          "columns": [
+            "type"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "endpointtype_type_unique",
+          "type": "UNIQUE",
+          "def": "UNIQUE KEY endpointtype_type_unique (type)",
+          "table": "endpointType",
+          "columns": [
+            "type"
+          ]
+        },
+        {
+          "name": "PRIMARY",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (endpointTypeId)",
+          "table": "endpointType",
+          "columns": [
+            "endpointTypeId"
+          ]
+        }
+      ],
+      "def": "CREATE TABLE `endpointType` (\n  `endpointTypeId` int unsigned NOT NULL AUTO_INCREMENT,\n  `type` varchar(50) NOT NULL,\n  `description` varchar(512) DEFAULT NULL,\n  `isActive` tinyint(1) NOT NULL DEFAULT '1',\n  `createdDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  PRIMARY KEY (`endpointTypeId`),\n  UNIQUE KEY `endpointtype_type_unique` (`type`)\n) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci"
+    },
+    {
+      "name": "migration",
+      "type": "BASE TABLE",
+      "columns": [
+        {
+          "name": "id",
+          "type": "int unsigned",
+          "nullable": false,
+          "extra_def": "auto_increment"
+        },
+        {
+          "name": "name",
+          "type": "varchar(255)",
+          "nullable": true
+        },
+        {
+          "name": "batch",
+          "type": "int",
+          "nullable": true
+        },
+        {
+          "name": "migration_time",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ],
+      "indexes": [
+        {
+          "name": "PRIMARY",
+          "def": "PRIMARY KEY (id) USING BTREE",
+          "table": "migration",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "PRIMARY",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (id)",
+          "table": "migration",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "def": "CREATE TABLE `migration` (\n  `id` int unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(255) DEFAULT NULL,\n  `batch` int DEFAULT NULL,\n  `migration_time` timestamp NULL DEFAULT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci"
+    },
+    {
+      "name": "migration_lock",
+      "type": "BASE TABLE",
+      "columns": [
+        {
+          "name": "index",
+          "type": "int unsigned",
+          "nullable": false,
+          "extra_def": "auto_increment"
+        },
+        {
+          "name": "is_locked",
+          "type": "int",
+          "nullable": true
+        }
+      ],
+      "indexes": [
+        {
+          "name": "PRIMARY",
+          "def": "PRIMARY KEY (index) USING BTREE",
+          "table": "migration_lock",
+          "columns": [
+            "index"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "PRIMARY",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (index)",
+          "table": "migration_lock",
+          "columns": [
+            "index"
+          ]
+        }
+      ],
+      "def": "CREATE TABLE `migration_lock` (\n  `index` int unsigned NOT NULL AUTO_INCREMENT,\n  `is_locked` int DEFAULT NULL,\n  PRIMARY KEY (`index`)\n) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci"
+    },
+    {
+      "name": "oracleEndpoint",
+      "type": "BASE TABLE",
+      "columns": [
+        {
+          "name": "oracleEndpointId",
+          "type": "int unsigned",
+          "nullable": false,
+          "extra_def": "auto_increment"
+        },
+        {
+          "name": "partyIdTypeId",
+          "type": "int unsigned",
+          "nullable": false
+        },
+        {
+          "name": "endpointTypeId",
+          "type": "int unsigned",
+          "nullable": false
+        },
+        {
+          "name": "currencyId",
+          "type": "varchar(255)",
+          "nullable": true
+        },
+        {
+          "name": "value",
+          "type": "varchar(512)",
+          "nullable": false
+        },
+        {
+          "name": "isDefault",
+          "type": "tinyint(1)",
+          "nullable": false,
+          "default": "0"
+        },
+        {
+          "name": "isActive",
+          "type": "tinyint(1)",
+          "nullable": false,
+          "default": "1"
+        },
+        {
+          "name": "createdDate",
+          "type": "datetime",
+          "nullable": false,
+          "default": "CURRENT_TIMESTAMP",
+          "extra_def": "DEFAULT_GENERATED"
+        },
+        {
+          "name": "createdBy",
+          "type": "varchar(128)",
+          "nullable": false
+        }
+      ],
+      "indexes": [
+        {
+          "name": "oracleendpoint_currencyid_foreign",
+          "def": "KEY oracleendpoint_currencyid_foreign (currencyId) USING BTREE",
+          "table": "oracleEndpoint",
+          "columns": [
+            "currencyId"
+          ]
+        },
+        {
+          "name": "oracleendpoint_endpointtypeid_index",
+          "def": "KEY oracleendpoint_endpointtypeid_index (endpointTypeId) USING BTREE",
+          "table": "oracleEndpoint",
+          "columns": [
+            "endpointTypeId"
+          ]
+        },
+        {
+          "name": "oracleendpoint_partyidtypeid_index",
+          "def": "KEY oracleendpoint_partyidtypeid_index (partyIdTypeId) USING BTREE",
+          "table": "oracleEndpoint",
+          "columns": [
+            "partyIdTypeId"
+          ]
+        },
+        {
+          "name": "PRIMARY",
+          "def": "PRIMARY KEY (oracleEndpointId) USING BTREE",
+          "table": "oracleEndpoint",
+          "columns": [
+            "oracleEndpointId"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "oracleendpoint_currencyid_foreign",
+          "type": "FOREIGN KEY",
+          "def": "FOREIGN KEY (currencyId) REFERENCES currency (currencyId)",
+          "table": "oracleEndpoint",
+          "referenced_table": "currency",
+          "columns": [
+            "currencyId"
+          ],
+          "referenced_columns": [
+            "currencyId"
+          ]
+        },
+        {
+          "name": "oracleendpoint_endpointtypeid_foreign",
+          "type": "FOREIGN KEY",
+          "def": "FOREIGN KEY (endpointTypeId) REFERENCES endpointType (endpointTypeId)",
+          "table": "oracleEndpoint",
+          "referenced_table": "endpointType",
+          "columns": [
+            "endpointTypeId"
+          ],
+          "referenced_columns": [
+            "endpointTypeId"
+          ]
+        },
+        {
+          "name": "oracleendpoint_partyidtypeid_foreign",
+          "type": "FOREIGN KEY",
+          "def": "FOREIGN KEY (partyIdTypeId) REFERENCES partyIdType (partyIdTypeId)",
+          "table": "oracleEndpoint",
+          "referenced_table": "partyIdType",
+          "columns": [
+            "partyIdTypeId"
+          ],
+          "referenced_columns": [
+            "partyIdTypeId"
+          ]
+        },
+        {
+          "name": "PRIMARY",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (oracleEndpointId)",
+          "table": "oracleEndpoint",
+          "columns": [
+            "oracleEndpointId"
+          ]
+        }
+      ],
+      "def": "CREATE TABLE `oracleEndpoint` (\n  `oracleEndpointId` int unsigned NOT NULL AUTO_INCREMENT,\n  `partyIdTypeId` int unsigned NOT NULL,\n  `endpointTypeId` int unsigned NOT NULL,\n  `currencyId` varchar(255) DEFAULT NULL,\n  `value` varchar(512) NOT NULL,\n  `isDefault` tinyint(1) NOT NULL DEFAULT '0',\n  `isActive` tinyint(1) NOT NULL DEFAULT '1',\n  `createdDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `createdBy` varchar(128) NOT NULL,\n  PRIMARY KEY (`oracleEndpointId`),\n  KEY `oracleendpoint_currencyid_foreign` (`currencyId`),\n  KEY `oracleendpoint_partyidtypeid_index` (`partyIdTypeId`),\n  KEY `oracleendpoint_endpointtypeid_index` (`endpointTypeId`),\n  CONSTRAINT `oracleendpoint_currencyid_foreign` FOREIGN KEY (`currencyId`) REFERENCES `currency` (`currencyId`),\n  CONSTRAINT `oracleendpoint_endpointtypeid_foreign` FOREIGN KEY (`endpointTypeId`) REFERENCES `endpointType` (`endpointTypeId`),\n  CONSTRAINT `oracleendpoint_partyidtypeid_foreign` FOREIGN KEY (`partyIdTypeId`) REFERENCES `partyIdType` (`partyIdTypeId`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci"
+    },
+    {
+      "name": "partyIdType",
+      "type": "BASE TABLE",
+      "columns": [
+        {
+          "name": "partyIdTypeId",
+          "type": "int unsigned",
+          "nullable": false,
+          "extra_def": "auto_increment"
+        },
+        {
+          "name": "name",
+          "type": "varchar(255)",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "varchar(512)",
+          "nullable": false
+        },
+        {
+          "name": "isActive",
+          "type": "tinyint(1)",
+          "nullable": false,
+          "default": "1"
+        },
+        {
+          "name": "createdDate",
+          "type": "datetime",
+          "nullable": false,
+          "default": "CURRENT_TIMESTAMP",
+          "extra_def": "DEFAULT_GENERATED"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "PRIMARY",
+          "def": "PRIMARY KEY (partyIdTypeId) USING BTREE",
+          "table": "partyIdType",
+          "columns": [
+            "partyIdTypeId"
+          ]
+        },
+        {
+          "name": "partyidtype_name_unique",
+          "def": "UNIQUE KEY partyidtype_name_unique (name) USING BTREE",
+          "table": "partyIdType",
+          "columns": [
+            "name"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "partyidtype_name_unique",
+          "type": "UNIQUE",
+          "def": "UNIQUE KEY partyidtype_name_unique (name)",
+          "table": "partyIdType",
+          "columns": [
+            "name"
+          ]
+        },
+        {
+          "name": "PRIMARY",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (partyIdTypeId)",
+          "table": "partyIdType",
+          "columns": [
+            "partyIdTypeId"
+          ]
+        }
+      ],
+      "def": "CREATE TABLE `partyIdType` (\n  `partyIdTypeId` int unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(255) NOT NULL,\n  `description` varchar(512) NOT NULL,\n  `isActive` tinyint(1) NOT NULL DEFAULT '1',\n  `createdDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  PRIMARY KEY (`partyIdTypeId`),\n  UNIQUE KEY `partyidtype_name_unique` (`name`)\n) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci"
+    }
+  ],
+  "relations": [
+    {
+      "table": "oracleEndpoint",
+      "columns": [
+        "currencyId"
+      ],
+      "cardinality": "zero_or_more",
+      "parent_table": "currency",
+      "parent_columns": [
+        "currencyId"
+      ],
+      "parent_cardinality": "zero_or_one",
+      "def": "FOREIGN KEY (currencyId) REFERENCES currency (currencyId)"
+    },
+    {
+      "table": "oracleEndpoint",
+      "columns": [
+        "endpointTypeId"
+      ],
+      "cardinality": "zero_or_more",
+      "parent_table": "endpointType",
+      "parent_columns": [
+        "endpointTypeId"
+      ],
+      "parent_cardinality": "exactly_one",
+      "def": "FOREIGN KEY (endpointTypeId) REFERENCES endpointType (endpointTypeId)"
+    },
+    {
+      "table": "oracleEndpoint",
+      "columns": [
+        "partyIdTypeId"
+      ],
+      "cardinality": "zero_or_more",
+      "parent_table": "partyIdType",
+      "parent_columns": [
+        "partyIdTypeId"
+      ],
+      "parent_cardinality": "exactly_one",
+      "def": "FOREIGN KEY (partyIdTypeId) REFERENCES partyIdType (partyIdTypeId)"
+    }
+  ],
+  "driver": {
+    "name": "mysql",
+    "database_version": "8.0.32",
+    "meta": {
+      "dict": {
+        "Functions": "Stored procedures and functions"
+      }
+    }
+  }
+}

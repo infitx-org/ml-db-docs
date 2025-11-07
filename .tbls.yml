@@ -46,8 +46,10 @@ er:
   # font: M+
 
 # DSN (Database Source Name) to connect database
-dsn: mysql://central_ledger:password@localhost:3306/central_ledger
+# dsn: mysql://central_ledger:password@localhost:3306/central_ledger
+dsn: mysql://account_lookup:password@localhost:3306/account_lookup
 
 # Path to generate document
 # Default is `dbdoc`
-docPath: docs/central_ledger
+# docPath: docs/central_ledger
+docPath: docs/account_lookup
