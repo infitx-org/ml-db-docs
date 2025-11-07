@@ -24,29 +24,29 @@ CREATE TABLE `transferExtension` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transferExtensionId | bigint unsigned |  | false | auto_increment |  |  |  |
-| transferId | varchar(36) |  | false |  |  | [transfer](transfer.md) |  |
-| key | varchar(128) |  | false |  |  |  |  |
-| value | text |  | false |  |  |  |  |
-| isFulfilment | tinyint(1) | 0 | false |  |  |  |  |
-| isError | tinyint(1) | 0 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                | Type            | Default           | Nullable | Extra Definition  | Parents                 |
+| ------------------- | --------------- | ----------------- | -------- | ----------------- | ----------------------- |
+| transferExtensionId | bigint unsigned |                   | false    | auto_increment    |                         |
+| transferId          | varchar(36)     |                   | false    |                   | [transfer](transfer.md) |
+| key                 | varchar(128)    |                   | false    |                   |                         |
+| value               | text            |                   | false    |                   |                         |
+| isFulfilment        | tinyint(1)      | 0                 | false    |                   |                         |
+| isError             | tinyint(1)      | 0                 | false    |                   |                         |
+| createdDate         | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                         |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (transferExtensionId) |
+| Name                                 | Type        | Definition                                                |
+| ------------------------------------ | ----------- | --------------------------------------------------------- |
+| PRIMARY                              | PRIMARY KEY | PRIMARY KEY (transferExtensionId)                         |
 | transferextension_transferid_foreign | FOREIGN KEY | FOREIGN KEY (transferId) REFERENCES transfer (transferId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                 | Definition                                                        |
+| ------------------------------------ | ----------------------------------------------------------------- |
 | transferextension_transferid_foreign | KEY transferextension_transferid_foreign (transferId) USING BTREE |
-| PRIMARY | PRIMARY KEY (transferExtensionId) USING BTREE |
+| PRIMARY                              | PRIMARY KEY (transferExtensionId) USING BTREE                     |
 
 ## Relations
 

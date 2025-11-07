@@ -25,30 +25,30 @@ CREATE TABLE `quoteError` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| quoteErrorId | bigint unsigned |  | false | auto_increment |  |  |  |
-| quoteId | varchar(36) |  | false |  |  | [quote](quote.md) | Common ID between the FSPs for the quote object, decided by the Payer FSP |
-| quoteResponseId | bigint unsigned |  | true |  |  | [quoteResponse](quoteResponse.md) | The response to the intial quote |
-| errorCode | int unsigned |  | false |  |  |  |  |
-| errorDescription | varchar(128) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name             | Type            | Default           | Nullable | Extra Definition  | Parents                           | Comment                                                                   |
+| ---------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------- | ------------------------------------------------------------------------- |
+| quoteErrorId     | bigint unsigned |                   | false    | auto_increment    |                                   |                                                                           |
+| quoteId          | varchar(36)     |                   | false    |                   | [quote](quote.md)                 | Common ID between the FSPs for the quote object, decided by the Payer FSP |
+| quoteResponseId  | bigint unsigned |                   | true     |                   | [quoteResponse](quoteResponse.md) | The response to the intial quote                                          |
+| errorCode        | int unsigned    |                   | false    |                   |                                   |                                                                           |
+| errorDescription | varchar(128)    |                   | false    |                   |                                   |                                                                           |
+| createdDate      | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                   |                                                                           |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (quoteErrorId) |
-| quoteerror_quoteid_foreign | FOREIGN KEY | FOREIGN KEY (quoteId) REFERENCES quote (quoteId) |
+| Name                               | Type        | Definition                                                               |
+| ---------------------------------- | ----------- | ------------------------------------------------------------------------ |
+| PRIMARY                            | PRIMARY KEY | PRIMARY KEY (quoteErrorId)                                               |
+| quoteerror_quoteid_foreign         | FOREIGN KEY | FOREIGN KEY (quoteId) REFERENCES quote (quoteId)                         |
 | quoteerror_quoteresponseid_foreign | FOREIGN KEY | FOREIGN KEY (quoteResponseId) REFERENCES quoteResponse (quoteResponseId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| quoteerror_quoteid_foreign | KEY quoteerror_quoteid_foreign (quoteId) USING BTREE |
+| Name                               | Definition                                                           |
+| ---------------------------------- | -------------------------------------------------------------------- |
+| quoteerror_quoteid_foreign         | KEY quoteerror_quoteid_foreign (quoteId) USING BTREE                 |
 | quoteerror_quoteresponseid_foreign | KEY quoteerror_quoteresponseid_foreign (quoteResponseId) USING BTREE |
-| PRIMARY | PRIMARY KEY (quoteErrorId) USING BTREE |
+| PRIMARY                            | PRIMARY KEY (quoteErrorId) USING BTREE                               |
 
 ## Relations
 

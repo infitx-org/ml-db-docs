@@ -27,32 +27,32 @@ CREATE TABLE `participantContact` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| participantContactId | int unsigned |  | false | auto_increment |  |  |  |
-| participantId | int unsigned |  | false |  |  | [participant](participant.md) |  |
-| contactTypeId | int unsigned |  | false |  |  | [contactType](contactType.md) |  |
-| value | varchar(256) |  | false |  |  |  |  |
-| priorityPreference | int | 9 | false |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| createdBy | varchar(128) |  | false |  |  |  |  |
+| Name                 | Type         | Default           | Nullable | Extra Definition  | Parents                       |
+| -------------------- | ------------ | ----------------- | -------- | ----------------- | ----------------------------- |
+| participantContactId | int unsigned |                   | false    | auto_increment    |                               |
+| participantId        | int unsigned |                   | false    |                   | [participant](participant.md) |
+| contactTypeId        | int unsigned |                   | false    |                   | [contactType](contactType.md) |
+| value                | varchar(256) |                   | false    |                   |                               |
+| priorityPreference   | int          | 9                 | false    |                   |                               |
+| isActive             | tinyint(1)   | 1                 | false    |                   |                               |
+| createdDate          | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                               |
+| createdBy            | varchar(128) |                   | false    |                   |                               |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                     | Type        | Definition                                                         |
+| ---------------------------------------- | ----------- | ------------------------------------------------------------------ |
 | participantcontact_contacttypeid_foreign | FOREIGN KEY | FOREIGN KEY (contactTypeId) REFERENCES contactType (contactTypeId) |
 | participantcontact_participantid_foreign | FOREIGN KEY | FOREIGN KEY (participantId) REFERENCES participant (participantId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (participantContactId) |
+| PRIMARY                                  | PRIMARY KEY | PRIMARY KEY (participantContactId)                                 |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                   | Definition                                                             |
+| -------------------------------------- | ---------------------------------------------------------------------- |
 | participantcontact_contacttypeid_index | KEY participantcontact_contacttypeid_index (contactTypeId) USING BTREE |
 | participantcontact_participantid_index | KEY participantcontact_participantid_index (participantId) USING BTREE |
-| PRIMARY | PRIMARY KEY (participantContactId) USING BTREE |
+| PRIMARY                                | PRIMARY KEY (participantContactId) USING BTREE                         |
 
 ## Relations
 

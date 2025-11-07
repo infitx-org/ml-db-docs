@@ -32,37 +32,37 @@ CREATE TABLE `participantPositionChange` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| participantPositionChangeId | bigint unsigned |  | false | auto_increment | [participantLimit](participantLimit.md) |  |  |
-| participantPositionId | bigint unsigned |  | false |  |  | [participantPosition](participantPosition.md) |  |
-| transferStateChangeId | bigint unsigned |  | true |  |  | [transferStateChange](transferStateChange.md) |  |
-| value | decimal(18,4) |  | false |  |  |  |  |
-| reservedValue | decimal(18,4) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| participantCurrencyId | int unsigned |  | false |  |  | [participantCurrency](participantCurrency.md) |  |
-| change | decimal(18,4) |  | false |  |  |  |  |
-| fxTransferStateChangeId | bigint unsigned |  | true |  |  | [fxTransferStateChange](fxTransferStateChange.md) |  |
+| Name                        | Type            | Default           | Nullable | Extra Definition  | Children                                | Parents                                           |
+| --------------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------------- | ------------------------------------------------- |
+| participantPositionChangeId | bigint unsigned |                   | false    | auto_increment    | [participantLimit](participantLimit.md) |                                                   |
+| participantPositionId       | bigint unsigned |                   | false    |                   |                                         | [participantPosition](participantPosition.md)     |
+| transferStateChangeId       | bigint unsigned |                   | true     |                   |                                         | [transferStateChange](transferStateChange.md)     |
+| value                       | decimal(18,4)   |                   | false    |                   |                                         |                                                   |
+| reservedValue               | decimal(18,4)   |                   | false    |                   |                                         |                                                   |
+| createdDate                 | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                         |                                                   |
+| participantCurrencyId       | int unsigned    |                   | false    |                   |                                         | [participantCurrency](participantCurrency.md)     |
+| change                      | decimal(18,4)   |                   | false    |                   |                                         |                                                   |
+| fxTransferStateChangeId     | bigint unsigned |                   | true     |                   |                                         | [fxTransferStateChange](fxTransferStateChange.md) |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                                      | Type        | Definition                                                                                       |
+| --------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------ |
 | participantpositionchange_fxtransferstatechangeid_foreign | FOREIGN KEY | FOREIGN KEY (fxTransferStateChangeId) REFERENCES fxTransferStateChange (fxTransferStateChangeId) |
-| participantpositionchange_participantcurrencyid_foreign | FOREIGN KEY | FOREIGN KEY (participantCurrencyId) REFERENCES participantCurrency (participantCurrencyId) |
-| participantpositionchange_participantpositionid_foreign | FOREIGN KEY | FOREIGN KEY (participantPositionId) REFERENCES participantPosition (participantPositionId) |
-| participantpositionchange_transferstatechangeid_foreign | FOREIGN KEY | FOREIGN KEY (transferStateChangeId) REFERENCES transferStateChange (transferStateChangeId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (participantPositionChangeId) |
+| participantpositionchange_participantcurrencyid_foreign   | FOREIGN KEY | FOREIGN KEY (participantCurrencyId) REFERENCES participantCurrency (participantCurrencyId)       |
+| participantpositionchange_participantpositionid_foreign   | FOREIGN KEY | FOREIGN KEY (participantPositionId) REFERENCES participantPosition (participantPositionId)       |
+| participantpositionchange_transferstatechangeid_foreign   | FOREIGN KEY | FOREIGN KEY (transferStateChangeId) REFERENCES transferStateChange (transferStateChangeId)       |
+| PRIMARY                                                   | PRIMARY KEY | PRIMARY KEY (participantPositionChangeId)                                                        |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                                      | Definition                                                                                          |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | participantpositionchange_fxtransferstatechangeid_foreign | KEY participantpositionchange_fxtransferstatechangeid_foreign (fxTransferStateChangeId) USING BTREE |
-| participantpositionchange_participantcurrencyid_foreign | KEY participantpositionchange_participantcurrencyid_foreign (participantCurrencyId) USING BTREE |
-| participantpositionchange_participantpositionid_index | KEY participantpositionchange_participantpositionid_index (participantPositionId) USING BTREE |
-| participantpositionchange_transferstatechangeid_index | KEY participantpositionchange_transferstatechangeid_index (transferStateChangeId) USING BTREE |
-| PRIMARY | PRIMARY KEY (participantPositionChangeId) USING BTREE |
+| participantpositionchange_participantcurrencyid_foreign   | KEY participantpositionchange_participantcurrencyid_foreign (participantCurrencyId) USING BTREE     |
+| participantpositionchange_participantpositionid_index     | KEY participantpositionchange_participantpositionid_index (participantPositionId) USING BTREE       |
+| participantpositionchange_transferstatechangeid_index     | KEY participantpositionchange_transferstatechangeid_index (transferStateChangeId) USING BTREE       |
+| PRIMARY                                                   | PRIMARY KEY (participantPositionChangeId) USING BTREE                                               |
 
 ## Relations
 

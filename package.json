@@ -1,0 +1,25 @@
+{
+  "name": "ml-db-docs",
+  "version": "1.0.0",
+  "description": "``` brew install tbls tbls doc ```",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infitx-org/ml-db-docs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infitx-org/ml-db-docs/issues"
+  },
+  "homepage": "https://github.com/infitx-org/ml-db-docs#readme",
+  "dependencies": {
+    "mdpdf": "^3.1.0"
+  }
+}

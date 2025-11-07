@@ -20,24 +20,24 @@ CREATE TABLE `settlementWindowState` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementWindowStateId | varchar(50) |  | false |  | [settlementContentAggregation](settlementContentAggregation.md) [settlementWindowContentStateChange](settlementWindowContentStateChange.md) [settlementWindowStateChange](settlementWindowStateChange.md) |  |  |
-| enumeration | varchar(50) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                    | Type         | Default           | Nullable | Extra Definition  | Children                                                                                                                                                                                                  |
+| ----------------------- | ------------ | ----------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| settlementWindowStateId | varchar(50)  |                   | false    |                   | [settlementContentAggregation](settlementContentAggregation.md) [settlementWindowContentStateChange](settlementWindowContentStateChange.md) [settlementWindowStateChange](settlementWindowStateChange.md) |
+| enumeration             | varchar(50)  |                   | false    |                   |                                                                                                                                                                                                           |
+| description             | varchar(512) |                   | true     |                   |                                                                                                                                                                                                           |
+| isActive                | tinyint(1)   | 1                 | false    |                   |                                                                                                                                                                                                           |
+| createdDate             | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                                                           |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition                            |
+| ------- | ----------- | ------------------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementWindowStateId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                                        |
+| ------- | ------------------------------------------------- |
 | PRIMARY | PRIMARY KEY (settlementWindowStateId) USING BTREE |
 
 ## Relations

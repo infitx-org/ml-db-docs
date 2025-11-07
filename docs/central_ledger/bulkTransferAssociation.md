@@ -28,33 +28,33 @@ CREATE TABLE `bulkTransferAssociation` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| bulkTransferAssociationId | bigint unsigned |  | false | auto_increment |  |  |  |
-| transferId | varchar(36) |  | false |  |  |  |  |
-| bulkTransferId | varchar(36) |  | false |  |  | [bulkTransfer](bulkTransfer.md) |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| bulkProcessingStateId | int unsigned |  | false |  |  | [bulkProcessingState](bulkProcessingState.md) |  |
-| lastProcessedDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| errorCode | int unsigned |  | true |  |  |  |  |
-| errorDescription | varchar(128) |  | true |  |  |  |  |
+| Name                      | Type            | Default           | Nullable | Extra Definition  | Parents                                       |
+| ------------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------------------- |
+| bulkTransferAssociationId | bigint unsigned |                   | false    | auto_increment    |                                               |
+| transferId                | varchar(36)     |                   | false    |                   |                                               |
+| bulkTransferId            | varchar(36)     |                   | false    |                   | [bulkTransfer](bulkTransfer.md)               |
+| createdDate               | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                               |
+| bulkProcessingStateId     | int unsigned    |                   | false    |                   | [bulkProcessingState](bulkProcessingState.md) |
+| lastProcessedDate         | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                               |
+| errorCode                 | int unsigned    |                   | true     |                   |                                               |
+| errorDescription          | varchar(128)    |                   | true     |                   |                                               |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| bulktransferassociation_bulkprocessingstateid_foreign | FOREIGN KEY | FOREIGN KEY (bulkProcessingStateId) REFERENCES bulkProcessingState (bulkProcessingStateId) |
-| bulktransferassociation_bulktransferid_foreign | FOREIGN KEY | FOREIGN KEY (bulkTransferId) REFERENCES bulkTransfer (bulkTransferId) |
-| bulktransferassociation_transferid_bulktransferid_unique | UNIQUE | UNIQUE KEY bulktransferassociation_transferid_bulktransferid_unique (transferId, bulkTransferId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (bulkTransferAssociationId) |
+| Name                                                     | Type        | Definition                                                                                       |
+| -------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------ |
+| bulktransferassociation_bulkprocessingstateid_foreign    | FOREIGN KEY | FOREIGN KEY (bulkProcessingStateId) REFERENCES bulkProcessingState (bulkProcessingStateId)       |
+| bulktransferassociation_bulktransferid_foreign           | FOREIGN KEY | FOREIGN KEY (bulkTransferId) REFERENCES bulkTransfer (bulkTransferId)                            |
+| bulktransferassociation_transferid_bulktransferid_unique | UNIQUE      | UNIQUE KEY bulktransferassociation_transferid_bulktransferid_unique (transferId, bulkTransferId) |
+| PRIMARY                                                  | PRIMARY KEY | PRIMARY KEY (bulkTransferAssociationId)                                                          |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| bulktransferassociation_bulkprocessingstateid_foreign | KEY bulktransferassociation_bulkprocessingstateid_foreign (bulkProcessingStateId) USING BTREE |
-| bulktransferassociation_bulktransferid_foreign | KEY bulktransferassociation_bulktransferid_foreign (bulkTransferId) USING BTREE |
-| PRIMARY | PRIMARY KEY (bulkTransferAssociationId) USING BTREE |
+| Name                                                     | Definition                                                                                                   |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| bulktransferassociation_bulkprocessingstateid_foreign    | KEY bulktransferassociation_bulkprocessingstateid_foreign (bulkProcessingStateId) USING BTREE                |
+| bulktransferassociation_bulktransferid_foreign           | KEY bulktransferassociation_bulktransferid_foreign (bulkTransferId) USING BTREE                              |
+| PRIMARY                                                  | PRIMARY KEY (bulkTransferAssociationId) USING BTREE                                                          |
 | bulktransferassociation_transferid_bulktransferid_unique | UNIQUE KEY bulktransferassociation_transferid_bulktransferid_unique (transferId, bulkTransferId) USING BTREE |
 
 ## Relations

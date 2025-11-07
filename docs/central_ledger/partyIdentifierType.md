@@ -19,24 +19,24 @@ CREATE TABLE `partyIdentifierType` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| partyIdentifierTypeId | int unsigned |  | false | auto_increment | [quoteParty](quoteParty.md) |  |  |
-| name | varchar(50) |  | false |  |  |  |  |
-| description | varchar(512) |  | false |  |  |  |  |
+| Name                  | Type         | Default | Nullable | Extra Definition | Children                    |
+| --------------------- | ------------ | ------- | -------- | ---------------- | --------------------------- |
+| partyIdentifierTypeId | int unsigned |         | false    | auto_increment   | [quoteParty](quoteParty.md) |
+| name                  | varchar(50)  |         | false    |                  |                             |
+| description           | varchar(512) |         | false    |                  |                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| partyidentifiertype_name_unique | UNIQUE | UNIQUE KEY partyidentifiertype_name_unique (name) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (partyIdentifierTypeId) |
+| Name                            | Type        | Definition                                        |
+| ------------------------------- | ----------- | ------------------------------------------------- |
+| partyidentifiertype_name_unique | UNIQUE      | UNIQUE KEY partyidentifiertype_name_unique (name) |
+| PRIMARY                         | PRIMARY KEY | PRIMARY KEY (partyIdentifierTypeId)               |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (partyIdentifierTypeId) USING BTREE |
+| Name                            | Definition                                                    |
+| ------------------------------- | ------------------------------------------------------------- |
+| PRIMARY                         | PRIMARY KEY (partyIdentifierTypeId) USING BTREE               |
 | partyidentifiertype_name_unique | UNIQUE KEY partyidentifiertype_name_unique (name) USING BTREE |
 
 ## Relations

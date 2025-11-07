@@ -25,28 +25,28 @@ CREATE TABLE `party` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| partyId | bigint unsigned |  | false | auto_increment |  |  |  |
-| quotePartyId | bigint unsigned |  | false |  |  | [quoteParty](quoteParty.md) |  |
-| firstName | varchar(128) |  | true |  |  |  |  |
-| middleName | varchar(128) |  | true |  |  |  |  |
-| lastName | varchar(128) |  | true |  |  |  |  |
-| dateOfBirth | datetime |  | true |  |  |  |  |
+| Name         | Type            | Default | Nullable | Extra Definition | Parents                     |
+| ------------ | --------------- | ------- | -------- | ---------------- | --------------------------- |
+| partyId      | bigint unsigned |         | false    | auto_increment   |                             |
+| quotePartyId | bigint unsigned |         | false    |                  | [quoteParty](quoteParty.md) |
+| firstName    | varchar(128)    |         | true     |                  |                             |
+| middleName   | varchar(128)    |         | true     |                  |                             |
+| lastName     | varchar(128)    |         | true     |                  |                             |
+| dateOfBirth  | datetime        |         | true     |                  |                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                       | Type        | Definition                                                      |
+| -------------------------- | ----------- | --------------------------------------------------------------- |
 | party_quotepartyid_foreign | FOREIGN KEY | FOREIGN KEY (quotePartyId) REFERENCES quoteParty (quotePartyId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (partyId) |
+| PRIMARY                    | PRIMARY KEY | PRIMARY KEY (partyId)                                           |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                       | Definition                                                |
+| -------------------------- | --------------------------------------------------------- |
 | party_quotepartyid_foreign | KEY party_quotepartyid_foreign (quotePartyId) USING BTREE |
-| PRIMARY | PRIMARY KEY (partyId) USING BTREE |
+| PRIMARY                    | PRIMARY KEY (partyId) USING BTREE                         |
 
 ## Relations
 

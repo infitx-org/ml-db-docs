@@ -30,35 +30,35 @@ CREATE TABLE `fxTransfer` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| commitRequestId | varchar(36) |  | false |  | [fxTransferExtension](fxTransferExtension.md) [fxTransferFulfilment](fxTransferFulfilment.md) [fxTransferFulfilmentDuplicateCheck](fxTransferFulfilmentDuplicateCheck.md) [fxTransferParticipant](fxTransferParticipant.md) [fxTransferStateChange](fxTransferStateChange.md) [fxTransferTimeout](fxTransferTimeout.md) [fxWatchList](fxWatchList.md) | [fxTransferDuplicateCheck](fxTransferDuplicateCheck.md) |  |
-| determiningTransferId | varchar(36) |  | true |  |  |  |  |
-| sourceAmount | decimal(18,4) |  | false |  |  |  |  |
-| targetAmount | decimal(18,4) |  | false |  |  |  |  |
-| sourceCurrency | varchar(3) |  | false |  |  | [currency](currency.md) |  |
-| targetCurrency | varchar(3) |  | false |  |  | [currency](currency.md) |  |
-| ilpCondition | varchar(256) |  | false |  |  |  |  |
-| expirationDate | datetime |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                  | Type          | Default           | Nullable | Extra Definition  | Children                                                                                                                                                                                                                                                                                                                                              | Parents                                                 |
+| --------------------- | ------------- | ----------------- | -------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| commitRequestId       | varchar(36)   |                   | false    |                   | [fxTransferExtension](fxTransferExtension.md) [fxTransferFulfilment](fxTransferFulfilment.md) [fxTransferFulfilmentDuplicateCheck](fxTransferFulfilmentDuplicateCheck.md) [fxTransferParticipant](fxTransferParticipant.md) [fxTransferStateChange](fxTransferStateChange.md) [fxTransferTimeout](fxTransferTimeout.md) [fxWatchList](fxWatchList.md) | [fxTransferDuplicateCheck](fxTransferDuplicateCheck.md) |
+| determiningTransferId | varchar(36)   |                   | true     |                   |                                                                                                                                                                                                                                                                                                                                                       |                                                         |
+| sourceAmount          | decimal(18,4) |                   | false    |                   |                                                                                                                                                                                                                                                                                                                                                       |                                                         |
+| targetAmount          | decimal(18,4) |                   | false    |                   |                                                                                                                                                                                                                                                                                                                                                       |                                                         |
+| sourceCurrency        | varchar(3)    |                   | false    |                   |                                                                                                                                                                                                                                                                                                                                                       | [currency](currency.md)                                 |
+| targetCurrency        | varchar(3)    |                   | false    |                   |                                                                                                                                                                                                                                                                                                                                                       | [currency](currency.md)                                 |
+| ilpCondition          | varchar(256)  |                   | false    |                   |                                                                                                                                                                                                                                                                                                                                                       |                                                         |
+| expirationDate        | datetime      |                   | false    |                   |                                                                                                                                                                                                                                                                                                                                                       |                                                         |
+| createdDate           | datetime      | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                                                                                                                                                                                                       |                                                         |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                               | Type        | Definition                                                                          |
+| ---------------------------------- | ----------- | ----------------------------------------------------------------------------------- |
 | fxtransfer_commitrequestid_foreign | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransferDuplicateCheck (commitRequestId) |
-| fxtransfer_sourcecurrency_foreign | FOREIGN KEY | FOREIGN KEY (sourceCurrency) REFERENCES currency (currencyId) |
-| fxtransfer_targetcurrency_foreign | FOREIGN KEY | FOREIGN KEY (targetCurrency) REFERENCES currency (currencyId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (commitRequestId) |
+| fxtransfer_sourcecurrency_foreign  | FOREIGN KEY | FOREIGN KEY (sourceCurrency) REFERENCES currency (currencyId)                       |
+| fxtransfer_targetcurrency_foreign  | FOREIGN KEY | FOREIGN KEY (targetCurrency) REFERENCES currency (currencyId)                       |
+| PRIMARY                            | PRIMARY KEY | PRIMARY KEY (commitRequestId)                                                       |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                   | Definition                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------ |
 | fxtransfer_determiningtransferid_index | KEY fxtransfer_determiningtransferid_index (determiningTransferId) USING BTREE |
-| fxtransfer_sourcecurrency_index | KEY fxtransfer_sourcecurrency_index (sourceCurrency) USING BTREE |
-| fxtransfer_targetcurrency_index | KEY fxtransfer_targetcurrency_index (targetCurrency) USING BTREE |
-| PRIMARY | PRIMARY KEY (commitRequestId) USING BTREE |
+| fxtransfer_sourcecurrency_index        | KEY fxtransfer_sourcecurrency_index (sourceCurrency) USING BTREE               |
+| fxtransfer_targetcurrency_index        | KEY fxtransfer_targetcurrency_index (targetCurrency) USING BTREE               |
+| PRIMARY                                | PRIMARY KEY (commitRequestId) USING BTREE                                      |
 
 ## Relations
 

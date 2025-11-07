@@ -24,29 +24,29 @@ CREATE TABLE `fxTransferStateChange` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxTransferStateChangeId | bigint unsigned |  | false | auto_increment | [fxTransferError](fxTransferError.md) [participantPositionChange](participantPositionChange.md) |  |  |
-| commitRequestId | varchar(36) |  | false |  |  | [fxTransfer](fxTransfer.md) |  |
-| transferStateId | varchar(50) |  | false |  |  | [transferState](transferState.md) |  |
-| reason | varchar(512) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                    | Type            | Default           | Nullable | Extra Definition  | Children                                                                                        | Parents                           |
+| ----------------------- | --------------- | ----------------- | -------- | ----------------- | ----------------------------------------------------------------------------------------------- | --------------------------------- |
+| fxTransferStateChangeId | bigint unsigned |                   | false    | auto_increment    | [fxTransferError](fxTransferError.md) [participantPositionChange](participantPositionChange.md) |                                   |
+| commitRequestId         | varchar(36)     |                   | false    |                   |                                                                                                 | [fxTransfer](fxTransfer.md)       |
+| transferStateId         | varchar(50)     |                   | false    |                   |                                                                                                 | [transferState](transferState.md) |
+| reason                  | varchar(512)    |                   | true     |                   |                                                                                                 |                                   |
+| createdDate             | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                 |                                   |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| fxtransferstatechange_commitrequestid_foreign | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId) |
+| Name                                          | Type        | Definition                                                               |
+| --------------------------------------------- | ----------- | ------------------------------------------------------------------------ |
+| fxtransferstatechange_commitrequestid_foreign | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId)    |
 | fxtransferstatechange_transferstateid_foreign | FOREIGN KEY | FOREIGN KEY (transferStateId) REFERENCES transferState (transferStateId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxTransferStateChangeId) |
+| PRIMARY                                       | PRIMARY KEY | PRIMARY KEY (fxTransferStateChangeId)                                    |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                        | Definition                                                                    |
+| ------------------------------------------- | ----------------------------------------------------------------------------- |
 | fxtransferstatechange_commitrequestid_index | KEY fxtransferstatechange_commitrequestid_index (commitRequestId) USING BTREE |
 | fxtransferstatechange_transferstateid_index | KEY fxtransferstatechange_transferstateid_index (transferStateId) USING BTREE |
-| PRIMARY | PRIMARY KEY (fxTransferStateChangeId) USING BTREE |
+| PRIMARY                                     | PRIMARY KEY (fxTransferStateChangeId) USING BTREE                             |
 
 ## Relations
 

@@ -24,29 +24,29 @@ CREATE TABLE `transfer` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transferId | varchar(36) |  | false |  | [expiringTransfer](expiringTransfer.md) [ilpPacket](ilpPacket.md) [transferErrorDuplicateCheck](transferErrorDuplicateCheck.md) [transferExtension](transferExtension.md) [transferFulfilmentDuplicateCheck](transferFulfilmentDuplicateCheck.md) [transferParticipant](transferParticipant.md) [transferStateChange](transferStateChange.md) [transferTimeout](transferTimeout.md) | [transferDuplicateCheck](transferDuplicateCheck.md) |  |
-| amount | decimal(18,4) |  | false |  |  |  |  |
-| currencyId | varchar(3) |  | false |  |  | [currency](currency.md) |  |
-| ilpCondition | varchar(256) |  | false |  |  |  |  |
-| expirationDate | datetime |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name           | Type          | Default           | Nullable | Extra Definition  | Children                                                                                                                                                                                                                                                                                                                                                                            | Parents                                             |
+| -------------- | ------------- | ----------------- | -------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| transferId     | varchar(36)   |                   | false    |                   | [expiringTransfer](expiringTransfer.md) [ilpPacket](ilpPacket.md) [transferErrorDuplicateCheck](transferErrorDuplicateCheck.md) [transferExtension](transferExtension.md) [transferFulfilmentDuplicateCheck](transferFulfilmentDuplicateCheck.md) [transferParticipant](transferParticipant.md) [transferStateChange](transferStateChange.md) [transferTimeout](transferTimeout.md) | [transferDuplicateCheck](transferDuplicateCheck.md) |
+| amount         | decimal(18,4) |                   | false    |                   |                                                                                                                                                                                                                                                                                                                                                                                     |                                                     |
+| currencyId     | varchar(3)    |                   | false    |                   |                                                                                                                                                                                                                                                                                                                                                                                     | [currency](currency.md)                             |
+| ilpCondition   | varchar(256)  |                   | false    |                   |                                                                                                                                                                                                                                                                                                                                                                                     |                                                     |
+| expirationDate | datetime      |                   | false    |                   |                                                                                                                                                                                                                                                                                                                                                                                     |                                                     |
+| createdDate    | datetime      | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                                                                                                                                                                                                                                     |                                                     |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (transferId) |
-| transfer_currencyid_foreign | FOREIGN KEY | FOREIGN KEY (currencyId) REFERENCES currency (currencyId) |
+| Name                        | Type        | Definition                                                              |
+| --------------------------- | ----------- | ----------------------------------------------------------------------- |
+| PRIMARY                     | PRIMARY KEY | PRIMARY KEY (transferId)                                                |
+| transfer_currencyid_foreign | FOREIGN KEY | FOREIGN KEY (currencyId) REFERENCES currency (currencyId)               |
 | transfer_transferid_foreign | FOREIGN KEY | FOREIGN KEY (transferId) REFERENCES transferDuplicateCheck (transferId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                      | Definition                                             |
+| ------------------------- | ------------------------------------------------------ |
 | transfer_currencyid_index | KEY transfer_currencyid_index (currencyId) USING BTREE |
-| PRIMARY | PRIMARY KEY (transferId) USING BTREE |
+| PRIMARY                   | PRIMARY KEY (transferId) USING BTREE                   |
 
 ## Relations
 

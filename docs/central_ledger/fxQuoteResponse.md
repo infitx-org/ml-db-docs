@@ -21,26 +21,26 @@ CREATE TABLE `fxQuoteResponse` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxQuoteResponseId | bigint unsigned |  | false | auto_increment | [fxQuoteError](fxQuoteError.md) [fxQuoteResponseConversionTerms](fxQuoteResponseConversionTerms.md) [fxQuoteResponseDuplicateCheck](fxQuoteResponseDuplicateCheck.md) |  |  |
-| conversionRequestId | varchar(36) |  | false |  |  | [fxQuote](fxQuote.md) |  |
-| ilpCondition | varchar(256) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                | Type            | Default           | Nullable | Extra Definition  | Children                                                                                                                                                              | Parents               | Comment                                                 |
+| ------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------------------------------------- |
+| fxQuoteResponseId   | bigint unsigned |                   | false    | auto_increment    | [fxQuoteError](fxQuoteError.md) [fxQuoteResponseConversionTerms](fxQuoteResponseConversionTerms.md) [fxQuoteResponseDuplicateCheck](fxQuoteResponseDuplicateCheck.md) |                       |                                                         |
+| conversionRequestId | varchar(36)     |                   | false    |                   |                                                                                                                                                                       | [fxQuote](fxQuote.md) |                                                         |
+| ilpCondition        | varchar(256)    |                   | false    |                   |                                                                                                                                                                       |                       |                                                         |
+| createdDate         | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                       |                       | System dateTime stamp pertaining to the inserted record |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                        | Type        | Definition                                                                 |
+| ------------------------------------------- | ----------- | -------------------------------------------------------------------------- |
 | fxquoteresponse_conversionrequestid_foreign | FOREIGN KEY | FOREIGN KEY (conversionRequestId) REFERENCES fxQuote (conversionRequestId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxQuoteResponseId) |
+| PRIMARY                                     | PRIMARY KEY | PRIMARY KEY (fxQuoteResponseId)                                            |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                        | Definition                                                                        |
+| ------------------------------------------- | --------------------------------------------------------------------------------- |
 | fxquoteresponse_conversionrequestid_foreign | KEY fxquoteresponse_conversionrequestid_foreign (conversionRequestId) USING BTREE |
-| PRIMARY | PRIMARY KEY (fxQuoteResponseId) USING BTREE |
+| PRIMARY                                     | PRIMARY KEY (fxQuoteResponseId) USING BTREE                                       |
 
 ## Relations
 

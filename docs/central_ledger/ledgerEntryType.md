@@ -24,30 +24,30 @@ CREATE TABLE `ledgerEntryType` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| ledgerEntryTypeId | int unsigned |  | false | auto_increment | [fxTransferParticipant](fxTransferParticipant.md) [quoteParty](quoteParty.md) [settlementContentAggregation](settlementContentAggregation.md) [settlementTransferParticipant](settlementTransferParticipant.md) [transferParticipant](transferParticipant.md) |  |  |
-| name | varchar(50) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| ledgerAccountTypeId | int unsigned |  | true |  |  | [ledgerAccountType](ledgerAccountType.md) |  |
+| Name                | Type         | Default           | Nullable | Extra Definition  | Children                                                                                                                                                                                                                                                      | Parents                                   |
+| ------------------- | ------------ | ----------------- | -------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| ledgerEntryTypeId   | int unsigned |                   | false    | auto_increment    | [fxTransferParticipant](fxTransferParticipant.md) [quoteParty](quoteParty.md) [settlementContentAggregation](settlementContentAggregation.md) [settlementTransferParticipant](settlementTransferParticipant.md) [transferParticipant](transferParticipant.md) |                                           |
+| name                | varchar(50)  |                   | false    |                   |                                                                                                                                                                                                                                                               |                                           |
+| description         | varchar(512) |                   | true     |                   |                                                                                                                                                                                                                                                               |                                           |
+| isActive            | tinyint(1)   | 1                 | false    |                   |                                                                                                                                                                                                                                                               |                                           |
+| createdDate         | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                                                                                                               |                                           |
+| ledgerAccountTypeId | int unsigned |                   | true     |                   |                                                                                                                                                                                                                                                               | [ledgerAccountType](ledgerAccountType.md) |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                        | Type        | Definition                                                                           |
+| ------------------------------------------- | ----------- | ------------------------------------------------------------------------------------ |
 | ledgerentrytype_ledgeraccounttypeid_foreign | FOREIGN KEY | FOREIGN KEY (ledgerAccountTypeId) REFERENCES ledgerAccountType (ledgerAccountTypeId) |
-| ledgerentrytype_name_unique | UNIQUE | UNIQUE KEY ledgerentrytype_name_unique (name) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (ledgerEntryTypeId) |
+| ledgerentrytype_name_unique                 | UNIQUE      | UNIQUE KEY ledgerentrytype_name_unique (name)                                        |
+| PRIMARY                                     | PRIMARY KEY | PRIMARY KEY (ledgerEntryTypeId)                                                      |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                        | Definition                                                                        |
+| ------------------------------------------- | --------------------------------------------------------------------------------- |
 | ledgerentrytype_ledgeraccounttypeid_foreign | KEY ledgerentrytype_ledgeraccounttypeid_foreign (ledgerAccountTypeId) USING BTREE |
-| PRIMARY | PRIMARY KEY (ledgerEntryTypeId) USING BTREE |
-| ledgerentrytype_name_unique | UNIQUE KEY ledgerentrytype_name_unique (name) USING BTREE |
+| PRIMARY                                     | PRIMARY KEY (ledgerEntryTypeId) USING BTREE                                       |
+| ledgerentrytype_name_unique                 | UNIQUE KEY ledgerentrytype_name_unique (name) USING BTREE                         |
 
 ## Relations
 

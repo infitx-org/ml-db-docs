@@ -19,23 +19,23 @@ CREATE TABLE `bulkTransferFulfilmentDuplicateCheck` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| bulkTransferId | varchar(36) |  | false |  | [bulkTransferFulfilment](bulkTransferFulfilment.md) | [bulkTransfer](bulkTransfer.md) |  |
-| hash | varchar(256) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name           | Type         | Default           | Nullable | Extra Definition  | Children                                            | Parents                         |
+| -------------- | ------------ | ----------------- | -------- | ----------------- | --------------------------------------------------- | ------------------------------- |
+| bulkTransferId | varchar(36)  |                   | false    |                   | [bulkTransferFulfilment](bulkTransferFulfilment.md) | [bulkTransfer](bulkTransfer.md) |
+| hash           | varchar(256) |                   | false    |                   |                                                     |                                 |
+| createdDate    | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                     |                                 |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                                        | Type        | Definition                                                            |
+| ----------------------------------------------------------- | ----------- | --------------------------------------------------------------------- |
 | bulktransferfulfilmentduplicatecheck_bulktransferid_foreign | FOREIGN KEY | FOREIGN KEY (bulkTransferId) REFERENCES bulkTransfer (bulkTransferId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (bulkTransferId) |
+| PRIMARY                                                     | PRIMARY KEY | PRIMARY KEY (bulkTransferId)                                          |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                               |
+| ------- | ---------------------------------------- |
 | PRIMARY | PRIMARY KEY (bulkTransferId) USING BTREE |
 
 ## Relations

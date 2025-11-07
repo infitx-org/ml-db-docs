@@ -18,22 +18,22 @@ CREATE TABLE `fxQuoteDuplicateCheck` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| conversionRequestId | varchar(36) |  | false |  |  |  |  |
-| hash | varchar(1024) |  | true |  |  |  | hash value received for the quote request |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                | Type          | Default           | Nullable | Extra Definition  | Comment                                                 |
+| ------------------- | ------------- | ----------------- | -------- | ----------------- | ------------------------------------------------------- |
+| conversionRequestId | varchar(36)   |                   | false    |                   |                                                         |
+| hash                | varchar(1024) |                   | true     |                   | hash value received for the quote request               |
+| createdDate         | datetime      | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED | System dateTime stamp pertaining to the inserted record |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition                        |
+| ------- | ----------- | --------------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (conversionRequestId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                                    |
+| ------- | --------------------------------------------- |
 | PRIMARY | PRIMARY KEY (conversionRequestId) USING BTREE |
 
 ## Relations

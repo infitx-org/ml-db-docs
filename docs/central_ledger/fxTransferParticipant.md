@@ -38,43 +38,43 @@ CREATE TABLE `fxTransferParticipant` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxTransferParticipantId | bigint unsigned |  | false | auto_increment |  |  |  |
-| commitRequestId | varchar(36) |  | false |  |  | [fxTransfer](fxTransfer.md) |  |
-| participantCurrencyId | int unsigned |  | true |  |  | [participantCurrency](participantCurrency.md) |  |
-| transferParticipantRoleTypeId | int unsigned |  | false |  |  | [transferParticipantRoleType](transferParticipantRoleType.md) |  |
-| ledgerEntryTypeId | int unsigned |  | false |  |  | [ledgerEntryType](ledgerEntryType.md) |  |
-| fxParticipantCurrencyTypeId | int unsigned |  | true |  |  | [fxParticipantCurrencyType](fxParticipantCurrencyType.md) |  |
-| amount | decimal(18,4) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| participantId | int unsigned |  | false |  |  |  |  |
-| externalParticipantId | bigint unsigned |  | true |  |  | [externalParticipant](externalParticipant.md) |  |
+| Name                          | Type            | Default           | Nullable | Extra Definition  | Parents                                                       |
+| ----------------------------- | --------------- | ----------------- | -------- | ----------------- | ------------------------------------------------------------- |
+| fxTransferParticipantId       | bigint unsigned |                   | false    | auto_increment    |                                                               |
+| commitRequestId               | varchar(36)     |                   | false    |                   | [fxTransfer](fxTransfer.md)                                   |
+| participantCurrencyId         | int unsigned    |                   | true     |                   | [participantCurrency](participantCurrency.md)                 |
+| transferParticipantRoleTypeId | int unsigned    |                   | false    |                   | [transferParticipantRoleType](transferParticipantRoleType.md) |
+| ledgerEntryTypeId             | int unsigned    |                   | false    |                   | [ledgerEntryType](ledgerEntryType.md)                         |
+| fxParticipantCurrencyTypeId   | int unsigned    |                   | true     |                   | [fxParticipantCurrencyType](fxParticipantCurrencyType.md)     |
+| amount                        | decimal(18,4)   |                   | false    |                   |                                                               |
+| createdDate                   | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                               |
+| participantId                 | int unsigned    |                   | false    |                   |                                                               |
+| externalParticipantId         | bigint unsigned |                   | true     |                   | [externalParticipant](externalParticipant.md)                 |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| fxtransferparticipant_commitrequestid_foreign | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId) |
-| fxtransferparticipant_externalparticipantid_foreign | FOREIGN KEY | FOREIGN KEY (externalParticipantId) REFERENCES externalParticipant (externalParticipantId) |
-| fxtransferparticipant_fxparticipantcurrencytypeid_foreign | FOREIGN KEY | FOREIGN KEY (fxParticipantCurrencyTypeId) REFERENCES fxParticipantCurrencyType (fxParticipantCurrencyTypeId) |
-| fxtransferparticipant_ledgerentrytypeid_foreign | FOREIGN KEY | FOREIGN KEY (ledgerEntryTypeId) REFERENCES ledgerEntryType (ledgerEntryTypeId) |
-| fxtransferparticipant_participantcurrencyid_foreign | FOREIGN KEY | FOREIGN KEY (participantCurrencyId) REFERENCES participantCurrency (participantCurrencyId) |
+| Name                                                        | Type        | Definition                                                                                                         |
+| ----------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------ |
+| fxtransferparticipant_commitrequestid_foreign               | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId)                                              |
+| fxtransferparticipant_externalparticipantid_foreign         | FOREIGN KEY | FOREIGN KEY (externalParticipantId) REFERENCES externalParticipant (externalParticipantId)                         |
+| fxtransferparticipant_fxparticipantcurrencytypeid_foreign   | FOREIGN KEY | FOREIGN KEY (fxParticipantCurrencyTypeId) REFERENCES fxParticipantCurrencyType (fxParticipantCurrencyTypeId)       |
+| fxtransferparticipant_ledgerentrytypeid_foreign             | FOREIGN KEY | FOREIGN KEY (ledgerEntryTypeId) REFERENCES ledgerEntryType (ledgerEntryTypeId)                                     |
+| fxtransferparticipant_participantcurrencyid_foreign         | FOREIGN KEY | FOREIGN KEY (participantCurrencyId) REFERENCES participantCurrency (participantCurrencyId)                         |
 | fxtransferparticipant_transferparticipantroletypeid_foreign | FOREIGN KEY | FOREIGN KEY (transferParticipantRoleTypeId) REFERENCES transferParticipantRoleType (transferParticipantRoleTypeId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxTransferParticipantId) |
+| PRIMARY                                                     | PRIMARY KEY | PRIMARY KEY (fxTransferParticipantId)                                                                              |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| fxtransferparticipant_commitrequestid_index | KEY fxtransferparticipant_commitrequestid_index (commitRequestId) USING BTREE |
-| fxtransferparticipant_externalparticipantid_index | KEY fxtransferparticipant_externalparticipantid_index (externalParticipantId) USING BTREE |
-| fxtransferparticipant_fxparticipantcurrencytypeid_foreign | KEY fxtransferparticipant_fxparticipantcurrencytypeid_foreign (fxParticipantCurrencyTypeId) USING BTREE |
-| fxtransferparticipant_ledgerentrytypeid_index | KEY fxtransferparticipant_ledgerentrytypeid_index (ledgerEntryTypeId) USING BTREE |
-| fxtransferparticipant_participantcurrencyid_index | KEY fxtransferparticipant_participantcurrencyid_index (participantCurrencyId) USING BTREE |
-| fxtransferparticipant_participantid_index | KEY fxtransferparticipant_participantid_index (participantId) USING BTREE |
+| Name                                                      | Definition                                                                                                |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| fxtransferparticipant_commitrequestid_index               | KEY fxtransferparticipant_commitrequestid_index (commitRequestId) USING BTREE                             |
+| fxtransferparticipant_externalparticipantid_index         | KEY fxtransferparticipant_externalparticipantid_index (externalParticipantId) USING BTREE                 |
+| fxtransferparticipant_fxparticipantcurrencytypeid_foreign | KEY fxtransferparticipant_fxparticipantcurrencytypeid_foreign (fxParticipantCurrencyTypeId) USING BTREE   |
+| fxtransferparticipant_ledgerentrytypeid_index             | KEY fxtransferparticipant_ledgerentrytypeid_index (ledgerEntryTypeId) USING BTREE                         |
+| fxtransferparticipant_participantcurrencyid_index         | KEY fxtransferparticipant_participantcurrencyid_index (participantCurrencyId) USING BTREE                 |
+| fxtransferparticipant_participantid_index                 | KEY fxtransferparticipant_participantid_index (participantId) USING BTREE                                 |
 | fxtransferparticipant_transferparticipantroletypeid_index | KEY fxtransferparticipant_transferparticipantroletypeid_index (transferParticipantRoleTypeId) USING BTREE |
-| PRIMARY | PRIMARY KEY (fxTransferParticipantId) USING BTREE |
+| PRIMARY                                                   | PRIMARY KEY (fxTransferParticipantId) USING BTREE                                                         |
 
 ## Relations
 

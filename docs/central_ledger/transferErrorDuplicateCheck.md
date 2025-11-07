@@ -19,23 +19,23 @@ CREATE TABLE `transferErrorDuplicateCheck` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transferId | varchar(36) |  | false |  |  | [transfer](transfer.md) |  |
-| hash | varchar(256) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name        | Type         | Default           | Nullable | Extra Definition  | Parents                 |
+| ----------- | ------------ | ----------------- | -------- | ----------------- | ----------------------- |
+| transferId  | varchar(36)  |                   | false    |                   | [transfer](transfer.md) |
+| hash        | varchar(256) |                   | true     |                   |                         |
+| createdDate | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                         |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (transferId) |
+| Name                                           | Type        | Definition                                                |
+| ---------------------------------------------- | ----------- | --------------------------------------------------------- |
+| PRIMARY                                        | PRIMARY KEY | PRIMARY KEY (transferId)                                  |
 | transfererrorduplicatecheck_transferid_foreign | FOREIGN KEY | FOREIGN KEY (transferId) REFERENCES transfer (transferId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                           |
+| ------- | ------------------------------------ |
 | PRIMARY | PRIMARY KEY (transferId) USING BTREE |
 
 ## Relations

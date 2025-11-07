@@ -24,29 +24,29 @@ CREATE TABLE `transferStateChange` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transferStateChangeId | bigint unsigned |  | false | auto_increment | [participantPositionChange](participantPositionChange.md) [transferError](transferError.md) |  |  |
-| transferId | varchar(36) |  | false |  |  | [transfer](transfer.md) |  |
-| transferStateId | varchar(50) |  | false |  |  | [transferState](transferState.md) |  |
-| reason | varchar(512) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                  | Type            | Default           | Nullable | Extra Definition  | Children                                                                                    | Parents                           |
+| --------------------- | --------------- | ----------------- | -------- | ----------------- | ------------------------------------------------------------------------------------------- | --------------------------------- |
+| transferStateChangeId | bigint unsigned |                   | false    | auto_increment    | [participantPositionChange](participantPositionChange.md) [transferError](transferError.md) |                                   |
+| transferId            | varchar(36)     |                   | false    |                   |                                                                                             | [transfer](transfer.md)           |
+| transferStateId       | varchar(50)     |                   | false    |                   |                                                                                             | [transferState](transferState.md) |
+| reason                | varchar(512)    |                   | true     |                   |                                                                                             |                                   |
+| createdDate           | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                             |                                   |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (transferStateChangeId) |
-| transferstatechange_transferid_foreign | FOREIGN KEY | FOREIGN KEY (transferId) REFERENCES transfer (transferId) |
+| Name                                        | Type        | Definition                                                               |
+| ------------------------------------------- | ----------- | ------------------------------------------------------------------------ |
+| PRIMARY                                     | PRIMARY KEY | PRIMARY KEY (transferStateChangeId)                                      |
+| transferstatechange_transferid_foreign      | FOREIGN KEY | FOREIGN KEY (transferId) REFERENCES transfer (transferId)                |
 | transferstatechange_transferstateid_foreign | FOREIGN KEY | FOREIGN KEY (transferStateId) REFERENCES transferState (transferStateId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| transferstatechange_transferid_index | KEY transferstatechange_transferid_index (transferId) USING BTREE |
+| Name                                      | Definition                                                                  |
+| ----------------------------------------- | --------------------------------------------------------------------------- |
+| transferstatechange_transferid_index      | KEY transferstatechange_transferid_index (transferId) USING BTREE           |
 | transferstatechange_transferstateid_index | KEY transferstatechange_transferstateid_index (transferStateId) USING BTREE |
-| PRIMARY | PRIMARY KEY (transferStateChangeId) USING BTREE |
+| PRIMARY                                   | PRIMARY KEY (transferStateChangeId) USING BTREE                             |
 
 ## Relations
 

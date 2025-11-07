@@ -20,25 +20,25 @@ CREATE TABLE `transactionScenario` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transactionScenarioId | int unsigned |  | false | auto_increment | [quote](quote.md) |  |  |
-| name | varchar(256) |  | false |  |  |  |  |
-| description | varchar(1024) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                  | Type          | Default           | Nullable | Extra Definition  | Children          | Comment                                                 |
+| --------------------- | ------------- | ----------------- | -------- | ----------------- | ----------------- | ------------------------------------------------------- |
+| transactionScenarioId | int unsigned  |                   | false    | auto_increment    | [quote](quote.md) |                                                         |
+| name                  | varchar(256)  |                   | false    |                   |                   |                                                         |
+| description           | varchar(1024) |                   | true     |                   |                   |                                                         |
+| createdDate           | datetime      | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                   | System dateTime stamp pertaining to the inserted record |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (transactionScenarioId) |
-| transactionscenario_name_unique | UNIQUE | UNIQUE KEY transactionscenario_name_unique (name) |
+| Name                            | Type        | Definition                                        |
+| ------------------------------- | ----------- | ------------------------------------------------- |
+| PRIMARY                         | PRIMARY KEY | PRIMARY KEY (transactionScenarioId)               |
+| transactionscenario_name_unique | UNIQUE      | UNIQUE KEY transactionscenario_name_unique (name) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (transactionScenarioId) USING BTREE |
+| Name                            | Definition                                                    |
+| ------------------------------- | ------------------------------------------------------------- |
+| PRIMARY                         | PRIMARY KEY (transactionScenarioId) USING BTREE               |
 | transactionscenario_name_unique | UNIQUE KEY transactionscenario_name_unique (name) USING BTREE |
 
 ## Relations

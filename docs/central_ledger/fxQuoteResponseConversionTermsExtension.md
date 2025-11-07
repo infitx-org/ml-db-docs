@@ -22,27 +22,27 @@ CREATE TABLE `fxQuoteResponseConversionTermsExtension` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxQuoteResponseConversionTermsExtension | bigint unsigned |  | false | auto_increment |  |  |  |
-| conversionId | varchar(36) |  | false |  |  | [fxQuoteResponseConversionTerms](fxQuoteResponseConversionTerms.md) |  |
-| key | varchar(128) |  | false |  |  |  |  |
-| value | text |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                                    | Type            | Default           | Nullable | Extra Definition  | Parents                                                             | Comment                                                 |
+| --------------------------------------- | --------------- | ----------------- | -------- | ----------------- | ------------------------------------------------------------------- | ------------------------------------------------------- |
+| fxQuoteResponseConversionTermsExtension | bigint unsigned |                   | false    | auto_increment    |                                                                     |                                                         |
+| conversionId                            | varchar(36)     |                   | false    |                   | [fxQuoteResponseConversionTerms](fxQuoteResponseConversionTerms.md) |                                                         |
+| key                                     | varchar(128)    |                   | false    |                   |                                                                     |                                                         |
+| value                                   | text            |                   | false    |                   |                                                                     |                                                         |
+| createdDate                             | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                     | System dateTime stamp pertaining to the inserted record |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                                         | Type        | Definition                                                                          |
+| ------------------------------------------------------------ | ----------- | ----------------------------------------------------------------------------------- |
 | fxquoteresponseconversiontermsextension_conversionid_foreign | FOREIGN KEY | FOREIGN KEY (conversionId) REFERENCES fxQuoteResponseConversionTerms (conversionId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxQuoteResponseConversionTermsExtension) |
+| PRIMARY                                                      | PRIMARY KEY | PRIMARY KEY (fxQuoteResponseConversionTermsExtension)                               |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                                         | Definition                                                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
 | fxquoteresponseconversiontermsextension_conversionid_foreign | KEY fxquoteresponseconversiontermsextension_conversionid_foreign (conversionId) USING BTREE |
-| PRIMARY | PRIMARY KEY (fxQuoteResponseConversionTermsExtension) USING BTREE |
+| PRIMARY                                                      | PRIMARY KEY (fxQuoteResponseConversionTermsExtension) USING BTREE                           |
 
 ## Relations
 

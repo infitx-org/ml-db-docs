@@ -24,29 +24,29 @@ CREATE TABLE `settlementWindowStateChange` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementWindowStateChangeId | bigint unsigned |  | false | auto_increment | [settlementWindow](settlementWindow.md) |  |  |
-| settlementWindowId | bigint unsigned |  | false |  |  | [settlementWindow](settlementWindow.md) |  |
-| settlementWindowStateId | varchar(50) |  | false |  |  | [settlementWindowState](settlementWindowState.md) |  |
-| reason | varchar(512) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                          | Type            | Default           | Nullable | Extra Definition  | Children                                | Parents                                           |
+| ----------------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------------- | ------------------------------------------------- |
+| settlementWindowStateChangeId | bigint unsigned |                   | false    | auto_increment    | [settlementWindow](settlementWindow.md) |                                                   |
+| settlementWindowId            | bigint unsigned |                   | false    |                   |                                         | [settlementWindow](settlementWindow.md)           |
+| settlementWindowStateId       | varchar(50)     |                   | false    |                   |                                         | [settlementWindowState](settlementWindowState.md) |
+| reason                        | varchar(512)    |                   | true     |                   |                                         |                                                   |
+| createdDate                   | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                         |                                                   |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementWindowStateChangeId) |
-| settlementwindowstatechange_settlementwindowid_foreign | FOREIGN KEY | FOREIGN KEY (settlementWindowId) REFERENCES settlementWindow (settlementWindowId) |
+| Name                                                        | Type        | Definition                                                                                       |
+| ----------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------ |
+| PRIMARY                                                     | PRIMARY KEY | PRIMARY KEY (settlementWindowStateChangeId)                                                      |
+| settlementwindowstatechange_settlementwindowid_foreign      | FOREIGN KEY | FOREIGN KEY (settlementWindowId) REFERENCES settlementWindow (settlementWindowId)                |
 | settlementwindowstatechange_settlementwindowstateid_foreign | FOREIGN KEY | FOREIGN KEY (settlementWindowStateId) REFERENCES settlementWindowState (settlementWindowStateId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| settlementwindowstatechange_settlementwindowid_index | KEY settlementwindowstatechange_settlementwindowid_index (settlementWindowId) USING BTREE |
+| Name                                                      | Definition                                                                                          |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| settlementwindowstatechange_settlementwindowid_index      | KEY settlementwindowstatechange_settlementwindowid_index (settlementWindowId) USING BTREE           |
 | settlementwindowstatechange_settlementwindowstateid_index | KEY settlementwindowstatechange_settlementwindowstateid_index (settlementWindowStateId) USING BTREE |
-| PRIMARY | PRIMARY KEY (settlementWindowStateChangeId) USING BTREE |
+| PRIMARY                                                   | PRIMARY KEY (settlementWindowStateChangeId) USING BTREE                                             |
 
 ## Relations
 

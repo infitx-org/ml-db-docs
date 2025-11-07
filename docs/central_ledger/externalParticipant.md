@@ -22,28 +22,28 @@ CREATE TABLE `externalParticipant` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| externalParticipantId | bigint unsigned |  | false | auto_increment | [fxTransferParticipant](fxTransferParticipant.md) [transferParticipant](transferParticipant.md) |  |  |
-| name | varchar(30) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| proxyId | int unsigned |  | false |  |  | [participant](participant.md) |  |
+| Name                  | Type            | Default           | Nullable | Extra Definition  | Children                                                                                        | Parents                       |
+| --------------------- | --------------- | ----------------- | -------- | ----------------- | ----------------------------------------------------------------------------------------------- | ----------------------------- |
+| externalParticipantId | bigint unsigned |                   | false    | auto_increment    | [fxTransferParticipant](fxTransferParticipant.md) [transferParticipant](transferParticipant.md) |                               |
+| name                  | varchar(30)     |                   | false    |                   |                                                                                                 |                               |
+| createdDate           | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                 |                               |
+| proxyId               | int unsigned    |                   | false    |                   |                                                                                                 | [participant](participant.md) |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| externalparticipant_name_unique | UNIQUE | UNIQUE KEY externalparticipant_name_unique (name) |
+| Name                                | Type        | Definition                                                   |
+| ----------------------------------- | ----------- | ------------------------------------------------------------ |
+| externalparticipant_name_unique     | UNIQUE      | UNIQUE KEY externalparticipant_name_unique (name)            |
 | externalparticipant_proxyid_foreign | FOREIGN KEY | FOREIGN KEY (proxyId) REFERENCES participant (participantId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (externalParticipantId) |
+| PRIMARY                             | PRIMARY KEY | PRIMARY KEY (externalParticipantId)                          |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                | Definition                                                    |
+| ----------------------------------- | ------------------------------------------------------------- |
 | externalparticipant_proxyid_foreign | KEY externalparticipant_proxyid_foreign (proxyId) USING BTREE |
-| PRIMARY | PRIMARY KEY (externalParticipantId) USING BTREE |
-| externalparticipant_name_unique | UNIQUE KEY externalparticipant_name_unique (name) USING BTREE |
+| PRIMARY                             | PRIMARY KEY (externalParticipantId) USING BTREE               |
+| externalparticipant_name_unique     | UNIQUE KEY externalparticipant_name_unique (name) USING BTREE |
 
 ## Relations
 

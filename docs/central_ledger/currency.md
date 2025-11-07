@@ -20,24 +20,24 @@ CREATE TABLE `currency` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| currencyId | varchar(3) |  | false |  | [fxQuoteConversionTerms](fxQuoteConversionTerms.md) [fxQuoteResponseConversionTerms](fxQuoteResponseConversionTerms.md) [fxTransfer](fxTransfer.md) [participantCurrency](participantCurrency.md) [quote](quote.md) [quoteParty](quoteParty.md) [quoteResponse](quoteResponse.md) [settlementModel](settlementModel.md) [settlementWindowContent](settlementWindowContent.md) [transfer](transfer.md) |  |  |
-| name | varchar(128) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| scale | int unsigned | 4 | false |  |  |  |  |
+| Name        | Type         | Default           | Nullable | Extra Definition  | Children                                                                                                                                                                                                                                                                                                                                                                                              |
+| ----------- | ------------ | ----------------- | -------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| currencyId  | varchar(3)   |                   | false    |                   | [fxQuoteConversionTerms](fxQuoteConversionTerms.md) [fxQuoteResponseConversionTerms](fxQuoteResponseConversionTerms.md) [fxTransfer](fxTransfer.md) [participantCurrency](participantCurrency.md) [quote](quote.md) [quoteParty](quoteParty.md) [quoteResponse](quoteResponse.md) [settlementModel](settlementModel.md) [settlementWindowContent](settlementWindowContent.md) [transfer](transfer.md) |
+| name        | varchar(128) |                   | true     |                   |                                                                                                                                                                                                                                                                                                                                                                                                       |
+| isActive    | tinyint(1)   | 1                 | false    |                   |                                                                                                                                                                                                                                                                                                                                                                                                       |
+| createdDate | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                                                                                                                                                                                                                                                       |
+| scale       | int unsigned | 4                 | false    |                   |                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition               |
+| ------- | ----------- | ------------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (currencyId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                           |
+| ------- | ------------------------------------ |
 | PRIMARY | PRIMARY KEY (currencyId) USING BTREE |
 
 ## Relations

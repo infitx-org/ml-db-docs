@@ -24,29 +24,29 @@ CREATE TABLE `fxCharge` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxChargeId | bigint unsigned |  | false | auto_increment |  |  |  |
-| chargeType | varchar(32) |  | false |  |  |  | A description of the charge which is being levied. |
-| conversionId | varchar(36) |  | false |  |  | [fxQuoteResponseConversionTerms](fxQuoteResponseConversionTerms.md) |  |
-| sourceAmount | decimal(18,4) |  | true |  |  |  | The amount of the charge which is being levied, expressed in the source currency. |
-| sourceCurrency | varchar(3) |  | true |  |  |  | The currency in which the source amount charge is being levied. |
-| targetAmount | decimal(18,4) |  | true |  |  |  | The amount of the charge which is being levied, expressed in the target currency. |
-| targetCurrency | varchar(3) |  | true |  |  |  | The currency in which the target amount charge is being levied. |
+| Name           | Type            | Default | Nullable | Extra Definition | Parents                                                             | Comment                                                                           |
+| -------------- | --------------- | ------- | -------- | ---------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| fxChargeId     | bigint unsigned |         | false    | auto_increment   |                                                                     |                                                                                   |
+| chargeType     | varchar(32)     |         | false    |                  |                                                                     | A description of the charge which is being levied.                                |
+| conversionId   | varchar(36)     |         | false    |                  | [fxQuoteResponseConversionTerms](fxQuoteResponseConversionTerms.md) |                                                                                   |
+| sourceAmount   | decimal(18,4)   |         | true     |                  |                                                                     | The amount of the charge which is being levied, expressed in the source currency. |
+| sourceCurrency | varchar(3)      |         | true     |                  |                                                                     | The currency in which the source amount charge is being levied.                   |
+| targetAmount   | decimal(18,4)   |         | true     |                  |                                                                     | The amount of the charge which is being levied, expressed in the target currency. |
+| targetCurrency | varchar(3)      |         | true     |                  |                                                                     | The currency in which the target amount charge is being levied.                   |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                          | Type        | Definition                                                                          |
+| ----------------------------- | ----------- | ----------------------------------------------------------------------------------- |
 | fxcharge_conversionid_foreign | FOREIGN KEY | FOREIGN KEY (conversionId) REFERENCES fxQuoteResponseConversionTerms (conversionId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxChargeId) |
+| PRIMARY                       | PRIMARY KEY | PRIMARY KEY (fxChargeId)                                                            |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                          | Definition                                                   |
+| ----------------------------- | ------------------------------------------------------------ |
 | fxcharge_conversionid_foreign | KEY fxcharge_conversionid_foreign (conversionId) USING BTREE |
-| PRIMARY | PRIMARY KEY (fxChargeId) USING BTREE |
+| PRIMARY                       | PRIMARY KEY (fxChargeId) USING BTREE                         |
 
 ## Relations
 

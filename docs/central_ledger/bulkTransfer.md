@@ -26,31 +26,31 @@ CREATE TABLE `bulkTransfer` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| bulkTransferId | varchar(36) |  | false |  | [bulkTransferAssociation](bulkTransferAssociation.md) [bulkTransferExtension](bulkTransferExtension.md) [bulkTransferFulfilmentDuplicateCheck](bulkTransferFulfilmentDuplicateCheck.md) [bulkTransferStateChange](bulkTransferStateChange.md) | [bulkTransferDuplicateCheck](bulkTransferDuplicateCheck.md) |  |
-| bulkQuoteId | varchar(36) |  | true |  |  |  |  |
-| payerParticipantId | int unsigned |  | true |  |  | [participant](participant.md) |  |
-| payeeParticipantId | int unsigned |  | true |  |  | [participant](participant.md) |  |
-| expirationDate | datetime |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name               | Type         | Default           | Nullable | Extra Definition  | Children                                                                                                                                                                                                                                      | Parents                                                     |
+| ------------------ | ------------ | ----------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| bulkTransferId     | varchar(36)  |                   | false    |                   | [bulkTransferAssociation](bulkTransferAssociation.md) [bulkTransferExtension](bulkTransferExtension.md) [bulkTransferFulfilmentDuplicateCheck](bulkTransferFulfilmentDuplicateCheck.md) [bulkTransferStateChange](bulkTransferStateChange.md) | [bulkTransferDuplicateCheck](bulkTransferDuplicateCheck.md) |
+| bulkQuoteId        | varchar(36)  |                   | true     |                   |                                                                                                                                                                                                                                               |                                                             |
+| payerParticipantId | int unsigned |                   | true     |                   |                                                                                                                                                                                                                                               | [participant](participant.md)                               |
+| payeeParticipantId | int unsigned |                   | true     |                   |                                                                                                                                                                                                                                               | [participant](participant.md)                               |
+| expirationDate     | datetime     |                   | false    |                   |                                                                                                                                                                                                                                               |                                                             |
+| createdDate        | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                                                                                               |                                                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| bulktransfer_bulktransferid_foreign | FOREIGN KEY | FOREIGN KEY (bulkTransferId) REFERENCES bulkTransferDuplicateCheck (bulkTransferId) |
-| bulktransfer_payeeparticipantid_foreign | FOREIGN KEY | FOREIGN KEY (payeeParticipantId) REFERENCES participant (participantId) |
-| bulktransfer_payerparticipantid_foreign | FOREIGN KEY | FOREIGN KEY (payerParticipantId) REFERENCES participant (participantId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (bulkTransferId) |
+| Name                                    | Type        | Definition                                                                          |
+| --------------------------------------- | ----------- | ----------------------------------------------------------------------------------- |
+| bulktransfer_bulktransferid_foreign     | FOREIGN KEY | FOREIGN KEY (bulkTransferId) REFERENCES bulkTransferDuplicateCheck (bulkTransferId) |
+| bulktransfer_payeeparticipantid_foreign | FOREIGN KEY | FOREIGN KEY (payeeParticipantId) REFERENCES participant (participantId)             |
+| bulktransfer_payerparticipantid_foreign | FOREIGN KEY | FOREIGN KEY (payerParticipantId) REFERENCES participant (participantId)             |
+| PRIMARY                                 | PRIMARY KEY | PRIMARY KEY (bulkTransferId)                                                        |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                  | Definition                                                                 |
+| ------------------------------------- | -------------------------------------------------------------------------- |
 | bulktransfer_payeeparticipantid_index | KEY bulktransfer_payeeparticipantid_index (payeeParticipantId) USING BTREE |
 | bulktransfer_payerparticipantid_index | KEY bulktransfer_payerparticipantid_index (payerParticipantId) USING BTREE |
-| PRIMARY | PRIMARY KEY (bulkTransferId) USING BTREE |
+| PRIMARY                               | PRIMARY KEY (bulkTransferId) USING BTREE                                   |
 
 ## Relations
 

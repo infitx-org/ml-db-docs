@@ -18,22 +18,22 @@ CREATE TABLE `bulkTransferDuplicateCheck` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| bulkTransferId | varchar(36) |  | false |  | [bulkTransfer](bulkTransfer.md) |  |  |
-| hash | varchar(256) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name           | Type         | Default           | Nullable | Extra Definition  | Children                        |
+| -------------- | ------------ | ----------------- | -------- | ----------------- | ------------------------------- |
+| bulkTransferId | varchar(36)  |                   | false    |                   | [bulkTransfer](bulkTransfer.md) |
+| hash           | varchar(256) |                   | false    |                   |                                 |
+| createdDate    | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                 |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition                   |
+| ------- | ----------- | ---------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (bulkTransferId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                               |
+| ------- | ---------------------------------------- |
 | PRIMARY | PRIMARY KEY (bulkTransferId) USING BTREE |
 
 ## Relations

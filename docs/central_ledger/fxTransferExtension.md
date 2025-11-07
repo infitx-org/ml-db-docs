@@ -24,29 +24,29 @@ CREATE TABLE `fxTransferExtension` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxTransferExtensionId | bigint unsigned |  | false | auto_increment |  |  |  |
-| commitRequestId | varchar(36) |  | false |  |  | [fxTransfer](fxTransfer.md) |  |
-| isFulfilment | tinyint(1) | 0 | false |  |  |  |  |
-| isError | tinyint(1) | 0 | false |  |  |  |  |
-| key | varchar(128) |  | false |  |  |  |  |
-| value | text |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                  | Type            | Default           | Nullable | Extra Definition  | Parents                     |
+| --------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------- |
+| fxTransferExtensionId | bigint unsigned |                   | false    | auto_increment    |                             |
+| commitRequestId       | varchar(36)     |                   | false    |                   | [fxTransfer](fxTransfer.md) |
+| isFulfilment          | tinyint(1)      | 0                 | false    |                   |                             |
+| isError               | tinyint(1)      | 0                 | false    |                   |                             |
+| key                   | varchar(128)    |                   | false    |                   |                             |
+| value                 | text            |                   | false    |                   |                             |
+| createdDate           | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                        | Type        | Definition                                                            |
+| ------------------------------------------- | ----------- | --------------------------------------------------------------------- |
 | fxtransferextension_commitrequestid_foreign | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxTransferExtensionId) |
+| PRIMARY                                     | PRIMARY KEY | PRIMARY KEY (fxTransferExtensionId)                                   |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                      | Definition                                                                  |
+| ----------------------------------------- | --------------------------------------------------------------------------- |
 | fxtransferextension_commitrequestid_index | KEY fxtransferextension_commitrequestid_index (commitRequestId) USING BTREE |
-| PRIMARY | PRIMARY KEY (fxTransferExtensionId) USING BTREE |
+| PRIMARY                                   | PRIMARY KEY (fxTransferExtensionId) USING BTREE                             |
 
 ## Relations
 

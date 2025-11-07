@@ -20,24 +20,24 @@ CREATE TABLE `settlementState` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementStateId | varchar(50) |  | false |  | [settlementParticipantCurrencyStateChange](settlementParticipantCurrencyStateChange.md) [settlementStateChange](settlementStateChange.md) |  |  |
-| enumeration | varchar(50) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name              | Type         | Default           | Nullable | Extra Definition  | Children                                                                                                                                  |
+| ----------------- | ------------ | ----------------- | -------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| settlementStateId | varchar(50)  |                   | false    |                   | [settlementParticipantCurrencyStateChange](settlementParticipantCurrencyStateChange.md) [settlementStateChange](settlementStateChange.md) |
+| enumeration       | varchar(50)  |                   | false    |                   |                                                                                                                                           |
+| description       | varchar(512) |                   | true     |                   |                                                                                                                                           |
+| isActive          | tinyint(1)   | 1                 | false    |                   |                                                                                                                                           |
+| createdDate       | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                           |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition                      |
+| ------- | ----------- | ------------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementStateId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                                  |
+| ------- | ------------------------------------------- |
 | PRIMARY | PRIMARY KEY (settlementStateId) USING BTREE |
 
 ## Relations

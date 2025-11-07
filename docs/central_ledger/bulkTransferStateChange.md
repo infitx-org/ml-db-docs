@@ -24,29 +24,29 @@ CREATE TABLE `bulkTransferStateChange` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| bulkTransferStateChangeId | bigint unsigned |  | false | auto_increment | [bulkTransferError](bulkTransferError.md) |  |  |
-| bulkTransferId | varchar(36) |  | false |  |  | [bulkTransfer](bulkTransfer.md) |  |
-| bulkTransferStateId | varchar(50) |  | false |  |  | [bulkTransferState](bulkTransferState.md) |  |
-| reason | varchar(512) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                      | Type            | Default           | Nullable | Extra Definition  | Children                                  | Parents                                   |
+| ------------------------- | --------------- | ----------------- | -------- | ----------------- | ----------------------------------------- | ----------------------------------------- |
+| bulkTransferStateChangeId | bigint unsigned |                   | false    | auto_increment    | [bulkTransferError](bulkTransferError.md) |                                           |
+| bulkTransferId            | varchar(36)     |                   | false    |                   |                                           | [bulkTransfer](bulkTransfer.md)           |
+| bulkTransferStateId       | varchar(50)     |                   | false    |                   |                                           | [bulkTransferState](bulkTransferState.md) |
+| reason                    | varchar(512)    |                   | true     |                   |                                           |                                           |
+| createdDate               | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                           |                                           |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| bulktransferstatechange_bulktransferid_foreign | FOREIGN KEY | FOREIGN KEY (bulkTransferId) REFERENCES bulkTransfer (bulkTransferId) |
+| Name                                                | Type        | Definition                                                                           |
+| --------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------ |
+| bulktransferstatechange_bulktransferid_foreign      | FOREIGN KEY | FOREIGN KEY (bulkTransferId) REFERENCES bulkTransfer (bulkTransferId)                |
 | bulktransferstatechange_bulktransferstateid_foreign | FOREIGN KEY | FOREIGN KEY (bulkTransferStateId) REFERENCES bulkTransferState (bulkTransferStateId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (bulkTransferStateChangeId) |
+| PRIMARY                                             | PRIMARY KEY | PRIMARY KEY (bulkTransferStateChangeId)                                              |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| bulktransferstatechange_bulktransferid_index | KEY bulktransferstatechange_bulktransferid_index (bulkTransferId) USING BTREE |
+| Name                                              | Definition                                                                              |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| bulktransferstatechange_bulktransferid_index      | KEY bulktransferstatechange_bulktransferid_index (bulkTransferId) USING BTREE           |
 | bulktransferstatechange_bulktransferstateid_index | KEY bulktransferstatechange_bulktransferstateid_index (bulkTransferStateId) USING BTREE |
-| PRIMARY | PRIMARY KEY (bulkTransferStateChangeId) USING BTREE |
+| PRIMARY                                           | PRIMARY KEY (bulkTransferStateChangeId) USING BTREE                                     |
 
 ## Relations
 

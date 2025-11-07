@@ -20,24 +20,24 @@ CREATE TABLE `bulkTransferState` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| bulkTransferStateId | varchar(50) |  | false |  | [bulkTransferStateChange](bulkTransferStateChange.md) |  |  |
-| enumeration | varchar(50) |  | false |  |  |  | bulkTransferState associated to the Mojaloop API |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                | Type         | Default           | Nullable | Extra Definition  | Children                                              | Comment                                          |
+| ------------------- | ------------ | ----------------- | -------- | ----------------- | ----------------------------------------------------- | ------------------------------------------------ |
+| bulkTransferStateId | varchar(50)  |                   | false    |                   | [bulkTransferStateChange](bulkTransferStateChange.md) |                                                  |
+| enumeration         | varchar(50)  |                   | false    |                   |                                                       | bulkTransferState associated to the Mojaloop API |
+| description         | varchar(512) |                   | true     |                   |                                                       |                                                  |
+| isActive            | tinyint(1)   | 1                 | false    |                   |                                                       |                                                  |
+| createdDate         | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                       |                                                  |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition                        |
+| ------- | ----------- | --------------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (bulkTransferStateId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                                    |
+| ------- | --------------------------------------------- |
 | PRIMARY | PRIMARY KEY (bulkTransferStateId) USING BTREE |
 
 ## Relations

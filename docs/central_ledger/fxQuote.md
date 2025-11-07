@@ -17,21 +17,21 @@ CREATE TABLE `fxQuote` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| conversionRequestId | varchar(36) |  | false |  | [fxQuoteConversionTerms](fxQuoteConversionTerms.md) [fxQuoteError](fxQuoteError.md) [fxQuoteResponse](fxQuoteResponse.md) [fxQuoteResponseConversionTerms](fxQuoteResponseConversionTerms.md) [fxQuoteResponseDuplicateCheck](fxQuoteResponseDuplicateCheck.md) |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                | Type        | Default           | Nullable | Extra Definition  | Children                                                                                                                                                                                                                                                        | Comment                                                 |
+| ------------------- | ----------- | ----------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| conversionRequestId | varchar(36) |                   | false    |                   | [fxQuoteConversionTerms](fxQuoteConversionTerms.md) [fxQuoteError](fxQuoteError.md) [fxQuoteResponse](fxQuoteResponse.md) [fxQuoteResponseConversionTerms](fxQuoteResponseConversionTerms.md) [fxQuoteResponseDuplicateCheck](fxQuoteResponseDuplicateCheck.md) |                                                         |
+| createdDate         | datetime    | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                                                                                                                 | System dateTime stamp pertaining to the inserted record |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition                        |
+| ------- | ----------- | --------------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (conversionRequestId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                                    |
+| ------- | --------------------------------------------- |
 | PRIMARY | PRIMARY KEY (conversionRequestId) USING BTREE |
 
 ## Relations

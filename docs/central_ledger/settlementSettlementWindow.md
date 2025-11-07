@@ -24,30 +24,30 @@ CREATE TABLE `settlementSettlementWindow` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementSettlementWindowId | bigint unsigned |  | false | auto_increment |  |  |  |
-| settlementId | bigint unsigned |  | false |  |  | [settlement](settlement.md) |  |
-| settlementWindowId | bigint unsigned |  | false |  |  | [settlementWindow](settlementWindow.md) |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                         | Type            | Default           | Nullable | Extra Definition  | Parents                                 |
+| ---------------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------------- |
+| settlementSettlementWindowId | bigint unsigned |                   | false    | auto_increment    |                                         |
+| settlementId                 | bigint unsigned |                   | false    |                   | [settlement](settlement.md)             |
+| settlementWindowId           | bigint unsigned |                   | false    |                   | [settlementWindow](settlementWindow.md) |
+| createdDate                  | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                         |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementSettlementWindowId) |
-| settlementsettlementwindow_settlementid_foreign | FOREIGN KEY | FOREIGN KEY (settlementId) REFERENCES settlement (settlementId) |
+| Name                                                  | Type        | Definition                                                                        |
+| ----------------------------------------------------- | ----------- | --------------------------------------------------------------------------------- |
+| PRIMARY                                               | PRIMARY KEY | PRIMARY KEY (settlementSettlementWindowId)                                        |
+| settlementsettlementwindow_settlementid_foreign       | FOREIGN KEY | FOREIGN KEY (settlementId) REFERENCES settlement (settlementId)                   |
 | settlementsettlementwindow_settlementwindowid_foreign | FOREIGN KEY | FOREIGN KEY (settlementWindowId) REFERENCES settlementWindow (settlementWindowId) |
-| settlementsettlementwindow_unique | UNIQUE | UNIQUE KEY settlementsettlementwindow_unique (settlementId, settlementWindowId) |
+| settlementsettlementwindow_unique                     | UNIQUE      | UNIQUE KEY settlementsettlementwindow_unique (settlementId, settlementWindowId)   |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| settlementsettlementwindow_settlementid_index | KEY settlementsettlementwindow_settlementid_index (settlementId) USING BTREE |
-| settlementsettlementwindow_settlementwindowid_index | KEY settlementsettlementwindow_settlementwindowid_index (settlementWindowId) USING BTREE |
-| PRIMARY | PRIMARY KEY (settlementSettlementWindowId) USING BTREE |
-| settlementsettlementwindow_unique | UNIQUE KEY settlementsettlementwindow_unique (settlementId, settlementWindowId) USING BTREE |
+| Name                                                | Definition                                                                                  |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| settlementsettlementwindow_settlementid_index       | KEY settlementsettlementwindow_settlementid_index (settlementId) USING BTREE                |
+| settlementsettlementwindow_settlementwindowid_index | KEY settlementsettlementwindow_settlementwindowid_index (settlementWindowId) USING BTREE    |
+| PRIMARY                                             | PRIMARY KEY (settlementSettlementWindowId) USING BTREE                                      |
+| settlementsettlementwindow_unique                   | UNIQUE KEY settlementsettlementwindow_unique (settlementId, settlementWindowId) USING BTREE |
 
 ## Relations
 

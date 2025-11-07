@@ -18,22 +18,22 @@ CREATE TABLE `quoteResponseIlpPacket` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| quoteResponseId | bigint unsigned |  | false | auto_increment |  | [quoteResponse](quoteResponse.md) |  |
-| value | text |  | false |  |  |  | ilpPacket returned from Payee in response to a quote request |
+| Name            | Type            | Default | Nullable | Extra Definition | Parents                           | Comment                                                      |
+| --------------- | --------------- | ------- | -------- | ---------------- | --------------------------------- | ------------------------------------------------------------ |
+| quoteResponseId | bigint unsigned |         | false    | auto_increment   | [quoteResponse](quoteResponse.md) |                                                              |
+| value           | text            |         | false    |                  |                                   | ilpPacket returned from Payee in response to a quote request |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (quoteResponseId) |
+| Name                                           | Type        | Definition                                                               |
+| ---------------------------------------------- | ----------- | ------------------------------------------------------------------------ |
+| PRIMARY                                        | PRIMARY KEY | PRIMARY KEY (quoteResponseId)                                            |
 | quoteresponseilppacket_quoteresponseid_foreign | FOREIGN KEY | FOREIGN KEY (quoteResponseId) REFERENCES quoteResponse (quoteResponseId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                                |
+| ------- | ----------------------------------------- |
 | PRIMARY | PRIMARY KEY (quoteResponseId) USING BTREE |
 
 ## Relations

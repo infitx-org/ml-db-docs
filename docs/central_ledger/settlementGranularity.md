@@ -21,26 +21,26 @@ CREATE TABLE `settlementGranularity` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementGranularityId | int unsigned |  | false | auto_increment | [settlementModel](settlementModel.md) |  |  |
-| name | varchar(50) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                    | Type         | Default           | Nullable | Extra Definition  | Children                              | Comment                                                 |
+| ----------------------- | ------------ | ----------------- | -------- | ----------------- | ------------------------------------- | ------------------------------------------------------- |
+| settlementGranularityId | int unsigned |                   | false    | auto_increment    | [settlementModel](settlementModel.md) |                                                         |
+| name                    | varchar(50)  |                   | false    |                   |                                       |                                                         |
+| description             | varchar(512) |                   | true     |                   |                                       |                                                         |
+| isActive                | tinyint(1)   | 1                 | false    |                   |                                       |                                                         |
+| createdDate             | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                       | System dateTime stamp pertaining to the inserted record |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementGranularityId) |
-| settlementgranularity_name_unique | UNIQUE | UNIQUE KEY settlementgranularity_name_unique (name) |
+| Name                              | Type        | Definition                                          |
+| --------------------------------- | ----------- | --------------------------------------------------- |
+| PRIMARY                           | PRIMARY KEY | PRIMARY KEY (settlementGranularityId)               |
+| settlementgranularity_name_unique | UNIQUE      | UNIQUE KEY settlementgranularity_name_unique (name) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (settlementGranularityId) USING BTREE |
+| Name                              | Definition                                                      |
+| --------------------------------- | --------------------------------------------------------------- |
+| PRIMARY                           | PRIMARY KEY (settlementGranularityId) USING BTREE               |
 | settlementgranularity_name_unique | UNIQUE KEY settlementgranularity_name_unique (name) USING BTREE |
 
 ## Relations

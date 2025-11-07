@@ -21,26 +21,26 @@ CREATE TABLE `participantLimitType` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| participantLimitTypeId | int unsigned |  | false | auto_increment | [participantLimit](participantLimit.md) |  |  |
-| name | varchar(50) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                   | Type         | Default           | Nullable | Extra Definition  | Children                                |
+| ---------------------- | ------------ | ----------------- | -------- | ----------------- | --------------------------------------- |
+| participantLimitTypeId | int unsigned |                   | false    | auto_increment    | [participantLimit](participantLimit.md) |
+| name                   | varchar(50)  |                   | false    |                   |                                         |
+| description            | varchar(512) |                   | true     |                   |                                         |
+| isActive               | tinyint(1)   | 1                 | false    |                   |                                         |
+| createdDate            | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                         |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| participantlimittype_name_unique | UNIQUE | UNIQUE KEY participantlimittype_name_unique (name) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (participantLimitTypeId) |
+| Name                             | Type        | Definition                                         |
+| -------------------------------- | ----------- | -------------------------------------------------- |
+| participantlimittype_name_unique | UNIQUE      | UNIQUE KEY participantlimittype_name_unique (name) |
+| PRIMARY                          | PRIMARY KEY | PRIMARY KEY (participantLimitTypeId)               |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (participantLimitTypeId) USING BTREE |
+| Name                             | Definition                                                     |
+| -------------------------------- | -------------------------------------------------------------- |
+| PRIMARY                          | PRIMARY KEY (participantLimitTypeId) USING BTREE               |
 | participantlimittype_name_unique | UNIQUE KEY participantlimittype_name_unique (name) USING BTREE |
 
 ## Relations

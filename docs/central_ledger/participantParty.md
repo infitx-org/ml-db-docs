@@ -21,26 +21,26 @@ CREATE TABLE `participantParty` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| participantPartyId | bigint unsigned |  | false | auto_increment |  |  |  |
-| participantId | int unsigned |  | false |  |  | [participant](participant.md) |  |
-| partyId | bigint unsigned |  | false |  |  |  |  |
+| Name               | Type            | Default | Nullable | Extra Definition | Parents                       |
+| ------------------ | --------------- | ------- | -------- | ---------------- | ----------------------------- |
+| participantPartyId | bigint unsigned |         | false    | auto_increment   |                               |
+| participantId      | int unsigned    |         | false    |                  | [participant](participant.md) |
+| partyId            | bigint unsigned |         | false    |                  |                               |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| participantparty_participantid_foreign | FOREIGN KEY | FOREIGN KEY (participantId) REFERENCES participant (participantId) |
-| participantparty_participantid_partyid_unique | UNIQUE | UNIQUE KEY participantparty_participantid_partyid_unique (participantId, partyId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (participantPartyId) |
+| Name                                          | Type        | Definition                                                                        |
+| --------------------------------------------- | ----------- | --------------------------------------------------------------------------------- |
+| participantparty_participantid_foreign        | FOREIGN KEY | FOREIGN KEY (participantId) REFERENCES participant (participantId)                |
+| participantparty_participantid_partyid_unique | UNIQUE      | UNIQUE KEY participantparty_participantid_partyid_unique (participantId, partyId) |
+| PRIMARY                                       | PRIMARY KEY | PRIMARY KEY (participantPartyId)                                                  |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| participantparty_participantid_index | KEY participantparty_participantid_index (participantId) USING BTREE |
-| PRIMARY | PRIMARY KEY (participantPartyId) USING BTREE |
+| Name                                          | Definition                                                                                    |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| participantparty_participantid_index          | KEY participantparty_participantid_index (participantId) USING BTREE                          |
+| PRIMARY                                       | PRIMARY KEY (participantPartyId) USING BTREE                                                  |
 | participantparty_participantid_partyid_unique | UNIQUE KEY participantparty_participantid_partyid_unique (participantId, partyId) USING BTREE |
 
 ## Relations

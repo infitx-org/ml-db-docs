@@ -19,23 +19,23 @@ CREATE TABLE `migration` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int unsigned |  | false | auto_increment |  |  |  |
-| name | varchar(255) |  | true |  |  |  |  |
-| batch | int |  | true |  |  |  |  |
-| migration_time | timestamp |  | true |  |  |  |  |
+| Name           | Type         | Default | Nullable | Extra Definition |
+| -------------- | ------------ | ------- | -------- | ---------------- |
+| id             | int unsigned |         | false    | auto_increment   |
+| name           | varchar(255) |         | true     |                  |
+| batch          | int          |         | true     |                  |
+| migration_time | timestamp    |         | true     |                  |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition       |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                   |
+| ------- | ---------------------------- |
 | PRIMARY | PRIMARY KEY (id) USING BTREE |
 
 ## Relations

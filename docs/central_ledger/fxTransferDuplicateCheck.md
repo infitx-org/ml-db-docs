@@ -18,22 +18,22 @@ CREATE TABLE `fxTransferDuplicateCheck` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| commitRequestId | varchar(36) |  | false |  | [fxTransfer](fxTransfer.md) |  |  |
-| hash | varchar(256) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name            | Type         | Default           | Nullable | Extra Definition  | Children                    |
+| --------------- | ------------ | ----------------- | -------- | ----------------- | --------------------------- |
+| commitRequestId | varchar(36)  |                   | false    |                   | [fxTransfer](fxTransfer.md) |
+| hash            | varchar(256) |                   | false    |                   |                             |
+| createdDate     | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition                    |
+| ------- | ----------- | ----------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (commitRequestId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                                |
+| ------- | ----------------------------------------- |
 | PRIMARY | PRIMARY KEY (commitRequestId) USING BTREE |
 
 ## Relations

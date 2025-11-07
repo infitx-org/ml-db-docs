@@ -18,22 +18,22 @@ CREATE TABLE `transferDuplicateCheck` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transferId | varchar(36) |  | false |  | [transfer](transfer.md) |  |  |
-| hash | varchar(256) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name        | Type         | Default           | Nullable | Extra Definition  | Children                |
+| ----------- | ------------ | ----------------- | -------- | ----------------- | ----------------------- |
+| transferId  | varchar(36)  |                   | false    |                   | [transfer](transfer.md) |
+| hash        | varchar(256) |                   | false    |                   |                         |
+| createdDate | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                         |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition               |
+| ------- | ----------- | ------------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (transferId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                           |
+| ------- | ------------------------------------ |
 | PRIMARY | PRIMARY KEY (transferId) USING BTREE |
 
 ## Relations

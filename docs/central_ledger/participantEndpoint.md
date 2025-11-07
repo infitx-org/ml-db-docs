@@ -27,32 +27,32 @@ CREATE TABLE `participantEndpoint` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| participantEndpointId | int unsigned |  | false | auto_increment |  |  |  |
-| participantId | int unsigned |  | false |  |  | [participant](participant.md) |  |
-| endpointTypeId | int unsigned |  | false |  |  | [endpointType](endpointType.md) |  |
-| value | varchar(512) |  | false |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| createdBy | varchar(128) |  | false |  |  |  |  |
+| Name                  | Type         | Default           | Nullable | Extra Definition  | Parents                         |
+| --------------------- | ------------ | ----------------- | -------- | ----------------- | ------------------------------- |
+| participantEndpointId | int unsigned |                   | false    | auto_increment    |                                 |
+| participantId         | int unsigned |                   | false    |                   | [participant](participant.md)   |
+| endpointTypeId        | int unsigned |                   | false    |                   | [endpointType](endpointType.md) |
+| value                 | varchar(512) |                   | false    |                   |                                 |
+| isActive              | tinyint(1)   | 1                 | false    |                   |                                 |
+| createdDate           | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                 |
+| createdBy             | varchar(128) |                   | false    |                   |                                 |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| participantendpoint_endpointtypeid_foreign | FOREIGN KEY | FOREIGN KEY (endpointTypeId) REFERENCES endpointType (endpointTypeId) |
-| participantendpoint_participantid_endpointtypeid_unique | UNIQUE | UNIQUE KEY participantendpoint_participantid_endpointtypeid_unique (participantId, endpointTypeId) |
-| participantendpoint_participantid_foreign | FOREIGN KEY | FOREIGN KEY (participantId) REFERENCES participant (participantId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (participantEndpointId) |
+| Name                                                    | Type        | Definition                                                                                         |
+| ------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------- |
+| participantendpoint_endpointtypeid_foreign              | FOREIGN KEY | FOREIGN KEY (endpointTypeId) REFERENCES endpointType (endpointTypeId)                              |
+| participantendpoint_participantid_endpointtypeid_unique | UNIQUE      | UNIQUE KEY participantendpoint_participantid_endpointtypeid_unique (participantId, endpointTypeId) |
+| participantendpoint_participantid_foreign               | FOREIGN KEY | FOREIGN KEY (participantId) REFERENCES participant (participantId)                                 |
+| PRIMARY                                                 | PRIMARY KEY | PRIMARY KEY (participantEndpointId)                                                                |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| participantendpoint_endpointtypeid_index | KEY participantendpoint_endpointtypeid_index (endpointTypeId) USING BTREE |
-| participantendpoint_participantid_index | KEY participantendpoint_participantid_index (participantId) USING BTREE |
-| PRIMARY | PRIMARY KEY (participantEndpointId) USING BTREE |
+| Name                                                    | Definition                                                                                                     |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| participantendpoint_endpointtypeid_index                | KEY participantendpoint_endpointtypeid_index (endpointTypeId) USING BTREE                                      |
+| participantendpoint_participantid_index                 | KEY participantendpoint_participantid_index (participantId) USING BTREE                                        |
+| PRIMARY                                                 | PRIMARY KEY (participantEndpointId) USING BTREE                                                                |
 | participantendpoint_participantid_endpointtypeid_unique | UNIQUE KEY participantendpoint_participantid_endpointtypeid_unique (participantId, endpointTypeId) USING BTREE |
 
 ## Relations

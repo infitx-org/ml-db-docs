@@ -23,28 +23,28 @@ CREATE TABLE `participant` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| participantId | int unsigned |  | false | auto_increment | [bulkTransfer](bulkTransfer.md) [externalParticipant](externalParticipant.md) [participantContact](participantContact.md) [participantCurrency](participantCurrency.md) [participantEndpoint](participantEndpoint.md) [participantParty](participantParty.md) [quoteParty](quoteParty.md) [token](token.md) |  |  |
-| name | varchar(256) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| createdBy | varchar(128) |  | false |  |  |  |  |
-| isProxy | tinyint(1) | 0 | false |  |  |  |  |
+| Name          | Type         | Default           | Nullable | Extra Definition  | Children                                                                                                                                                                                                                                                                                                    |
+| ------------- | ------------ | ----------------- | -------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| participantId | int unsigned |                   | false    | auto_increment    | [bulkTransfer](bulkTransfer.md) [externalParticipant](externalParticipant.md) [participantContact](participantContact.md) [participantCurrency](participantCurrency.md) [participantEndpoint](participantEndpoint.md) [participantParty](participantParty.md) [quoteParty](quoteParty.md) [token](token.md) |
+| name          | varchar(256) |                   | false    |                   |                                                                                                                                                                                                                                                                                                             |
+| description   | varchar(512) |                   | true     |                   |                                                                                                                                                                                                                                                                                                             |
+| isActive      | tinyint(1)   | 1                 | false    |                   |                                                                                                                                                                                                                                                                                                             |
+| createdDate   | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                                                                                                                                                             |
+| createdBy     | varchar(128) |                   | false    |                   |                                                                                                                                                                                                                                                                                                             |
+| isProxy       | tinyint(1)   | 0                 | false    |                   |                                                                                                                                                                                                                                                                                                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| participant_name_unique | UNIQUE | UNIQUE KEY participant_name_unique (name) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (participantId) |
+| Name                    | Type        | Definition                                |
+| ----------------------- | ----------- | ----------------------------------------- |
+| participant_name_unique | UNIQUE      | UNIQUE KEY participant_name_unique (name) |
+| PRIMARY                 | PRIMARY KEY | PRIMARY KEY (participantId)               |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (participantId) USING BTREE |
+| Name                    | Definition                                            |
+| ----------------------- | ----------------------------------------------------- |
+| PRIMARY                 | PRIMARY KEY (participantId) USING BTREE               |
 | participant_name_unique | UNIQUE KEY participant_name_unique (name) USING BTREE |
 
 ## Relations

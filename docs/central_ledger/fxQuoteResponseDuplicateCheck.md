@@ -22,27 +22,27 @@ CREATE TABLE `fxQuoteResponseDuplicateCheck` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxQuoteResponseId | bigint unsigned |  | false | auto_increment |  | [fxQuoteResponse](fxQuoteResponse.md) | The response to the initial quote |
-| conversionRequestId | varchar(36) |  | false |  |  | [fxQuote](fxQuote.md) |  |
-| hash | varchar(255) |  | true |  |  |  | hash value received for the quote response |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                | Type            | Default           | Nullable | Extra Definition  | Parents                               | Comment                                                 |
+| ------------------- | --------------- | ----------------- | -------- | ----------------- | ------------------------------------- | ------------------------------------------------------- |
+| fxQuoteResponseId   | bigint unsigned |                   | false    | auto_increment    | [fxQuoteResponse](fxQuoteResponse.md) | The response to the initial quote                       |
+| conversionRequestId | varchar(36)     |                   | false    |                   | [fxQuote](fxQuote.md)                 |                                                         |
+| hash                | varchar(255)    |                   | true     |                   |                                       | hash value received for the quote response              |
+| createdDate         | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                       | System dateTime stamp pertaining to the inserted record |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| fxquoteresponseduplicatecheck_conversionrequestid_foreign | FOREIGN KEY | FOREIGN KEY (conversionRequestId) REFERENCES fxQuote (conversionRequestId) |
-| fxquoteresponseduplicatecheck_fxquoteresponseid_foreign | FOREIGN KEY | FOREIGN KEY (fxQuoteResponseId) REFERENCES fxQuoteResponse (fxQuoteResponseId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxQuoteResponseId) |
+| Name                                                      | Type        | Definition                                                                     |
+| --------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------ |
+| fxquoteresponseduplicatecheck_conversionrequestid_foreign | FOREIGN KEY | FOREIGN KEY (conversionRequestId) REFERENCES fxQuote (conversionRequestId)     |
+| fxquoteresponseduplicatecheck_fxquoteresponseid_foreign   | FOREIGN KEY | FOREIGN KEY (fxQuoteResponseId) REFERENCES fxQuoteResponse (fxQuoteResponseId) |
+| PRIMARY                                                   | PRIMARY KEY | PRIMARY KEY (fxQuoteResponseId)                                                |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                                      | Definition                                                                                      |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | fxquoteresponseduplicatecheck_conversionrequestid_foreign | KEY fxquoteresponseduplicatecheck_conversionrequestid_foreign (conversionRequestId) USING BTREE |
-| PRIMARY | PRIMARY KEY (fxQuoteResponseId) USING BTREE |
+| PRIMARY                                                   | PRIMARY KEY (fxQuoteResponseId) USING BTREE                                                     |
 
 ## Relations
 

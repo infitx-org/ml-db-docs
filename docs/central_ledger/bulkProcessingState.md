@@ -21,26 +21,26 @@ CREATE TABLE `bulkProcessingState` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| bulkProcessingStateId | int unsigned |  | false | auto_increment | [bulkTransferAssociation](bulkTransferAssociation.md) |  |  |
-| name | varchar(50) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                  | Type         | Default           | Nullable | Extra Definition  | Children                                              |
+| --------------------- | ------------ | ----------------- | -------- | ----------------- | ----------------------------------------------------- |
+| bulkProcessingStateId | int unsigned |                   | false    | auto_increment    | [bulkTransferAssociation](bulkTransferAssociation.md) |
+| name                  | varchar(50)  |                   | false    |                   |                                                       |
+| description           | varchar(512) |                   | true     |                   |                                                       |
+| isActive              | tinyint(1)   | 1                 | false    |                   |                                                       |
+| createdDate           | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                       |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| bulkprocessingstate_name_unique | UNIQUE | UNIQUE KEY bulkprocessingstate_name_unique (name) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (bulkProcessingStateId) |
+| Name                            | Type        | Definition                                        |
+| ------------------------------- | ----------- | ------------------------------------------------- |
+| bulkprocessingstate_name_unique | UNIQUE      | UNIQUE KEY bulkprocessingstate_name_unique (name) |
+| PRIMARY                         | PRIMARY KEY | PRIMARY KEY (bulkProcessingStateId)               |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (bulkProcessingStateId) USING BTREE |
+| Name                            | Definition                                                    |
+| ------------------------------- | ------------------------------------------------------------- |
+| PRIMARY                         | PRIMARY KEY (bulkProcessingStateId) USING BTREE               |
 | bulkprocessingstate_name_unique | UNIQUE KEY bulkprocessingstate_name_unique (name) USING BTREE |
 
 ## Relations

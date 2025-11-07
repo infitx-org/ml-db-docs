@@ -20,25 +20,25 @@ CREATE TABLE `fxTransferFulfilmentDuplicateCheck` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| commitRequestId | varchar(36) |  | false |  |  | [fxTransfer](fxTransfer.md) |  |
-| hash | varchar(256) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name            | Type         | Default           | Nullable | Extra Definition  | Parents                     |
+| --------------- | ------------ | ----------------- | -------- | ----------------- | --------------------------- |
+| commitRequestId | varchar(36)  |                   | false    |                   | [fxTransfer](fxTransfer.md) |
+| hash            | varchar(256) |                   | true     |                   |                             |
+| createdDate     | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                                       | Type        | Definition                                                            |
+| ---------------------------------------------------------- | ----------- | --------------------------------------------------------------------- |
 | fxtransferfulfilmentduplicatecheck_commitrequestid_foreign | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (commitRequestId) |
+| PRIMARY                                                    | PRIMARY KEY | PRIMARY KEY (commitRequestId)                                         |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                                     | Definition                                                                                 |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | fxtransferfulfilmentduplicatecheck_commitrequestid_index | KEY fxtransferfulfilmentduplicatecheck_commitrequestid_index (commitRequestId) USING BTREE |
-| PRIMARY | PRIMARY KEY (commitRequestId) USING BTREE |
+| PRIMARY                                                  | PRIMARY KEY (commitRequestId) USING BTREE                                                  |
 
 ## Relations
 

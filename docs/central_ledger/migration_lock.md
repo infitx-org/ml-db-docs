@@ -17,21 +17,21 @@ CREATE TABLE `migration_lock` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| index | int unsigned |  | false | auto_increment |  |  |  |
-| is_locked | int |  | true |  |  |  |  |
+| Name      | Type         | Default | Nullable | Extra Definition |
+| --------- | ------------ | ------- | -------- | ---------------- |
+| index     | int unsigned |         | false    | auto_increment   |
+| is_locked | int          |         | true     |                  |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition          |
+| ------- | ----------- | ------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (index) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                      |
+| ------- | ------------------------------- |
 | PRIMARY | PRIMARY KEY (index) USING BTREE |
 
 ## Relations

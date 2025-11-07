@@ -24,29 +24,29 @@ CREATE TABLE `settlement` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementId | bigint unsigned |  | false | auto_increment | [settlementContentAggregation](settlementContentAggregation.md) [settlementParticipantCurrency](settlementParticipantCurrency.md) [settlementSettlementWindow](settlementSettlementWindow.md) [settlementStateChange](settlementStateChange.md) [settlementTransferParticipant](settlementTransferParticipant.md) [settlementWindowContent](settlementWindowContent.md) |  |  |
-| reason | varchar(512) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| currentStateChangeId | bigint unsigned |  | true |  |  | [settlementStateChange](settlementStateChange.md) |  |
-| settlementModelId | int unsigned |  | true |  |  | [settlementModel](settlementModel.md) |  |
+| Name                 | Type            | Default           | Nullable | Extra Definition  | Children                                                                                                                                                                                                                                                                                                                                                                | Parents                                           |
+| -------------------- | --------------- | ----------------- | -------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| settlementId         | bigint unsigned |                   | false    | auto_increment    | [settlementContentAggregation](settlementContentAggregation.md) [settlementParticipantCurrency](settlementParticipantCurrency.md) [settlementSettlementWindow](settlementSettlementWindow.md) [settlementStateChange](settlementStateChange.md) [settlementTransferParticipant](settlementTransferParticipant.md) [settlementWindowContent](settlementWindowContent.md) |                                                   |
+| reason               | varchar(512)    |                   | true     |                   |                                                                                                                                                                                                                                                                                                                                                                         |                                                   |
+| createdDate          | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                                                                                                                                                                                                                         |                                                   |
+| currentStateChangeId | bigint unsigned |                   | true     |                   |                                                                                                                                                                                                                                                                                                                                                                         | [settlementStateChange](settlementStateChange.md) |
+| settlementModelId    | int unsigned    |                   | true     |                   |                                                                                                                                                                                                                                                                                                                                                                         | [settlementModel](settlementModel.md)             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementId) |
+| Name                                    | Type        | Definition                                                                                    |
+| --------------------------------------- | ----------- | --------------------------------------------------------------------------------------------- |
+| PRIMARY                                 | PRIMARY KEY | PRIMARY KEY (settlementId)                                                                    |
 | settlement_currentstatechangeid_foreign | FOREIGN KEY | FOREIGN KEY (currentStateChangeId) REFERENCES settlementStateChange (settlementStateChangeId) |
-| settlement_settlementmodelid_foreign | FOREIGN KEY | FOREIGN KEY (settlementModelId) REFERENCES settlementModel (settlementModelId) |
+| settlement_settlementmodelid_foreign    | FOREIGN KEY | FOREIGN KEY (settlementModelId) REFERENCES settlementModel (settlementModelId)                |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                    | Definition                                                                     |
+| --------------------------------------- | ------------------------------------------------------------------------------ |
 | settlement_currentstatechangeid_foreign | KEY settlement_currentstatechangeid_foreign (currentStateChangeId) USING BTREE |
-| settlement_settlementmodelid_foreign | KEY settlement_settlementmodelid_foreign (settlementModelId) USING BTREE |
-| PRIMARY | PRIMARY KEY (settlementId) USING BTREE |
+| settlement_settlementmodelid_foreign    | KEY settlement_settlementmodelid_foreign (settlementModelId) USING BTREE       |
+| PRIMARY                                 | PRIMARY KEY (settlementId) USING BTREE                                         |
 
 ## Relations
 

@@ -20,25 +20,25 @@ CREATE TABLE `transactionReference` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transactionReferenceId | varchar(36) |  | false |  | [quote](quote.md) [quoteExtension](quoteExtension.md) |  | Common ID (decided by the Payer FSP) between the FSPs for the future transaction object |
-| quoteId | varchar(36) |  | true |  |  | [quoteDuplicateCheck](quoteDuplicateCheck.md) | Common ID between the FSPs for the quote object, decided by the Payer FSP |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System row creation timestamp |
+| Name                   | Type        | Default           | Nullable | Extra Definition  | Children                                              | Parents                                       | Comment                                                                                 |
+| ---------------------- | ----------- | ----------------- | -------- | ----------------- | ----------------------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------- |
+| transactionReferenceId | varchar(36) |                   | false    |                   | [quote](quote.md) [quoteExtension](quoteExtension.md) |                                               | Common ID (decided by the Payer FSP) between the FSPs for the future transaction object |
+| quoteId                | varchar(36) |                   | true     |                   |                                                       | [quoteDuplicateCheck](quoteDuplicateCheck.md) | Common ID between the FSPs for the quote object, decided by the Payer FSP               |
+| createdDate            | datetime    | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                       |                                               | System row creation timestamp                                                           |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (transactionReferenceId) |
+| Name                                 | Type        | Definition                                                     |
+| ------------------------------------ | ----------- | -------------------------------------------------------------- |
+| PRIMARY                              | PRIMARY KEY | PRIMARY KEY (transactionReferenceId)                           |
 | transactionreference_quoteid_foreign | FOREIGN KEY | FOREIGN KEY (quoteId) REFERENCES quoteDuplicateCheck (quoteId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                               | Definition                                                   |
+| ---------------------------------- | ------------------------------------------------------------ |
 | transactionreference_quoteid_index | KEY transactionreference_quoteid_index (quoteId) USING BTREE |
-| PRIMARY | PRIMARY KEY (transactionReferenceId) USING BTREE |
+| PRIMARY                            | PRIMARY KEY (transactionReferenceId) USING BTREE             |
 
 ## Relations
 

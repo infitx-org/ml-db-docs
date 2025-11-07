@@ -21,26 +21,26 @@ CREATE TABLE `contactType` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| contactTypeId | int unsigned |  | false | auto_increment | [participantContact](participantContact.md) |  |  |
-| name | varchar(50) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name          | Type         | Default           | Nullable | Extra Definition  | Children                                    |
+| ------------- | ------------ | ----------------- | -------- | ----------------- | ------------------------------------------- |
+| contactTypeId | int unsigned |                   | false    | auto_increment    | [participantContact](participantContact.md) |
+| name          | varchar(50)  |                   | false    |                   |                                             |
+| description   | varchar(512) |                   | true     |                   |                                             |
+| isActive      | tinyint(1)   | 1                 | false    |                   |                                             |
+| createdDate   | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| contacttype_name_unique | UNIQUE | UNIQUE KEY contacttype_name_unique (name) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (contactTypeId) |
+| Name                    | Type        | Definition                                |
+| ----------------------- | ----------- | ----------------------------------------- |
+| contacttype_name_unique | UNIQUE      | UNIQUE KEY contacttype_name_unique (name) |
+| PRIMARY                 | PRIMARY KEY | PRIMARY KEY (contactTypeId)               |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (contactTypeId) USING BTREE |
+| Name                    | Definition                                            |
+| ----------------------- | ----------------------------------------------------- |
+| PRIMARY                 | PRIMARY KEY (contactTypeId) USING BTREE               |
 | contacttype_name_unique | UNIQUE KEY contacttype_name_unique (name) USING BTREE |
 
 ## Relations

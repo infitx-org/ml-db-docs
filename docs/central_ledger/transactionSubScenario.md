@@ -19,23 +19,23 @@ CREATE TABLE `transactionSubScenario` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transactionSubScenarioId | int unsigned |  | false | auto_increment | [quote](quote.md) |  |  |
-| name | varchar(256) |  | false |  |  |  |  |
-| description | varchar(1024) |  | true |  |  |  | Possible sub-scenario, defined locally within the scheme |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                     | Type          | Default           | Nullable | Extra Definition  | Children          | Comment                                                  |
+| ------------------------ | ------------- | ----------------- | -------- | ----------------- | ----------------- | -------------------------------------------------------- |
+| transactionSubScenarioId | int unsigned  |                   | false    | auto_increment    | [quote](quote.md) |                                                          |
+| name                     | varchar(256)  |                   | false    |                   |                   |                                                          |
+| description              | varchar(1024) |                   | true     |                   |                   | Possible sub-scenario, defined locally within the scheme |
+| createdDate              | datetime      | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                   | System dateTime stamp pertaining to the inserted record  |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition                             |
+| ------- | ----------- | -------------------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (transactionSubScenarioId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                                         |
+| ------- | -------------------------------------------------- |
 | PRIMARY | PRIMARY KEY (transactionSubScenarioId) USING BTREE |
 
 ## Relations

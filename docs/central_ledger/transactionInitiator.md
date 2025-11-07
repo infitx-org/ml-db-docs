@@ -20,25 +20,25 @@ CREATE TABLE `transactionInitiator` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transactionInitiatorId | int unsigned |  | false | auto_increment | [quote](quote.md) |  |  |
-| name | varchar(256) |  | false |  |  |  |  |
-| description | varchar(1024) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                   | Type          | Default           | Nullable | Extra Definition  | Children          | Comment                                                 |
+| ---------------------- | ------------- | ----------------- | -------- | ----------------- | ----------------- | ------------------------------------------------------- |
+| transactionInitiatorId | int unsigned  |                   | false    | auto_increment    | [quote](quote.md) |                                                         |
+| name                   | varchar(256)  |                   | false    |                   |                   |                                                         |
+| description            | varchar(1024) |                   | true     |                   |                   |                                                         |
+| createdDate            | datetime      | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                   | System dateTime stamp pertaining to the inserted record |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (transactionInitiatorId) |
-| transactioninitiator_name_unique | UNIQUE | UNIQUE KEY transactioninitiator_name_unique (name) |
+| Name                             | Type        | Definition                                         |
+| -------------------------------- | ----------- | -------------------------------------------------- |
+| PRIMARY                          | PRIMARY KEY | PRIMARY KEY (transactionInitiatorId)               |
+| transactioninitiator_name_unique | UNIQUE      | UNIQUE KEY transactioninitiator_name_unique (name) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (transactionInitiatorId) USING BTREE |
+| Name                             | Definition                                                     |
+| -------------------------------- | -------------------------------------------------------------- |
+| PRIMARY                          | PRIMARY KEY (transactionInitiatorId) USING BTREE               |
 | transactioninitiator_name_unique | UNIQUE KEY transactioninitiator_name_unique (name) USING BTREE |
 
 ## Relations

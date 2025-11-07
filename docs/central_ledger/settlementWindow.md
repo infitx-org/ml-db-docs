@@ -21,26 +21,26 @@ CREATE TABLE `settlementWindow` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementWindowId | bigint unsigned |  | false | auto_increment | [fxTransferFulfilment](fxTransferFulfilment.md) [settlementSettlementWindow](settlementSettlementWindow.md) [settlementTransferParticipant](settlementTransferParticipant.md) [settlementWindowContent](settlementWindowContent.md) [settlementWindowStateChange](settlementWindowStateChange.md) [transferFulfilment](transferFulfilment.md) |  |  |
-| reason | varchar(512) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| currentStateChangeId | bigint unsigned |  | true |  |  | [settlementWindowStateChange](settlementWindowStateChange.md) |  |
+| Name                 | Type            | Default           | Nullable | Extra Definition  | Children                                                                                                                                                                                                                                                                                                                                      | Parents                                                       |
+| -------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| settlementWindowId   | bigint unsigned |                   | false    | auto_increment    | [fxTransferFulfilment](fxTransferFulfilment.md) [settlementSettlementWindow](settlementSettlementWindow.md) [settlementTransferParticipant](settlementTransferParticipant.md) [settlementWindowContent](settlementWindowContent.md) [settlementWindowStateChange](settlementWindowStateChange.md) [transferFulfilment](transferFulfilment.md) |                                                               |
+| reason               | varchar(512)    |                   | true     |                   |                                                                                                                                                                                                                                                                                                                                               |                                                               |
+| createdDate          | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                                                                                                                                                                                                                               |                                                               |
+| currentStateChangeId | bigint unsigned |                   | true     |                   |                                                                                                                                                                                                                                                                                                                                               | [settlementWindowStateChange](settlementWindowStateChange.md) |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementWindowId) |
+| Name                                          | Type        | Definition                                                                                                |
+| --------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------- |
+| PRIMARY                                       | PRIMARY KEY | PRIMARY KEY (settlementWindowId)                                                                          |
 | settlementwindow_currentstatechangeid_foreign | FOREIGN KEY | FOREIGN KEY (currentStateChangeId) REFERENCES settlementWindowStateChange (settlementWindowStateChangeId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                          | Definition                                                                           |
+| --------------------------------------------- | ------------------------------------------------------------------------------------ |
 | settlementwindow_currentstatechangeid_foreign | KEY settlementwindow_currentstatechangeid_foreign (currentStateChangeId) USING BTREE |
-| PRIMARY | PRIMARY KEY (settlementWindowId) USING BTREE |
+| PRIMARY                                       | PRIMARY KEY (settlementWindowId) USING BTREE                                         |
 
 ## Relations
 

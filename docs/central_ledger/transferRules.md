@@ -21,25 +21,25 @@ CREATE TABLE `transferRules` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transferRulesId | int unsigned |  | false | auto_increment |  |  |  |
-| name | varchar(128) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| rule | text |  | false |  |  |  |  |
-| enabled | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name            | Type         | Default           | Nullable | Extra Definition  |
+| --------------- | ------------ | ----------------- | -------- | ----------------- |
+| transferRulesId | int unsigned |                   | false    | auto_increment    |
+| name            | varchar(128) |                   | false    |                   |
+| description     | varchar(512) |                   | true     |                   |
+| rule            | text         |                   | false    |                   |
+| enabled         | tinyint(1)   | 1                 | false    |                   |
+| createdDate     | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition                    |
+| ------- | ----------- | ----------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (transferRulesId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                                |
+| ------- | ----------------------------------------- |
 | PRIMARY | PRIMARY KEY (transferRulesId) USING BTREE |
 
 ## Relations

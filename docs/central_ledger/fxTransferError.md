@@ -22,27 +22,27 @@ CREATE TABLE `fxTransferError` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| commitRequestId | varchar(36) |  | false |  |  |  |  |
-| fxTransferStateChangeId | bigint unsigned |  | false |  |  | [fxTransferStateChange](fxTransferStateChange.md) |  |
-| errorCode | int unsigned |  | false |  |  |  |  |
-| errorDescription | varchar(128) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                    | Type            | Default           | Nullable | Extra Definition  | Parents                                           |
+| ----------------------- | --------------- | ----------------- | -------- | ----------------- | ------------------------------------------------- |
+| commitRequestId         | varchar(36)     |                   | false    |                   |                                                   |
+| fxTransferStateChangeId | bigint unsigned |                   | false    |                   | [fxTransferStateChange](fxTransferStateChange.md) |
+| errorCode               | int unsigned    |                   | false    |                   |                                                   |
+| errorDescription        | varchar(128)    |                   | false    |                   |                                                   |
+| createdDate             | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                   |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                            | Type        | Definition                                                                                       |
+| ----------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------ |
 | fxtransfererror_fxtransferstatechangeid_foreign | FOREIGN KEY | FOREIGN KEY (fxTransferStateChangeId) REFERENCES fxTransferStateChange (fxTransferStateChangeId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (commitRequestId) |
+| PRIMARY                                         | PRIMARY KEY | PRIMARY KEY (commitRequestId)                                                                    |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                          | Definition                                                                              |
+| --------------------------------------------- | --------------------------------------------------------------------------------------- |
 | fxtransfererror_fxtransferstatechangeid_index | KEY fxtransfererror_fxtransferstatechangeid_index (fxTransferStateChangeId) USING BTREE |
-| PRIMARY | PRIMARY KEY (commitRequestId) USING BTREE |
+| PRIMARY                                       | PRIMARY KEY (commitRequestId) USING BTREE                                               |
 
 ## Relations
 

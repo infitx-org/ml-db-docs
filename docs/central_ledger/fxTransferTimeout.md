@@ -22,27 +22,27 @@ CREATE TABLE `fxTransferTimeout` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxTransferTimeoutId | bigint unsigned |  | false | auto_increment |  |  |  |
-| commitRequestId | varchar(36) |  | false |  |  | [fxTransfer](fxTransfer.md) |  |
-| expirationDate | datetime |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                | Type            | Default           | Nullable | Extra Definition  | Parents                     |
+| ------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------- |
+| fxTransferTimeoutId | bigint unsigned |                   | false    | auto_increment    |                             |
+| commitRequestId     | varchar(36)     |                   | false    |                   | [fxTransfer](fxTransfer.md) |
+| expirationDate      | datetime        |                   | false    |                   |                             |
+| createdDate         | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                      | Type        | Definition                                                            |
+| ----------------------------------------- | ----------- | --------------------------------------------------------------------- |
 | fxtransfertimeout_commitrequestid_foreign | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId) |
-| fxtransfertimeout_commitrequestid_unique | UNIQUE | UNIQUE KEY fxtransfertimeout_commitrequestid_unique (commitRequestId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxTransferTimeoutId) |
+| fxtransfertimeout_commitrequestid_unique  | UNIQUE      | UNIQUE KEY fxtransfertimeout_commitrequestid_unique (commitRequestId) |
+| PRIMARY                                   | PRIMARY KEY | PRIMARY KEY (fxTransferTimeoutId)                                     |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| fxtransfertimeout_expirationdate_index | KEY fxtransfertimeout_expirationdate_index (expirationDate) USING BTREE |
-| PRIMARY | PRIMARY KEY (fxTransferTimeoutId) USING BTREE |
+| Name                                     | Definition                                                                        |
+| ---------------------------------------- | --------------------------------------------------------------------------------- |
+| fxtransfertimeout_expirationdate_index   | KEY fxtransfertimeout_expirationdate_index (expirationDate) USING BTREE           |
+| PRIMARY                                  | PRIMARY KEY (fxTransferTimeoutId) USING BTREE                                     |
 | fxtransfertimeout_commitrequestid_unique | UNIQUE KEY fxtransfertimeout_commitrequestid_unique (commitRequestId) USING BTREE |
 
 ## Relations

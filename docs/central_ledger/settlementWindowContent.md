@@ -35,40 +35,40 @@ CREATE TABLE `settlementWindowContent` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementWindowContentId | bigint unsigned |  | false | auto_increment | [settlementContentAggregation](settlementContentAggregation.md) [settlementWindowContentStateChange](settlementWindowContentStateChange.md) |  |  |
-| settlementWindowId | bigint unsigned |  | false |  |  | [settlementWindow](settlementWindow.md) |  |
-| ledgerAccountTypeId | int unsigned |  | false |  |  | [ledgerAccountType](ledgerAccountType.md) |  |
-| currencyId | varchar(3) |  | false |  |  | [currency](currency.md) |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| currentStateChangeId | bigint unsigned |  | true |  |  | [settlementWindowContentStateChange](settlementWindowContentStateChange.md) |  |
-| settlementId | bigint unsigned |  | true |  |  | [settlement](settlement.md) |  |
-| SettlementModelId | int unsigned |  | true |  |  | [settlementModel](settlementModel.md) |  |
+| Name                      | Type            | Default           | Nullable | Extra Definition  | Children                                                                                                                                    | Parents                                                                     |
+| ------------------------- | --------------- | ----------------- | -------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| settlementWindowContentId | bigint unsigned |                   | false    | auto_increment    | [settlementContentAggregation](settlementContentAggregation.md) [settlementWindowContentStateChange](settlementWindowContentStateChange.md) |                                                                             |
+| settlementWindowId        | bigint unsigned |                   | false    |                   |                                                                                                                                             | [settlementWindow](settlementWindow.md)                                     |
+| ledgerAccountTypeId       | int unsigned    |                   | false    |                   |                                                                                                                                             | [ledgerAccountType](ledgerAccountType.md)                                   |
+| currencyId                | varchar(3)      |                   | false    |                   |                                                                                                                                             | [currency](currency.md)                                                     |
+| createdDate               | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                                                             |                                                                             |
+| currentStateChangeId      | bigint unsigned |                   | true     |                   |                                                                                                                                             | [settlementWindowContentStateChange](settlementWindowContentStateChange.md) |
+| settlementId              | bigint unsigned |                   | true     |                   |                                                                                                                                             | [settlement](settlement.md)                                                 |
+| SettlementModelId         | int unsigned    |                   | true     |                   |                                                                                                                                             | [settlementModel](settlementModel.md)                                       |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementWindowContentId) |
-| settlementwindowcontent_currencyid_foreign | FOREIGN KEY | FOREIGN KEY (currencyId) REFERENCES currency (currencyId) |
+| Name                                                 | Type        | Definition                                                                                                              |
+| ---------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
+| PRIMARY                                              | PRIMARY KEY | PRIMARY KEY (settlementWindowContentId)                                                                                 |
+| settlementwindowcontent_currencyid_foreign           | FOREIGN KEY | FOREIGN KEY (currencyId) REFERENCES currency (currencyId)                                                               |
 | settlementwindowcontent_currentstatechangeid_foreign | FOREIGN KEY | FOREIGN KEY (currentStateChangeId) REFERENCES settlementWindowContentStateChange (settlementWindowContentStateChangeId) |
-| settlementwindowcontent_ledgeraccounttypeid_foreign | FOREIGN KEY | FOREIGN KEY (ledgerAccountTypeId) REFERENCES ledgerAccountType (ledgerAccountTypeId) |
-| settlementwindowcontent_settlementid_foreign | FOREIGN KEY | FOREIGN KEY (settlementId) REFERENCES settlement (settlementId) |
-| settlementwindowcontent_settlementmodelid_foreign | FOREIGN KEY | FOREIGN KEY (SettlementModelId) REFERENCES settlementModel (settlementModelId) |
-| settlementwindowcontent_settlementwindowid_foreign | FOREIGN KEY | FOREIGN KEY (settlementWindowId) REFERENCES settlementWindow (settlementWindowId) |
+| settlementwindowcontent_ledgeraccounttypeid_foreign  | FOREIGN KEY | FOREIGN KEY (ledgerAccountTypeId) REFERENCES ledgerAccountType (ledgerAccountTypeId)                                    |
+| settlementwindowcontent_settlementid_foreign         | FOREIGN KEY | FOREIGN KEY (settlementId) REFERENCES settlement (settlementId)                                                         |
+| settlementwindowcontent_settlementmodelid_foreign    | FOREIGN KEY | FOREIGN KEY (SettlementModelId) REFERENCES settlementModel (settlementModelId)                                          |
+| settlementwindowcontent_settlementwindowid_foreign   | FOREIGN KEY | FOREIGN KEY (settlementWindowId) REFERENCES settlementWindow (settlementWindowId)                                       |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| settlementwindowcontent_currencyid_index | KEY settlementwindowcontent_currencyid_index (currencyId) USING BTREE |
+| Name                                               | Definition                                                                                |
+| -------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| settlementwindowcontent_currencyid_index           | KEY settlementwindowcontent_currencyid_index (currencyId) USING BTREE                     |
 | settlementwindowcontent_currentstatechangeid_index | KEY settlementwindowcontent_currentstatechangeid_index (currentStateChangeId) USING BTREE |
-| settlementwindowcontent_ledgeraccounttypeid_index | KEY settlementwindowcontent_ledgeraccounttypeid_index (ledgerAccountTypeId) USING BTREE |
-| settlementwindowcontent_settlementid_index | KEY settlementwindowcontent_settlementid_index (settlementId) USING BTREE |
-| settlementwindowcontent_settlementmodelid_foreign | KEY settlementwindowcontent_settlementmodelid_foreign (SettlementModelId) USING BTREE |
-| settlementwindowcontent_settlementwindowid_index | KEY settlementwindowcontent_settlementwindowid_index (settlementWindowId) USING BTREE |
-| PRIMARY | PRIMARY KEY (settlementWindowContentId) USING BTREE |
+| settlementwindowcontent_ledgeraccounttypeid_index  | KEY settlementwindowcontent_ledgeraccounttypeid_index (ledgerAccountTypeId) USING BTREE   |
+| settlementwindowcontent_settlementid_index         | KEY settlementwindowcontent_settlementid_index (settlementId) USING BTREE                 |
+| settlementwindowcontent_settlementmodelid_foreign  | KEY settlementwindowcontent_settlementmodelid_foreign (SettlementModelId) USING BTREE     |
+| settlementwindowcontent_settlementwindowid_index   | KEY settlementwindowcontent_settlementwindowid_index (settlementWindowId) USING BTREE     |
+| PRIMARY                                            | PRIMARY KEY (settlementWindowContentId) USING BTREE                                       |
 
 ## Relations
 

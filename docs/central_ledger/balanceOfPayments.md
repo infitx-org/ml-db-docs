@@ -22,25 +22,25 @@ CREATE TABLE `balanceOfPayments` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| balanceOfPaymentsId | int unsigned |  | false |  | [quote](quote.md) |  |  |
-| name | varchar(256) |  | false |  |  |  |  |
-| description | varchar(1024) |  | true |  |  |  | Possible values and meaning are defined in https://www.imf.org/external/np/sta/bopcode/ |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                | Type          | Default           | Nullable | Extra Definition  | Children          | Comment                                                                                 |
+| ------------------- | ------------- | ----------------- | -------- | ----------------- | ----------------- | --------------------------------------------------------------------------------------- |
+| balanceOfPaymentsId | int unsigned  |                   | false    |                   | [quote](quote.md) |                                                                                         |
+| name                | varchar(256)  |                   | false    |                   |                   |                                                                                         |
+| description         | varchar(1024) |                   | true     |                   |                   | Possible values and meaning are defined in https://www.imf.org/external/np/sta/bopcode/ |
+| createdDate         | datetime      | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                   | System dateTime stamp pertaining to the inserted record                                 |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| balanceofpayments_name_unique | UNIQUE | UNIQUE KEY balanceofpayments_name_unique (name) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (balanceOfPaymentsId) |
+| Name                          | Type        | Definition                                      |
+| ----------------------------- | ----------- | ----------------------------------------------- |
+| balanceofpayments_name_unique | UNIQUE      | UNIQUE KEY balanceofpayments_name_unique (name) |
+| PRIMARY                       | PRIMARY KEY | PRIMARY KEY (balanceOfPaymentsId)               |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (balanceOfPaymentsId) USING BTREE |
+| Name                          | Definition                                                  |
+| ----------------------------- | ----------------------------------------------------------- |
+| PRIMARY                       | PRIMARY KEY (balanceOfPaymentsId) USING BTREE               |
 | balanceofpayments_name_unique | UNIQUE KEY balanceofpayments_name_unique (name) USING BTREE |
 
 ## Relations

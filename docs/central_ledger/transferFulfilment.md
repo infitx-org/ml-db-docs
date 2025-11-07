@@ -24,29 +24,29 @@ CREATE TABLE `transferFulfilment` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transferId | varchar(36) |  | false |  |  | [transferFulfilmentDuplicateCheck](transferFulfilmentDuplicateCheck.md) |  |
-| ilpFulfilment | varchar(256) |  | true |  |  |  |  |
-| completedDate | datetime |  | false |  |  |  |  |
-| isValid | tinyint(1) |  | true |  |  |  |  |
-| settlementWindowId | bigint unsigned |  | true |  |  | [settlementWindow](settlementWindow.md) |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name               | Type            | Default           | Nullable | Extra Definition  | Parents                                                                 |
+| ------------------ | --------------- | ----------------- | -------- | ----------------- | ----------------------------------------------------------------------- |
+| transferId         | varchar(36)     |                   | false    |                   | [transferFulfilmentDuplicateCheck](transferFulfilmentDuplicateCheck.md) |
+| ilpFulfilment      | varchar(256)    |                   | true     |                   |                                                                         |
+| completedDate      | datetime        |                   | false    |                   |                                                                         |
+| isValid            | tinyint(1)      |                   | true     |                   |                                                                         |
+| settlementWindowId | bigint unsigned |                   | true     |                   | [settlementWindow](settlementWindow.md)                                 |
+| createdDate        | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                         |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (transferId) |
+| Name                                          | Type        | Definition                                                                        |
+| --------------------------------------------- | ----------- | --------------------------------------------------------------------------------- |
+| PRIMARY                                       | PRIMARY KEY | PRIMARY KEY (transferId)                                                          |
 | transferfulfilment_settlementwindowid_foreign | FOREIGN KEY | FOREIGN KEY (settlementWindowId) REFERENCES settlementWindow (settlementWindowId) |
-| transferfulfilment_transferid_foreign | FOREIGN KEY | FOREIGN KEY (transferId) REFERENCES transferFulfilmentDuplicateCheck (transferId) |
+| transferfulfilment_transferid_foreign         | FOREIGN KEY | FOREIGN KEY (transferId) REFERENCES transferFulfilmentDuplicateCheck (transferId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                          | Definition                                                                         |
+| --------------------------------------------- | ---------------------------------------------------------------------------------- |
 | transferfulfilment_settlementwindowid_foreign | KEY transferfulfilment_settlementwindowid_foreign (settlementWindowId) USING BTREE |
-| PRIMARY | PRIMARY KEY (transferId) USING BTREE |
+| PRIMARY                                       | PRIMARY KEY (transferId) USING BTREE                                               |
 
 ## Relations
 

@@ -22,27 +22,27 @@ CREATE TABLE `quotePartyIdInfoExtension` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| quotePartyIdInfoExtensionId | bigint unsigned |  | false | auto_increment |  |  |  |
-| quotePartyId | bigint unsigned |  | false |  |  | [quoteParty](quoteParty.md) | quotePartyId: a common id between the tables quotePartyIdInfoExtension and quoteParty |
-| key | varchar(128) |  | false |  |  |  |  |
-| value | text |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                        | Type            | Default           | Nullable | Extra Definition  | Parents                     | Comment                                                                               |
+| --------------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------- | ------------------------------------------------------------------------------------- |
+| quotePartyIdInfoExtensionId | bigint unsigned |                   | false    | auto_increment    |                             |                                                                                       |
+| quotePartyId                | bigint unsigned |                   | false    |                   | [quoteParty](quoteParty.md) | quotePartyId: a common id between the tables quotePartyIdInfoExtension and quoteParty |
+| key                         | varchar(128)    |                   | false    |                   |                             |                                                                                       |
+| value                       | text            |                   | false    |                   |                             |                                                                                       |
+| createdDate                 | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                             | System dateTime stamp pertaining to the inserted record                               |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (quotePartyIdInfoExtensionId) |
+| Name                                           | Type        | Definition                                                      |
+| ---------------------------------------------- | ----------- | --------------------------------------------------------------- |
+| PRIMARY                                        | PRIMARY KEY | PRIMARY KEY (quotePartyIdInfoExtensionId)                       |
 | quotepartyidinfoextension_quotepartyid_foreign | FOREIGN KEY | FOREIGN KEY (quotePartyId) REFERENCES quoteParty (quotePartyId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                           | Definition                                                                    |
+| ---------------------------------------------- | ----------------------------------------------------------------------------- |
 | quotepartyidinfoextension_quotepartyid_foreign | KEY quotepartyidinfoextension_quotepartyid_foreign (quotePartyId) USING BTREE |
-| PRIMARY | PRIMARY KEY (quotePartyIdInfoExtensionId) USING BTREE |
+| PRIMARY                                        | PRIMARY KEY (quotePartyIdInfoExtensionId) USING BTREE                         |
 
 ## Relations
 

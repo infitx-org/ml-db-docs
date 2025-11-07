@@ -26,31 +26,31 @@ CREATE TABLE `fxTransferFulfilment` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| commitRequestId | varchar(36) |  | false |  |  | [fxTransfer](fxTransfer.md) |  |
-| ilpFulfilment | varchar(256) |  | true |  |  |  |  |
-| completedDate | datetime |  | false |  |  |  |  |
-| isValid | tinyint(1) |  | true |  |  |  |  |
-| settlementWindowId | bigint unsigned |  | true |  |  | [settlementWindow](settlementWindow.md) |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name               | Type            | Default           | Nullable | Extra Definition  | Parents                                 |
+| ------------------ | --------------- | ----------------- | -------- | ----------------- | --------------------------------------- |
+| commitRequestId    | varchar(36)     |                   | false    |                   | [fxTransfer](fxTransfer.md)             |
+| ilpFulfilment      | varchar(256)    |                   | true     |                   |                                         |
+| completedDate      | datetime        |                   | false    |                   |                                         |
+| isValid            | tinyint(1)      |                   | true     |                   |                                         |
+| settlementWindowId | bigint unsigned |                   | true     |                   | [settlementWindow](settlementWindow.md) |
+| createdDate        | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                         |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| fxtransferfulfilment_commitrequestid_foreign | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId) |
-| fxtransferfulfilment_commitrequestid_ilpfulfilment_unique | UNIQUE | UNIQUE KEY fxtransferfulfilment_commitrequestid_ilpfulfilment_unique (commitRequestId, ilpFulfilment) |
-| fxtransferfulfilment_settlementwindowid_foreign | FOREIGN KEY | FOREIGN KEY (settlementWindowId) REFERENCES settlementWindow (settlementWindowId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (commitRequestId) |
+| Name                                                      | Type        | Definition                                                                                            |
+| --------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------- |
+| fxtransferfulfilment_commitrequestid_foreign              | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId)                                 |
+| fxtransferfulfilment_commitrequestid_ilpfulfilment_unique | UNIQUE      | UNIQUE KEY fxtransferfulfilment_commitrequestid_ilpfulfilment_unique (commitRequestId, ilpFulfilment) |
+| fxtransferfulfilment_settlementwindowid_foreign           | FOREIGN KEY | FOREIGN KEY (settlementWindowId) REFERENCES settlementWindow (settlementWindowId)                     |
+| PRIMARY                                                   | PRIMARY KEY | PRIMARY KEY (commitRequestId)                                                                         |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| fxtransferfulfilment_commitrequestid_index | KEY fxtransferfulfilment_commitrequestid_index (commitRequestId) USING BTREE |
-| fxtransferfulfilment_settlementwindowid_index | KEY fxtransferfulfilment_settlementwindowid_index (settlementWindowId) USING BTREE |
-| PRIMARY | PRIMARY KEY (commitRequestId) USING BTREE |
+| Name                                                      | Definition                                                                                                        |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| fxtransferfulfilment_commitrequestid_index                | KEY fxtransferfulfilment_commitrequestid_index (commitRequestId) USING BTREE                                      |
+| fxtransferfulfilment_settlementwindowid_index             | KEY fxtransferfulfilment_settlementwindowid_index (settlementWindowId) USING BTREE                                |
+| PRIMARY                                                   | PRIMARY KEY (commitRequestId) USING BTREE                                                                         |
 | fxtransferfulfilment_commitrequestid_ilpfulfilment_unique | UNIQUE KEY fxtransferfulfilment_commitrequestid_ilpfulfilment_unique (commitRequestId, ilpFulfilment) USING BTREE |
 
 ## Relations

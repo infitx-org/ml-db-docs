@@ -19,24 +19,24 @@ CREATE TABLE `partyType` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| partyTypeId | int unsigned |  | false | auto_increment | [quoteParty](quoteParty.md) |  |  |
-| name | varchar(128) |  | false |  |  |  |  |
-| description | varchar(256) |  | false |  |  |  |  |
+| Name        | Type         | Default | Nullable | Extra Definition | Children                    |
+| ----------- | ------------ | ------- | -------- | ---------------- | --------------------------- |
+| partyTypeId | int unsigned |         | false    | auto_increment   | [quoteParty](quoteParty.md) |
+| name        | varchar(128) |         | false    |                  |                             |
+| description | varchar(256) |         | false    |                  |                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| partytype_name_unique | UNIQUE | UNIQUE KEY partytype_name_unique (name) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (partyTypeId) |
+| Name                  | Type        | Definition                              |
+| --------------------- | ----------- | --------------------------------------- |
+| partytype_name_unique | UNIQUE      | UNIQUE KEY partytype_name_unique (name) |
+| PRIMARY               | PRIMARY KEY | PRIMARY KEY (partyTypeId)               |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (partyTypeId) USING BTREE |
+| Name                  | Definition                                          |
+| --------------------- | --------------------------------------------------- |
+| PRIMARY               | PRIMARY KEY (partyTypeId) USING BTREE               |
 | partytype_name_unique | UNIQUE KEY partytype_name_unique (name) USING BTREE |
 
 ## Relations

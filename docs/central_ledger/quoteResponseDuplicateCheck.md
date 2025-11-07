@@ -22,27 +22,27 @@ CREATE TABLE `quoteResponseDuplicateCheck` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| quoteResponseId | bigint unsigned |  | false | auto_increment |  | [quoteResponse](quoteResponse.md) | The response to the intial quote |
-| quoteId | varchar(36) |  | false |  |  | [quote](quote.md) | Common ID between the FSPs for the quote object, decided by the Payer FSP |
-| hash | varchar(255) |  | true |  |  |  | hash value received for the quote response |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name            | Type            | Default           | Nullable | Extra Definition  | Parents                           | Comment                                                                   |
+| --------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------- | ------------------------------------------------------------------------- |
+| quoteResponseId | bigint unsigned |                   | false    | auto_increment    | [quoteResponse](quoteResponse.md) | The response to the intial quote                                          |
+| quoteId         | varchar(36)     |                   | false    |                   | [quote](quote.md)                 | Common ID between the FSPs for the quote object, decided by the Payer FSP |
+| hash            | varchar(255)    |                   | true     |                   |                                   | hash value received for the quote response                                |
+| createdDate     | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                   | System dateTime stamp pertaining to the inserted record                   |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (quoteResponseId) |
-| quoteresponseduplicatecheck_quoteid_foreign | FOREIGN KEY | FOREIGN KEY (quoteId) REFERENCES quote (quoteId) |
+| Name                                                | Type        | Definition                                                               |
+| --------------------------------------------------- | ----------- | ------------------------------------------------------------------------ |
+| PRIMARY                                             | PRIMARY KEY | PRIMARY KEY (quoteResponseId)                                            |
+| quoteresponseduplicatecheck_quoteid_foreign         | FOREIGN KEY | FOREIGN KEY (quoteId) REFERENCES quote (quoteId)                         |
 | quoteresponseduplicatecheck_quoteresponseid_foreign | FOREIGN KEY | FOREIGN KEY (quoteResponseId) REFERENCES quoteResponse (quoteResponseId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                        | Definition                                                            |
+| ------------------------------------------- | --------------------------------------------------------------------- |
 | quoteresponseduplicatecheck_quoteid_foreign | KEY quoteresponseduplicatecheck_quoteid_foreign (quoteId) USING BTREE |
-| PRIMARY | PRIMARY KEY (quoteResponseId) USING BTREE |
+| PRIMARY                                     | PRIMARY KEY (quoteResponseId) USING BTREE                             |
 
 ## Relations
 

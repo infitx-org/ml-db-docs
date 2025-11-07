@@ -23,28 +23,28 @@ CREATE TABLE `bulkTransferExtension` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| bulkTransferExtensionId | bigint unsigned |  | false | auto_increment |  |  |  |
-| bulkTransferId | varchar(36) |  | false |  |  | [bulkTransfer](bulkTransfer.md) |  |
-| isFulfilment | tinyint(1) | 0 | false |  |  |  |  |
-| key | varchar(128) |  | false |  |  |  |  |
-| value | text |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                    | Type            | Default           | Nullable | Extra Definition  | Parents                         |
+| ----------------------- | --------------- | ----------------- | -------- | ----------------- | ------------------------------- |
+| bulkTransferExtensionId | bigint unsigned |                   | false    | auto_increment    |                                 |
+| bulkTransferId          | varchar(36)     |                   | false    |                   | [bulkTransfer](bulkTransfer.md) |
+| isFulfilment            | tinyint(1)      | 0                 | false    |                   |                                 |
+| key                     | varchar(128)    |                   | false    |                   |                                 |
+| value                   | text            |                   | false    |                   |                                 |
+| createdDate             | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                 |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                         | Type        | Definition                                                            |
+| -------------------------------------------- | ----------- | --------------------------------------------------------------------- |
 | bulktransferextension_bulktransferid_foreign | FOREIGN KEY | FOREIGN KEY (bulkTransferId) REFERENCES bulkTransfer (bulkTransferId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (bulkTransferExtensionId) |
+| PRIMARY                                      | PRIMARY KEY | PRIMARY KEY (bulkTransferExtensionId)                                 |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                       | Definition                                                                  |
+| ------------------------------------------ | --------------------------------------------------------------------------- |
 | bulktransferextension_bulktransferid_index | KEY bulktransferextension_bulktransferid_index (bulkTransferId) USING BTREE |
-| PRIMARY | PRIMARY KEY (bulkTransferExtensionId) USING BTREE |
+| PRIMARY                                    | PRIMARY KEY (bulkTransferExtensionId) USING BTREE                           |
 
 ## Relations
 

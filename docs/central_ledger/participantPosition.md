@@ -22,27 +22,27 @@ CREATE TABLE `participantPosition` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| participantPositionId | bigint unsigned |  | false | auto_increment | [participantPositionChange](participantPositionChange.md) |  |  |
-| participantCurrencyId | int unsigned |  | false |  |  | [participantCurrency](participantCurrency.md) |  |
-| value | decimal(18,4) |  | false |  |  |  |  |
-| reservedValue | decimal(18,4) |  | false |  |  |  |  |
-| changedDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                  | Type            | Default           | Nullable | Extra Definition  | Children                                                  | Parents                                       |
+| --------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------------------------------- | --------------------------------------------- |
+| participantPositionId | bigint unsigned |                   | false    | auto_increment    | [participantPositionChange](participantPositionChange.md) |                                               |
+| participantCurrencyId | int unsigned    |                   | false    |                   |                                                           | [participantCurrency](participantCurrency.md) |
+| value                 | decimal(18,4)   |                   | false    |                   |                                                           |                                               |
+| reservedValue         | decimal(18,4)   |                   | false    |                   |                                                           |                                               |
+| changedDate           | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                           |                                               |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                              | Type        | Definition                                                                                 |
+| ------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------ |
 | participantposition_participantcurrencyid_foreign | FOREIGN KEY | FOREIGN KEY (participantCurrencyId) REFERENCES participantCurrency (participantCurrencyId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (participantPositionId) |
+| PRIMARY                                           | PRIMARY KEY | PRIMARY KEY (participantPositionId)                                                        |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                            | Definition                                                                              |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------- |
 | participantposition_participantcurrencyid_index | KEY participantposition_participantcurrencyid_index (participantCurrencyId) USING BTREE |
-| PRIMARY | PRIMARY KEY (participantPositionId) USING BTREE |
+| PRIMARY                                         | PRIMARY KEY (participantPositionId) USING BTREE                                         |
 
 ## Relations
 

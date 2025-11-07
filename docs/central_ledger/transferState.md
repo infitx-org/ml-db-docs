@@ -20,24 +20,24 @@ CREATE TABLE `transferState` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transferStateId | varchar(50) |  | false |  | [fxTransferStateChange](fxTransferStateChange.md) [transferStateChange](transferStateChange.md) |  |  |
-| enumeration | varchar(50) |  | false |  |  |  | transferState associated to the Mojaloop API |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name            | Type         | Default           | Nullable | Extra Definition  | Children                                                                                        | Comment                                      |
+| --------------- | ------------ | ----------------- | -------- | ----------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| transferStateId | varchar(50)  |                   | false    |                   | [fxTransferStateChange](fxTransferStateChange.md) [transferStateChange](transferStateChange.md) |                                              |
+| enumeration     | varchar(50)  |                   | false    |                   |                                                                                                 | transferState associated to the Mojaloop API |
+| description     | varchar(512) |                   | true     |                   |                                                                                                 |                                              |
+| isActive        | tinyint(1)   | 1                 | false    |                   |                                                                                                 |                                              |
+| createdDate     | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                 |                                              |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition                    |
+| ------- | ----------- | ----------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (transferStateId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                                |
+| ------- | ----------------------------------------- |
 | PRIMARY | PRIMARY KEY (transferStateId) USING BTREE |
 
 ## Relations

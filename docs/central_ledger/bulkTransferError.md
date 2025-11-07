@@ -22,27 +22,27 @@ CREATE TABLE `bulkTransferError` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| bulkTransferErrorId | bigint unsigned |  | false | auto_increment |  |  |  |
-| bulkTransferStateChangeId | bigint unsigned |  | false |  |  | [bulkTransferStateChange](bulkTransferStateChange.md) |  |
-| errorCode | int unsigned |  | false |  |  |  |  |
-| errorDescription | varchar(128) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                      | Type            | Default           | Nullable | Extra Definition  | Parents                                               |
+| ------------------------- | --------------- | ----------------- | -------- | ----------------- | ----------------------------------------------------- |
+| bulkTransferErrorId       | bigint unsigned |                   | false    | auto_increment    |                                                       |
+| bulkTransferStateChangeId | bigint unsigned |                   | false    |                   | [bulkTransferStateChange](bulkTransferStateChange.md) |
+| errorCode                 | int unsigned    |                   | false    |                   |                                                       |
+| errorDescription          | varchar(128)    |                   | false    |                   |                                                       |
+| createdDate               | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                       |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                                                | Type        | Definition                                                                                             |
+| --------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------ |
 | bulktransfererror_bulktransferstatechangeid_foreign | FOREIGN KEY | FOREIGN KEY (bulkTransferStateChangeId) REFERENCES bulkTransferStateChange (bulkTransferStateChangeId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (bulkTransferErrorId) |
+| PRIMARY                                             | PRIMARY KEY | PRIMARY KEY (bulkTransferErrorId)                                                                      |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                              | Definition                                                                                    |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | bulktransfererror_bulktransferstatechangeid_index | KEY bulktransfererror_bulktransferstatechangeid_index (bulkTransferStateChangeId) USING BTREE |
-| PRIMARY | PRIMARY KEY (bulkTransferErrorId) USING BTREE |
+| PRIMARY                                           | PRIMARY KEY (bulkTransferErrorId) USING BTREE                                                 |
 
 ## Relations
 

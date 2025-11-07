@@ -25,30 +25,30 @@ CREATE TABLE `fxQuoteError` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxQuoteErrorId | bigint unsigned |  | false | auto_increment |  |  |  |
-| conversionRequestId | varchar(36) |  | false |  |  | [fxQuote](fxQuote.md) |  |
-| fxQuoteResponseId | bigint unsigned |  | true |  |  | [fxQuoteResponse](fxQuoteResponse.md) | The response to the initial fxQuote |
-| errorCode | int unsigned |  | false |  |  |  |  |
-| errorDescription | varchar(128) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                | Type            | Default           | Nullable | Extra Definition  | Parents                               | Comment                             |
+| ------------------- | --------------- | ----------------- | -------- | ----------------- | ------------------------------------- | ----------------------------------- |
+| fxQuoteErrorId      | bigint unsigned |                   | false    | auto_increment    |                                       |                                     |
+| conversionRequestId | varchar(36)     |                   | false    |                   | [fxQuote](fxQuote.md)                 |                                     |
+| fxQuoteResponseId   | bigint unsigned |                   | true     |                   | [fxQuoteResponse](fxQuoteResponse.md) | The response to the initial fxQuote |
+| errorCode           | int unsigned    |                   | false    |                   |                                       |                                     |
+| errorDescription    | varchar(128)    |                   | false    |                   |                                       |                                     |
+| createdDate         | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                       |                                     |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| fxquoteerror_conversionrequestid_foreign | FOREIGN KEY | FOREIGN KEY (conversionRequestId) REFERENCES fxQuote (conversionRequestId) |
-| fxquoteerror_fxquoteresponseid_foreign | FOREIGN KEY | FOREIGN KEY (fxQuoteResponseId) REFERENCES fxQuoteResponse (fxQuoteResponseId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxQuoteErrorId) |
+| Name                                     | Type        | Definition                                                                     |
+| ---------------------------------------- | ----------- | ------------------------------------------------------------------------------ |
+| fxquoteerror_conversionrequestid_foreign | FOREIGN KEY | FOREIGN KEY (conversionRequestId) REFERENCES fxQuote (conversionRequestId)     |
+| fxquoteerror_fxquoteresponseid_foreign   | FOREIGN KEY | FOREIGN KEY (fxQuoteResponseId) REFERENCES fxQuoteResponse (fxQuoteResponseId) |
+| PRIMARY                                  | PRIMARY KEY | PRIMARY KEY (fxQuoteErrorId)                                                   |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                     | Definition                                                                     |
+| ---------------------------------------- | ------------------------------------------------------------------------------ |
 | fxquoteerror_conversionrequestid_foreign | KEY fxquoteerror_conversionrequestid_foreign (conversionRequestId) USING BTREE |
-| fxquoteerror_fxquoteresponseid_foreign | KEY fxquoteerror_fxquoteresponseid_foreign (fxQuoteResponseId) USING BTREE |
-| PRIMARY | PRIMARY KEY (fxQuoteErrorId) USING BTREE |
+| fxquoteerror_fxquoteresponseid_foreign   | KEY fxquoteerror_fxquoteresponseid_foreign (fxQuoteResponseId) USING BTREE     |
+| PRIMARY                                  | PRIMARY KEY (fxQuoteErrorId) USING BTREE                                       |
 
 ## Relations
 

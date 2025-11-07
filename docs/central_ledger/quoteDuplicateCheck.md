@@ -18,22 +18,22 @@ CREATE TABLE `quoteDuplicateCheck` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| quoteId | varchar(36) |  | false |  | [transactionReference](transactionReference.md) |  | Common ID between the FSPs for the quote object, decided by the Payer FSP |
-| hash | varchar(1024) |  | true |  |  |  | hash value received for the quote request |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name        | Type          | Default           | Nullable | Extra Definition  | Children                                        | Comment                                                                   |
+| ----------- | ------------- | ----------------- | -------- | ----------------- | ----------------------------------------------- | ------------------------------------------------------------------------- |
+| quoteId     | varchar(36)   |                   | false    |                   | [transactionReference](transactionReference.md) | Common ID between the FSPs for the quote object, decided by the Payer FSP |
+| hash        | varchar(1024) |                   | true     |                   |                                                 | hash value received for the quote request                                 |
+| createdDate | datetime      | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                 | System dateTime stamp pertaining to the inserted record                   |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition            |
+| ------- | ----------- | --------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (quoteId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                        |
+| ------- | --------------------------------- |
 | PRIMARY | PRIMARY KEY (quoteId) USING BTREE |
 
 ## Relations

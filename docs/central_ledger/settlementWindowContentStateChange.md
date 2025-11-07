@@ -24,29 +24,29 @@ CREATE TABLE `settlementWindowContentStateChange` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementWindowContentStateChangeId | bigint unsigned |  | false | auto_increment | [settlementWindowContent](settlementWindowContent.md) |  |  |
-| settlementWindowContentId | bigint unsigned |  | false |  |  | [settlementWindowContent](settlementWindowContent.md) |  |
-| settlementWindowStateId | varchar(50) |  | false |  |  | [settlementWindowState](settlementWindowState.md) |  |
-| reason | varchar(512) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                                 | Type            | Default           | Nullable | Extra Definition  | Children                                              | Parents                                               |
+| ------------------------------------ | --------------- | ----------------- | -------- | ----------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| settlementWindowContentStateChangeId | bigint unsigned |                   | false    | auto_increment    | [settlementWindowContent](settlementWindowContent.md) |                                                       |
+| settlementWindowContentId            | bigint unsigned |                   | false    |                   |                                                       | [settlementWindowContent](settlementWindowContent.md) |
+| settlementWindowStateId              | varchar(50)     |                   | false    |                   |                                                       | [settlementWindowState](settlementWindowState.md)     |
+| reason                               | varchar(512)    |                   | true     |                   |                                                       |                                                       |
+| createdDate                          | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                       |                                                       |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementWindowContentStateChangeId) |
+| Name                                  | Type        | Definition                                                                                             |
+| ------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------ |
+| PRIMARY                               | PRIMARY KEY | PRIMARY KEY (settlementWindowContentStateChangeId)                                                     |
 | swc_settlementwindowcontentid_foreign | FOREIGN KEY | FOREIGN KEY (settlementWindowContentId) REFERENCES settlementWindowContent (settlementWindowContentId) |
-| sws1_settlementwindowstateid_foreign | FOREIGN KEY | FOREIGN KEY (settlementWindowStateId) REFERENCES settlementWindowState (settlementWindowStateId) |
+| sws1_settlementwindowstateid_foreign  | FOREIGN KEY | FOREIGN KEY (settlementWindowStateId) REFERENCES settlementWindowState (settlementWindowStateId)       |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                  | Definition                                                                        |
+| ------------------------------------- | --------------------------------------------------------------------------------- |
 | swcsc_settlementwindowcontentid_index | KEY swcsc_settlementwindowcontentid_index (settlementWindowContentId) USING BTREE |
-| swcsc_settlementwindowstateid_index | KEY swcsc_settlementwindowstateid_index (settlementWindowStateId) USING BTREE |
-| PRIMARY | PRIMARY KEY (settlementWindowContentStateChangeId) USING BTREE |
+| swcsc_settlementwindowstateid_index   | KEY swcsc_settlementwindowstateid_index (settlementWindowStateId) USING BTREE     |
+| PRIMARY                               | PRIMARY KEY (settlementWindowContentStateChangeId) USING BTREE                    |
 
 ## Relations
 

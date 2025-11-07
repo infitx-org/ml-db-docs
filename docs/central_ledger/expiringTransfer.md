@@ -22,28 +22,28 @@ CREATE TABLE `expiringTransfer` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| expiringTransferId | bigint unsigned |  | false | auto_increment |  |  |  |
-| transferId | varchar(36) |  | false |  |  | [transfer](transfer.md) |  |
-| expirationDate | datetime |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name               | Type            | Default           | Nullable | Extra Definition  | Parents                 |
+| ------------------ | --------------- | ----------------- | -------- | ----------------- | ----------------------- |
+| expiringTransferId | bigint unsigned |                   | false    | auto_increment    |                         |
+| transferId         | varchar(36)     |                   | false    |                   | [transfer](transfer.md) |
+| expirationDate     | datetime        |                   | false    |                   |                         |
+| createdDate        | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                         |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| expiringtransfer_transferid_foreign | FOREIGN KEY | FOREIGN KEY (transferId) REFERENCES transfer (transferId) |
-| expiringtransfer_transferid_unique | UNIQUE | UNIQUE KEY expiringtransfer_transferid_unique (transferId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (expiringTransferId) |
+| Name                                | Type        | Definition                                                 |
+| ----------------------------------- | ----------- | ---------------------------------------------------------- |
+| expiringtransfer_transferid_foreign | FOREIGN KEY | FOREIGN KEY (transferId) REFERENCES transfer (transferId)  |
+| expiringtransfer_transferid_unique  | UNIQUE      | UNIQUE KEY expiringtransfer_transferid_unique (transferId) |
+| PRIMARY                             | PRIMARY KEY | PRIMARY KEY (expiringTransferId)                           |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                  | Definition                                                             |
+| ------------------------------------- | ---------------------------------------------------------------------- |
 | expiringtransfer_expirationdate_index | KEY expiringtransfer_expirationdate_index (expirationDate) USING BTREE |
-| PRIMARY | PRIMARY KEY (expiringTransferId) USING BTREE |
-| expiringtransfer_transferid_unique | UNIQUE KEY expiringtransfer_transferid_unique (transferId) USING BTREE |
+| PRIMARY                               | PRIMARY KEY (expiringTransferId) USING BTREE                           |
+| expiringtransfer_transferid_unique    | UNIQUE KEY expiringtransfer_transferid_unique (transferId) USING BTREE |
 
 ## Relations
 

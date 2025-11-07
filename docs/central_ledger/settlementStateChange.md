@@ -24,29 +24,29 @@ CREATE TABLE `settlementStateChange` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementStateChangeId | bigint unsigned |  | false | auto_increment | [settlement](settlement.md) |  |  |
-| settlementId | bigint unsigned |  | false |  |  | [settlement](settlement.md) |  |
-| settlementStateId | varchar(50) |  | false |  |  | [settlementState](settlementState.md) |  |
-| reason | varchar(512) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                    | Type            | Default           | Nullable | Extra Definition  | Children                    | Parents                               |
+| ----------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------- | ------------------------------------- |
+| settlementStateChangeId | bigint unsigned |                   | false    | auto_increment    | [settlement](settlement.md) |                                       |
+| settlementId            | bigint unsigned |                   | false    |                   |                             | [settlement](settlement.md)           |
+| settlementStateId       | varchar(50)     |                   | false    |                   |                             | [settlementState](settlementState.md) |
+| reason                  | varchar(512)    |                   | true     |                   |                             |                                       |
+| createdDate             | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                             |                                       |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementStateChangeId) |
-| settlementstatechange_settlementid_foreign | FOREIGN KEY | FOREIGN KEY (settlementId) REFERENCES settlement (settlementId) |
+| Name                                            | Type        | Definition                                                                     |
+| ----------------------------------------------- | ----------- | ------------------------------------------------------------------------------ |
+| PRIMARY                                         | PRIMARY KEY | PRIMARY KEY (settlementStateChangeId)                                          |
+| settlementstatechange_settlementid_foreign      | FOREIGN KEY | FOREIGN KEY (settlementId) REFERENCES settlement (settlementId)                |
 | settlementstatechange_settlementstateid_foreign | FOREIGN KEY | FOREIGN KEY (settlementStateId) REFERENCES settlementState (settlementStateId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| settlementstatechange_settlementid_index | KEY settlementstatechange_settlementid_index (settlementId) USING BTREE |
+| Name                                          | Definition                                                                        |
+| --------------------------------------------- | --------------------------------------------------------------------------------- |
+| settlementstatechange_settlementid_index      | KEY settlementstatechange_settlementid_index (settlementId) USING BTREE           |
 | settlementstatechange_settlementstateid_index | KEY settlementstatechange_settlementstateid_index (settlementStateId) USING BTREE |
-| PRIMARY | PRIMARY KEY (settlementStateChangeId) USING BTREE |
+| PRIMARY                                       | PRIMARY KEY (settlementStateChangeId) USING BTREE                                 |
 
 ## Relations
 

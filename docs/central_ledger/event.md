@@ -19,23 +19,23 @@ CREATE TABLE `event` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| eventId | int unsigned |  | false | auto_increment |  |  |  |
-| name | varchar(128) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name        | Type         | Default           | Nullable | Extra Definition  |
+| ----------- | ------------ | ----------------- | -------- | ----------------- |
+| eventId     | int unsigned |                   | false    | auto_increment    |
+| name        | varchar(128) |                   | false    |                   |
+| description | varchar(512) |                   | true     |                   |
+| createdDate | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition            |
+| ------- | ----------- | --------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (eventId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name    | Definition                        |
+| ------- | --------------------------------- |
 | PRIMARY | PRIMARY KEY (eventId) USING BTREE |
 
 ## Relations

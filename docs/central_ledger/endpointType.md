@@ -21,26 +21,26 @@ CREATE TABLE `endpointType` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| endpointTypeId | int unsigned |  | false | auto_increment | [participantEndpoint](participantEndpoint.md) |  |  |
-| name | varchar(50) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name           | Type         | Default           | Nullable | Extra Definition  | Children                                      |
+| -------------- | ------------ | ----------------- | -------- | ----------------- | --------------------------------------------- |
+| endpointTypeId | int unsigned |                   | false    | auto_increment    | [participantEndpoint](participantEndpoint.md) |
+| name           | varchar(50)  |                   | false    |                   |                                               |
+| description    | varchar(512) |                   | true     |                   |                                               |
+| isActive       | tinyint(1)   | 1                 | false    |                   |                                               |
+| createdDate    | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                               |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| endpointtype_name_unique | UNIQUE | UNIQUE KEY endpointtype_name_unique (name) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (endpointTypeId) |
+| Name                     | Type        | Definition                                 |
+| ------------------------ | ----------- | ------------------------------------------ |
+| endpointtype_name_unique | UNIQUE      | UNIQUE KEY endpointtype_name_unique (name) |
+| PRIMARY                  | PRIMARY KEY | PRIMARY KEY (endpointTypeId)               |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (endpointTypeId) USING BTREE |
+| Name                     | Definition                                             |
+| ------------------------ | ------------------------------------------------------ |
+| PRIMARY                  | PRIMARY KEY (endpointTypeId) USING BTREE               |
 | endpointtype_name_unique | UNIQUE KEY endpointtype_name_unique (name) USING BTREE |
 
 ## Relations

@@ -22,27 +22,27 @@ CREATE TABLE `transferError` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transferId | varchar(36) |  | false |  |  |  |  |
-| transferStateChangeId | bigint unsigned |  | false |  |  | [transferStateChange](transferStateChange.md) |  |
-| errorCode | int unsigned |  | false |  |  |  |  |
-| errorDescription | varchar(128) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                  | Type            | Default           | Nullable | Extra Definition  | Parents                                       |
+| --------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------------------- |
+| transferId            | varchar(36)     |                   | false    |                   |                                               |
+| transferStateChangeId | bigint unsigned |                   | false    |                   | [transferStateChange](transferStateChange.md) |
+| errorCode             | int unsigned    |                   | false    |                   |                                               |
+| errorDescription      | varchar(128)    |                   | false    |                   |                                               |
+| createdDate           | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                               |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (transferId) |
+| Name                                        | Type        | Definition                                                                                 |
+| ------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------ |
+| PRIMARY                                     | PRIMARY KEY | PRIMARY KEY (transferId)                                                                   |
 | transfererror_transferstatechangeid_foreign | FOREIGN KEY | FOREIGN KEY (transferStateChangeId) REFERENCES transferStateChange (transferStateChangeId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                        | Definition                                                                          |
+| ------------------------------------------- | ----------------------------------------------------------------------------------- |
 | transfererror_transferstatechangeid_foreign | KEY transfererror_transferstatechangeid_foreign (transferStateChangeId) USING BTREE |
-| PRIMARY | PRIMARY KEY (transferId) USING BTREE |
+| PRIMARY                                     | PRIMARY KEY (transferId) USING BTREE                                                |
 
 ## Relations
 

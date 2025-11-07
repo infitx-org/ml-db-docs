@@ -20,25 +20,25 @@ CREATE TABLE `fxParticipantCurrencyType` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxParticipantCurrencyTypeId | int unsigned |  | false | auto_increment | [fxTransferParticipant](fxTransferParticipant.md) |  |  |
-| name | varchar(50) |  | false |  |  |  |  |
-| description | varchar(512) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                        | Type         | Default           | Nullable | Extra Definition  | Children                                          |
+| --------------------------- | ------------ | ----------------- | -------- | ----------------- | ------------------------------------------------- |
+| fxParticipantCurrencyTypeId | int unsigned |                   | false    | auto_increment    | [fxTransferParticipant](fxTransferParticipant.md) |
+| name                        | varchar(50)  |                   | false    |                   |                                                   |
+| description                 | varchar(512) |                   | true     |                   |                                                   |
+| createdDate                 | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                   |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| fxparticipantcurrencytype_name_unique | UNIQUE | UNIQUE KEY fxparticipantcurrencytype_name_unique (name) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxParticipantCurrencyTypeId) |
+| Name                                  | Type        | Definition                                              |
+| ------------------------------------- | ----------- | ------------------------------------------------------- |
+| fxparticipantcurrencytype_name_unique | UNIQUE      | UNIQUE KEY fxparticipantcurrencytype_name_unique (name) |
+| PRIMARY                               | PRIMARY KEY | PRIMARY KEY (fxParticipantCurrencyTypeId)               |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (fxParticipantCurrencyTypeId) USING BTREE |
+| Name                                  | Definition                                                          |
+| ------------------------------------- | ------------------------------------------------------------------- |
+| PRIMARY                               | PRIMARY KEY (fxParticipantCurrencyTypeId) USING BTREE               |
 | fxparticipantcurrencytype_name_unique | UNIQUE KEY fxparticipantcurrencytype_name_unique (name) USING BTREE |
 
 ## Relations

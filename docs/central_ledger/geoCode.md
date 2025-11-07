@@ -22,27 +22,27 @@ CREATE TABLE `geoCode` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| geoCodeId | int unsigned |  | false | auto_increment |  |  |  |
-| quotePartyId | bigint unsigned |  | false |  |  | [quoteParty](quoteParty.md) | Optionally the GeoCode for the Payer/Payee may have been provided. If the Quote Response has the GeoCode for the Payee, an additional row is added |
-| latitude | varchar(50) |  | false |  |  |  | Latitude of the initiating Party |
-| longitude | varchar(50) |  | false |  |  |  | Longitude of the initiating Party |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name         | Type            | Default           | Nullable | Extra Definition  | Parents                     | Comment                                                                                                                                            |
+| ------------ | --------------- | ----------------- | -------- | ----------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| geoCodeId    | int unsigned    |                   | false    | auto_increment    |                             |                                                                                                                                                    |
+| quotePartyId | bigint unsigned |                   | false    |                   | [quoteParty](quoteParty.md) | Optionally the GeoCode for the Payer/Payee may have been provided. If the Quote Response has the GeoCode for the Payee, an additional row is added |
+| latitude     | varchar(50)     |                   | false    |                   |                             | Latitude of the initiating Party                                                                                                                   |
+| longitude    | varchar(50)     |                   | false    |                   |                             | Longitude of the initiating Party                                                                                                                  |
+| createdDate  | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                             | System dateTime stamp pertaining to the inserted record                                                                                            |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name                         | Type        | Definition                                                      |
+| ---------------------------- | ----------- | --------------------------------------------------------------- |
 | geocode_quotepartyid_foreign | FOREIGN KEY | FOREIGN KEY (quotePartyId) REFERENCES quoteParty (quotePartyId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (geoCodeId) |
+| PRIMARY                      | PRIMARY KEY | PRIMARY KEY (geoCodeId)                                         |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                         | Definition                                                  |
+| ---------------------------- | ----------------------------------------------------------- |
 | geocode_quotepartyid_foreign | KEY geocode_quotepartyid_foreign (quotePartyId) USING BTREE |
-| PRIMARY | PRIMARY KEY (geoCodeId) USING BTREE |
+| PRIMARY                      | PRIMARY KEY (geoCodeId) USING BTREE                         |
 
 ## Relations
 

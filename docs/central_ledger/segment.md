@@ -22,27 +22,27 @@ CREATE TABLE `segment` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| segmentId | int unsigned |  | false | auto_increment |  |  |  |
-| segmentType | varchar(50) |  | false |  |  |  |  |
-| enumeration | int | 0 | false |  |  |  |  |
-| tableName | varchar(50) |  | false |  |  |  |  |
-| value | bigint |  | false |  |  |  |  |
-| changedDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name        | Type         | Default           | Nullable | Extra Definition  |
+| ----------- | ------------ | ----------------- | -------- | ----------------- |
+| segmentId   | int unsigned |                   | false    | auto_increment    |
+| segmentType | varchar(50)  |                   | false    |                   |
+| enumeration | int          | 0                 | false    |                   |
+| tableName   | varchar(50)  |                   | false    |                   |
+| value       | bigint       |                   | false    |                   |
+| changedDate | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| Name    | Type        | Definition              |
+| ------- | ----------- | ----------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (segmentId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name               | Definition                                                               |
+| ------------------ | ------------------------------------------------------------------------ |
 | segment_keys_index | KEY segment_keys_index (segmentType, enumeration, tableName) USING BTREE |
-| PRIMARY | PRIMARY KEY (segmentId) USING BTREE |
+| PRIMARY            | PRIMARY KEY (segmentId) USING BTREE                                      |
 
 ## Relations
 

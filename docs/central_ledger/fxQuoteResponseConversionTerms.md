@@ -38,43 +38,43 @@ CREATE TABLE `fxQuoteResponseConversionTerms` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| conversionId | varchar(255) |  | false |  | [fxCharge](fxCharge.md) [fxQuoteResponseConversionTermsExtension](fxQuoteResponseConversionTermsExtension.md) |  |  |
-| determiningTransferId | varchar(36) |  | true |  |  |  |  |
-| conversionRequestId | varchar(36) |  | false |  |  | [fxQuote](fxQuote.md) |  |
-| fxQuoteResponseId | bigint unsigned |  | false |  |  | [fxQuoteResponse](fxQuoteResponse.md) |  |
-| amountTypeId | int unsigned |  | false |  |  | [amountType](amountType.md) | This is part of the transaction type that contains valid elements for - Amount Type |
-| initiatingFsp | varchar(255) |  | true |  |  |  |  |
-| counterPartyFsp | varchar(255) |  | true |  |  |  |  |
-| sourceAmount | decimal(18,4) |  | false |  |  |  |  |
-| sourceCurrency | varchar(3) |  | false |  |  | [currency](currency.md) |  |
-| targetAmount | decimal(18,4) |  | false |  |  |  |  |
-| targetCurrency | varchar(3) |  | false |  |  | [currency](currency.md) |  |
-| expirationDate | datetime |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  | System dateTime stamp pertaining to the inserted record |
+| Name                  | Type            | Default           | Nullable | Extra Definition  | Children                                                                                                      | Parents                               | Comment                                                                             |
+| --------------------- | --------------- | ----------------- | -------- | ----------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------- |
+| conversionId          | varchar(255)    |                   | false    |                   | [fxCharge](fxCharge.md) [fxQuoteResponseConversionTermsExtension](fxQuoteResponseConversionTermsExtension.md) |                                       |                                                                                     |
+| determiningTransferId | varchar(36)     |                   | true     |                   |                                                                                                               |                                       |                                                                                     |
+| conversionRequestId   | varchar(36)     |                   | false    |                   |                                                                                                               | [fxQuote](fxQuote.md)                 |                                                                                     |
+| fxQuoteResponseId     | bigint unsigned |                   | false    |                   |                                                                                                               | [fxQuoteResponse](fxQuoteResponse.md) |                                                                                     |
+| amountTypeId          | int unsigned    |                   | false    |                   |                                                                                                               | [amountType](amountType.md)           | This is part of the transaction type that contains valid elements for - Amount Type |
+| initiatingFsp         | varchar(255)    |                   | true     |                   |                                                                                                               |                                       |                                                                                     |
+| counterPartyFsp       | varchar(255)    |                   | true     |                   |                                                                                                               |                                       |                                                                                     |
+| sourceAmount          | decimal(18,4)   |                   | false    |                   |                                                                                                               |                                       |                                                                                     |
+| sourceCurrency        | varchar(3)      |                   | false    |                   |                                                                                                               | [currency](currency.md)               |                                                                                     |
+| targetAmount          | decimal(18,4)   |                   | false    |                   |                                                                                                               |                                       |                                                                                     |
+| targetCurrency        | varchar(3)      |                   | false    |                   |                                                                                                               | [currency](currency.md)               |                                                                                     |
+| expirationDate        | datetime        |                   | false    |                   |                                                                                                               |                                       |                                                                                     |
+| createdDate           | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                                                               |                                       | System dateTime stamp pertaining to the inserted record                             |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| fxquoteresponseconversionterms_amounttypeid_foreign | FOREIGN KEY | FOREIGN KEY (amountTypeId) REFERENCES amountType (amountTypeId) |
-| fxquoteresponseconversionterms_conversionrequestid_foreign | FOREIGN KEY | FOREIGN KEY (conversionRequestId) REFERENCES fxQuote (conversionRequestId) |
-| fxquoteresponseconversionterms_fxquoteresponseid_foreign | FOREIGN KEY | FOREIGN KEY (fxQuoteResponseId) REFERENCES fxQuoteResponse (fxQuoteResponseId) |
-| fxquoteresponseconversionterms_sourcecurrency_foreign | FOREIGN KEY | FOREIGN KEY (sourceCurrency) REFERENCES currency (currencyId) |
-| fxquoteresponseconversionterms_targetcurrency_foreign | FOREIGN KEY | FOREIGN KEY (targetCurrency) REFERENCES currency (currencyId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (conversionId) |
+| Name                                                       | Type        | Definition                                                                     |
+| ---------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------ |
+| fxquoteresponseconversionterms_amounttypeid_foreign        | FOREIGN KEY | FOREIGN KEY (amountTypeId) REFERENCES amountType (amountTypeId)                |
+| fxquoteresponseconversionterms_conversionrequestid_foreign | FOREIGN KEY | FOREIGN KEY (conversionRequestId) REFERENCES fxQuote (conversionRequestId)     |
+| fxquoteresponseconversionterms_fxquoteresponseid_foreign   | FOREIGN KEY | FOREIGN KEY (fxQuoteResponseId) REFERENCES fxQuoteResponse (fxQuoteResponseId) |
+| fxquoteresponseconversionterms_sourcecurrency_foreign      | FOREIGN KEY | FOREIGN KEY (sourceCurrency) REFERENCES currency (currencyId)                  |
+| fxquoteresponseconversionterms_targetcurrency_foreign      | FOREIGN KEY | FOREIGN KEY (targetCurrency) REFERENCES currency (currencyId)                  |
+| PRIMARY                                                    | PRIMARY KEY | PRIMARY KEY (conversionId)                                                     |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| fxquoteresponseconversionterms_amounttypeid_foreign | KEY fxquoteresponseconversionterms_amounttypeid_foreign (amountTypeId) USING BTREE |
+| Name                                                       | Definition                                                                                       |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| fxquoteresponseconversionterms_amounttypeid_foreign        | KEY fxquoteresponseconversionterms_amounttypeid_foreign (amountTypeId) USING BTREE               |
 | fxquoteresponseconversionterms_conversionrequestid_foreign | KEY fxquoteresponseconversionterms_conversionrequestid_foreign (conversionRequestId) USING BTREE |
-| fxquoteresponseconversionterms_fxquoteresponseid_foreign | KEY fxquoteresponseconversionterms_fxquoteresponseid_foreign (fxQuoteResponseId) USING BTREE |
-| fxquoteresponseconversionterms_sourcecurrency_foreign | KEY fxquoteresponseconversionterms_sourcecurrency_foreign (sourceCurrency) USING BTREE |
-| fxquoteresponseconversionterms_targetcurrency_foreign | KEY fxquoteresponseconversionterms_targetcurrency_foreign (targetCurrency) USING BTREE |
-| PRIMARY | PRIMARY KEY (conversionId) USING BTREE |
+| fxquoteresponseconversionterms_fxquoteresponseid_foreign   | KEY fxquoteresponseconversionterms_fxquoteresponseid_foreign (fxQuoteResponseId) USING BTREE     |
+| fxquoteresponseconversionterms_sourcecurrency_foreign      | KEY fxquoteresponseconversionterms_sourcecurrency_foreign (sourceCurrency) USING BTREE           |
+| fxquoteresponseconversionterms_targetcurrency_foreign      | KEY fxquoteresponseconversionterms_targetcurrency_foreign (targetCurrency) USING BTREE           |
+| PRIMARY                                                    | PRIMARY KEY (conversionId) USING BTREE                                                           |
 
 ## Relations
 

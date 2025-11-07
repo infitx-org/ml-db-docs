@@ -21,26 +21,26 @@ CREATE TABLE `transferTimeout` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| transferTimeoutId | bigint unsigned |  | false | auto_increment |  |  |  |
-| transferId | varchar(36) |  | false |  |  | [transfer](transfer.md) |  |
-| expirationDate | datetime |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name              | Type            | Default           | Nullable | Extra Definition  | Parents                 |
+| ----------------- | --------------- | ----------------- | -------- | ----------------- | ----------------------- |
+| transferTimeoutId | bigint unsigned |                   | false    | auto_increment    |                         |
+| transferId        | varchar(36)     |                   | false    |                   | [transfer](transfer.md) |
+| expirationDate    | datetime        |                   | false    |                   |                         |
+| createdDate       | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                         |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (transferTimeoutId) |
+| Name                               | Type        | Definition                                                |
+| ---------------------------------- | ----------- | --------------------------------------------------------- |
+| PRIMARY                            | PRIMARY KEY | PRIMARY KEY (transferTimeoutId)                           |
 | transfertimeout_transferid_foreign | FOREIGN KEY | FOREIGN KEY (transferId) REFERENCES transfer (transferId) |
-| transfertimeout_transferid_unique | UNIQUE | UNIQUE KEY transfertimeout_transferid_unique (transferId) |
+| transfertimeout_transferid_unique  | UNIQUE      | UNIQUE KEY transfertimeout_transferid_unique (transferId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| PRIMARY | PRIMARY KEY (transferTimeoutId) USING BTREE |
+| Name                              | Definition                                                            |
+| --------------------------------- | --------------------------------------------------------------------- |
+| PRIMARY                           | PRIMARY KEY (transferTimeoutId) USING BTREE                           |
 | transfertimeout_transferid_unique | UNIQUE KEY transfertimeout_transferid_unique (transferId) USING BTREE |
 
 ## Relations

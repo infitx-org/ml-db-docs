@@ -25,30 +25,30 @@ CREATE TABLE `settlementParticipantCurrencyStateChange` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementParticipantCurrencyStateChangeId | bigint unsigned |  | false | auto_increment | [settlementParticipantCurrency](settlementParticipantCurrency.md) |  |  |
-| settlementParticipantCurrencyId | bigint unsigned |  | false |  |  | [settlementParticipantCurrency](settlementParticipantCurrency.md) |  |
-| settlementStateId | varchar(50) |  | false |  |  | [settlementState](settlementState.md) |  |
-| reason | varchar(512) |  | true |  |  |  |  |
-| externalReference | varchar(50) |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                                       | Type            | Default           | Nullable | Extra Definition  | Children                                                          | Parents                                                           |
+| ------------------------------------------ | --------------- | ----------------- | -------- | ----------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| settlementParticipantCurrencyStateChangeId | bigint unsigned |                   | false    | auto_increment    | [settlementParticipantCurrency](settlementParticipantCurrency.md) |                                                                   |
+| settlementParticipantCurrencyId            | bigint unsigned |                   | false    |                   |                                                                   | [settlementParticipantCurrency](settlementParticipantCurrency.md) |
+| settlementStateId                          | varchar(50)     |                   | false    |                   |                                                                   | [settlementState](settlementState.md)                             |
+| reason                                     | varchar(512)    |                   | true     |                   |                                                                   |                                                                   |
+| externalReference                          | varchar(50)     |                   | true     |                   |                                                                   |                                                                   |
+| createdDate                                | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                                   |                                                                   |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementParticipantCurrencyStateChangeId) |
+| Name                                          | Type        | Definition                                                                                                               |
+| --------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------ |
+| PRIMARY                                       | PRIMARY KEY | PRIMARY KEY (settlementParticipantCurrencyStateChangeId)                                                                 |
 | spcsc_settlementparticipantcurrencyid_foreign | FOREIGN KEY | FOREIGN KEY (settlementParticipantCurrencyId) REFERENCES settlementParticipantCurrency (settlementParticipantCurrencyId) |
-| spcsc_settlementstateid_foreign | FOREIGN KEY | FOREIGN KEY (settlementStateId) REFERENCES settlementState (settlementStateId) |
+| spcsc_settlementstateid_foreign               | FOREIGN KEY | FOREIGN KEY (settlementStateId) REFERENCES settlementState (settlementStateId)                                           |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                                        | Definition                                                                                    |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | spcsc_settlementparticipantcurrencyid_index | KEY spcsc_settlementparticipantcurrencyid_index (settlementParticipantCurrencyId) USING BTREE |
-| spcsc_settlementstateid_index | KEY spcsc_settlementstateid_index (settlementStateId) USING BTREE |
-| PRIMARY | PRIMARY KEY (settlementParticipantCurrencyStateChangeId) USING BTREE |
+| spcsc_settlementstateid_index               | KEY spcsc_settlementstateid_index (settlementStateId) USING BTREE                             |
+| PRIMARY                                     | PRIMARY KEY (settlementParticipantCurrencyStateChangeId) USING BTREE                          |
 
 ## Relations
 

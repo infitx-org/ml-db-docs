@@ -23,29 +23,29 @@ CREATE TABLE `token` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| tokenId | int unsigned |  | false | auto_increment |  |  |  |
-| participantId | int unsigned |  | false |  |  | [participant](participant.md) |  |
-| value | varchar(256) |  | false |  |  |  |  |
-| expiration | bigint |  | true |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name          | Type         | Default           | Nullable | Extra Definition  | Parents                       |
+| ------------- | ------------ | ----------------- | -------- | ----------------- | ----------------------------- |
+| tokenId       | int unsigned |                   | false    | auto_increment    |                               |
+| participantId | int unsigned |                   | false    |                   | [participant](participant.md) |
+| value         | varchar(256) |                   | false    |                   |                               |
+| expiration    | bigint       |                   | true     |                   |                               |
+| createdDate   | datetime     | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                               |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (tokenId) |
+| Name                        | Type        | Definition                                                         |
+| --------------------------- | ----------- | ------------------------------------------------------------------ |
+| PRIMARY                     | PRIMARY KEY | PRIMARY KEY (tokenId)                                              |
 | token_participantid_foreign | FOREIGN KEY | FOREIGN KEY (participantId) REFERENCES participant (participantId) |
-| token_value_unique | UNIQUE | UNIQUE KEY token_value_unique (value) |
+| token_value_unique          | UNIQUE      | UNIQUE KEY token_value_unique (value)                              |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
+| Name                      | Definition                                                |
+| ------------------------- | --------------------------------------------------------- |
 | token_participantid_index | KEY token_participantid_index (participantId) USING BTREE |
-| PRIMARY | PRIMARY KEY (tokenId) USING BTREE |
-| token_value_unique | UNIQUE KEY token_value_unique (value) USING BTREE |
+| PRIMARY                   | PRIMARY KEY (tokenId) USING BTREE                         |
+| token_value_unique        | UNIQUE KEY token_value_unique (value) USING BTREE         |
 
 ## Relations
 

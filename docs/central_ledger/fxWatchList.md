@@ -25,30 +25,30 @@ CREATE TABLE `fxWatchList` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| fxWatchListId | bigint unsigned |  | false | auto_increment |  |  |  |
-| commitRequestId | varchar(36) |  | false |  |  | [fxTransfer](fxTransfer.md) |  |
-| determiningTransferId | varchar(36) |  | false |  |  |  |  |
-| fxTransferTypeId | int unsigned |  | false |  |  | [fxTransferType](fxTransferType.md) |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                  | Type            | Default           | Nullable | Extra Definition  | Parents                             |
+| --------------------- | --------------- | ----------------- | -------- | ----------------- | ----------------------------------- |
+| fxWatchListId         | bigint unsigned |                   | false    | auto_increment    |                                     |
+| commitRequestId       | varchar(36)     |                   | false    |                   | [fxTransfer](fxTransfer.md)         |
+| determiningTransferId | varchar(36)     |                   | false    |                   |                                     |
+| fxTransferTypeId      | int unsigned    |                   | false    |                   | [fxTransferType](fxTransferType.md) |
+| createdDate           | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                     |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| fxwatchlist_commitrequestid_foreign | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId) |
+| Name                                 | Type        | Definition                                                                  |
+| ------------------------------------ | ----------- | --------------------------------------------------------------------------- |
+| fxwatchlist_commitrequestid_foreign  | FOREIGN KEY | FOREIGN KEY (commitRequestId) REFERENCES fxTransfer (commitRequestId)       |
 | fxwatchlist_fxtransfertypeid_foreign | FOREIGN KEY | FOREIGN KEY (fxTransferTypeId) REFERENCES fxTransferType (fxTransferTypeId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (fxWatchListId) |
+| PRIMARY                              | PRIMARY KEY | PRIMARY KEY (fxWatchListId)                                                 |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| fxwatchlist_commitrequestid_index | KEY fxwatchlist_commitrequestid_index (commitRequestId) USING BTREE |
+| Name                                    | Definition                                                                      |
+| --------------------------------------- | ------------------------------------------------------------------------------- |
+| fxwatchlist_commitrequestid_index       | KEY fxwatchlist_commitrequestid_index (commitRequestId) USING BTREE             |
 | fxwatchlist_determiningtransferid_index | KEY fxwatchlist_determiningtransferid_index (determiningTransferId) USING BTREE |
-| fxwatchlist_fxtransfertypeid_foreign | KEY fxwatchlist_fxtransfertypeid_foreign (fxTransferTypeId) USING BTREE |
-| PRIMARY | PRIMARY KEY (fxWatchListId) USING BTREE |
+| fxwatchlist_fxtransfertypeid_foreign    | KEY fxwatchlist_fxtransfertypeid_foreign (fxTransferTypeId) USING BTREE         |
+| PRIMARY                                 | PRIMARY KEY (fxWatchListId) USING BTREE                                         |
 
 ## Relations
 

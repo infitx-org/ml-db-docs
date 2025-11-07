@@ -31,37 +31,37 @@ CREATE TABLE `participantLimit` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| participantLimitId | int unsigned |  | false | auto_increment |  |  |  |
-| participantCurrencyId | int unsigned |  | false |  |  | [participantCurrency](participantCurrency.md) |  |
-| participantLimitTypeId | int unsigned |  | false |  |  | [participantLimitType](participantLimitType.md) |  |
-| value | decimal(18,4) | 0.0000 | false |  |  |  |  |
-| thresholdAlarmPercentage | decimal(5,2) | 10.00 | false |  |  |  |  |
-| startAfterParticipantPositionChangeId | bigint unsigned |  | true |  |  | [participantPositionChange](participantPositionChange.md) |  |
-| isActive | tinyint(1) | 1 | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
-| createdBy | varchar(128) |  | false |  |  |  |  |
+| Name                                  | Type            | Default           | Nullable | Extra Definition  | Parents                                                   |
+| ------------------------------------- | --------------- | ----------------- | -------- | ----------------- | --------------------------------------------------------- |
+| participantLimitId                    | int unsigned    |                   | false    | auto_increment    |                                                           |
+| participantCurrencyId                 | int unsigned    |                   | false    |                   | [participantCurrency](participantCurrency.md)             |
+| participantLimitTypeId                | int unsigned    |                   | false    |                   | [participantLimitType](participantLimitType.md)           |
+| value                                 | decimal(18,4)   | 0.0000            | false    |                   |                                                           |
+| thresholdAlarmPercentage              | decimal(5,2)    | 10.00             | false    |                   |                                                           |
+| startAfterParticipantPositionChangeId | bigint unsigned |                   | true     |                   | [participantPositionChange](participantPositionChange.md) |
+| isActive                              | tinyint(1)      | 1                 | false    |                   |                                                           |
+| createdDate                           | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                           |
+| createdBy                             | varchar(128)    |                   | false    |                   |                                                           |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| participantlimit_participantcurrencyid_foreign | FOREIGN KEY | FOREIGN KEY (participantCurrencyId) REFERENCES participantCurrency (participantCurrencyId) |
-| participantlimit_participantlimittypeid_foreign | FOREIGN KEY | FOREIGN KEY (participantLimitTypeId) REFERENCES participantLimitType (participantLimitTypeId) |
+| Name                                                           | Type        | Definition                                                                                                             |
+| -------------------------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------- |
+| participantlimit_participantcurrencyid_foreign                 | FOREIGN KEY | FOREIGN KEY (participantCurrencyId) REFERENCES participantCurrency (participantCurrencyId)                             |
+| participantlimit_participantlimittypeid_foreign                | FOREIGN KEY | FOREIGN KEY (participantLimitTypeId) REFERENCES participantLimitType (participantLimitTypeId)                          |
 | participantlimit_startafterparticipantpositionchangeid_foreign | FOREIGN KEY | FOREIGN KEY (startAfterParticipantPositionChangeId) REFERENCES participantPositionChange (participantPositionChangeId) |
-| participantLimit_unique_idx | UNIQUE | UNIQUE KEY participantLimit_unique_idx (participantCurrencyId, participantLimitTypeId, isActive, participantLimitId) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (participantLimitId) |
+| participantLimit_unique_idx                                    | UNIQUE      | UNIQUE KEY participantLimit_unique_idx (participantCurrencyId, participantLimitTypeId, isActive, participantLimitId)   |
+| PRIMARY                                                        | PRIMARY KEY | PRIMARY KEY (participantLimitId)                                                                                       |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| participantlimit_participantcurrencyid_index | KEY participantlimit_participantcurrencyid_index (participantCurrencyId) USING BTREE |
-| participantlimit_participantlimittypeid_index | KEY participantlimit_participantlimittypeid_index (participantLimitTypeId) USING BTREE |
-| participantlimit_startafterparticipantpositionchangeid_index | KEY participantlimit_startafterparticipantpositionchangeid_index (startAfterParticipantPositionChangeId) USING BTREE |
-| PRIMARY | PRIMARY KEY (participantLimitId) USING BTREE |
-| participantLimit_unique_idx | UNIQUE KEY participantLimit_unique_idx (participantCurrencyId, participantLimitTypeId, isActive, participantLimitId) USING BTREE |
+| Name                                                         | Definition                                                                                                                       |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| participantlimit_participantcurrencyid_index                 | KEY participantlimit_participantcurrencyid_index (participantCurrencyId) USING BTREE                                             |
+| participantlimit_participantlimittypeid_index                | KEY participantlimit_participantlimittypeid_index (participantLimitTypeId) USING BTREE                                           |
+| participantlimit_startafterparticipantpositionchangeid_index | KEY participantlimit_startafterparticipantpositionchangeid_index (startAfterParticipantPositionChangeId) USING BTREE             |
+| PRIMARY                                                      | PRIMARY KEY (participantLimitId) USING BTREE                                                                                     |
+| participantLimit_unique_idx                                  | UNIQUE KEY participantLimit_unique_idx (participantCurrencyId, participantLimitTypeId, isActive, participantLimitId) USING BTREE |
 
 ## Relations
 

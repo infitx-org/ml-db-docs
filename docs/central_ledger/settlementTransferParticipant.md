@@ -33,38 +33,38 @@ CREATE TABLE `settlementTransferParticipant` (
 
 ## Columns
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| settlementTransferParticipantId | bigint unsigned |  | false | auto_increment |  |  |  |
-| settlementId | bigint unsigned |  | false |  |  | [settlement](settlement.md) |  |
-| settlementWindowId | bigint unsigned |  | false |  |  | [settlementWindow](settlementWindow.md) |  |
-| participantCurrencyId | int unsigned |  | false |  |  | [participantCurrency](participantCurrency.md) |  |
-| transferParticipantRoleTypeId | int unsigned |  | false |  |  | [transferParticipantRoleType](transferParticipantRoleType.md) |  |
-| ledgerEntryTypeId | int unsigned |  | false |  |  | [ledgerEntryType](ledgerEntryType.md) |  |
-| amount | decimal(18,4) |  | false |  |  |  |  |
-| createdDate | datetime | CURRENT_TIMESTAMP | false | DEFAULT_GENERATED |  |  |  |
+| Name                            | Type            | Default           | Nullable | Extra Definition  | Parents                                                       |
+| ------------------------------- | --------------- | ----------------- | -------- | ----------------- | ------------------------------------------------------------- |
+| settlementTransferParticipantId | bigint unsigned |                   | false    | auto_increment    |                                                               |
+| settlementId                    | bigint unsigned |                   | false    |                   | [settlement](settlement.md)                                   |
+| settlementWindowId              | bigint unsigned |                   | false    |                   | [settlementWindow](settlementWindow.md)                       |
+| participantCurrencyId           | int unsigned    |                   | false    |                   | [participantCurrency](participantCurrency.md)                 |
+| transferParticipantRoleTypeId   | int unsigned    |                   | false    |                   | [transferParticipantRoleType](transferParticipantRoleType.md) |
+| ledgerEntryTypeId               | int unsigned    |                   | false    |                   | [ledgerEntryType](ledgerEntryType.md)                         |
+| amount                          | decimal(18,4)   |                   | false    |                   |                                                               |
+| createdDate                     | datetime        | CURRENT_TIMESTAMP | false    | DEFAULT_GENERATED |                                                               |
 
 ## Constraints
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (settlementTransferParticipantId) |
-| settlementtransferparticipant_ledgerentrytypeid_foreign | FOREIGN KEY | FOREIGN KEY (ledgerEntryTypeId) REFERENCES ledgerEntryType (ledgerEntryTypeId) |
-| settlementtransferparticipant_participantcurrencyid_foreign | FOREIGN KEY | FOREIGN KEY (participantCurrencyId) REFERENCES participantCurrency (participantCurrencyId) |
-| settlementtransferparticipant_settlementid_foreign | FOREIGN KEY | FOREIGN KEY (settlementId) REFERENCES settlement (settlementId) |
-| settlementtransferparticipant_settlementwindowid_foreign | FOREIGN KEY | FOREIGN KEY (settlementWindowId) REFERENCES settlementWindow (settlementWindowId) |
-| stp_transferparticipantroletypeid_foreign | FOREIGN KEY | FOREIGN KEY (transferParticipantRoleTypeId) REFERENCES transferParticipantRoleType (transferParticipantRoleTypeId) |
+| Name                                                        | Type        | Definition                                                                                                         |
+| ----------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------ |
+| PRIMARY                                                     | PRIMARY KEY | PRIMARY KEY (settlementTransferParticipantId)                                                                      |
+| settlementtransferparticipant_ledgerentrytypeid_foreign     | FOREIGN KEY | FOREIGN KEY (ledgerEntryTypeId) REFERENCES ledgerEntryType (ledgerEntryTypeId)                                     |
+| settlementtransferparticipant_participantcurrencyid_foreign | FOREIGN KEY | FOREIGN KEY (participantCurrencyId) REFERENCES participantCurrency (participantCurrencyId)                         |
+| settlementtransferparticipant_settlementid_foreign          | FOREIGN KEY | FOREIGN KEY (settlementId) REFERENCES settlement (settlementId)                                                    |
+| settlementtransferparticipant_settlementwindowid_foreign    | FOREIGN KEY | FOREIGN KEY (settlementWindowId) REFERENCES settlementWindow (settlementWindowId)                                  |
+| stp_transferparticipantroletypeid_foreign                   | FOREIGN KEY | FOREIGN KEY (transferParticipantRoleTypeId) REFERENCES transferParticipantRoleType (transferParticipantRoleTypeId) |
 
 ## Indexes
 
-| Name | Definition |
-| ---- | ---------- |
-| settlementtransferparticipant_ledgerentrytypeid_index | KEY settlementtransferparticipant_ledgerentrytypeid_index (ledgerEntryTypeId) USING BTREE |
+| Name                                                      | Definition                                                                                        |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| settlementtransferparticipant_ledgerentrytypeid_index     | KEY settlementtransferparticipant_ledgerentrytypeid_index (ledgerEntryTypeId) USING BTREE         |
 | settlementtransferparticipant_participantcurrencyid_index | KEY settlementtransferparticipant_participantcurrencyid_index (participantCurrencyId) USING BTREE |
-| settlementtransferparticipant_settlementid_index | KEY settlementtransferparticipant_settlementid_index (settlementId) USING BTREE |
-| settlementtransferparticipant_settlementwindowid_index | KEY settlementtransferparticipant_settlementwindowid_index (settlementWindowId) USING BTREE |
-| stp_transferparticipantroletypeid_index | KEY stp_transferparticipantroletypeid_index (transferParticipantRoleTypeId) USING BTREE |
-| PRIMARY | PRIMARY KEY (settlementTransferParticipantId) USING BTREE |
+| settlementtransferparticipant_settlementid_index          | KEY settlementtransferparticipant_settlementid_index (settlementId) USING BTREE                   |
+| settlementtransferparticipant_settlementwindowid_index    | KEY settlementtransferparticipant_settlementwindowid_index (settlementWindowId) USING BTREE       |
+| stp_transferparticipantroletypeid_index                   | KEY stp_transferparticipantroletypeid_index (transferParticipantRoleTypeId) USING BTREE           |
+| PRIMARY                                                   | PRIMARY KEY (settlementTransferParticipantId) USING BTREE                                         |
 
 ## Relations
 
