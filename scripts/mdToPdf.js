@@ -2,7 +2,8 @@ const mdpdf = require('mdpdf');
 const path = require('path');
 const fs = require('fs').promises;
 
-const DOCS_FOLDER = path.join(__dirname, '../docs/central_ledger');
+// const DOCS_FOLDER = path.join(__dirname, '../docs/central_ledger');
+const DOCS_FOLDER = path.join(__dirname, '../docs/account_lookup');
 const FOLDER_NAME = path.basename(DOCS_FOLDER);
 const TEMP_FILE = path.join(__dirname, 'combined.md');
 const OUTPUT_DIR = path.join(__dirname, '../pdfs');
@@ -48,7 +49,8 @@ async function convertToPdf() {
             defaultStyle: true,
             pdf: {
                 format: 'Tabloid',
-                orientation: 'landscape'
+                // orientation: 'landscape'
+                orientation: 'portrait'
             }
         };
 
