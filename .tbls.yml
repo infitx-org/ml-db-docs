@@ -1,0 +1,8 @@
+# .tbls.yml
+
+# DSN (Database Source Name) to connect database
+dsn: mysql://central_ledger:password@localhost:3306/central_ledger
+
+# Path to generate document
+# Default is `dbdoc`
+docPath: doc/schema
