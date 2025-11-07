@@ -22,7 +22,7 @@ format:
 er:
   # Skip generation of ER diagram
   # Default is false
-  skip: false
+  skip: true
   # ER diagram image format (`png`, `jpg`, `svg`, `mermaid`)
   # Default is `svg`
   format: svg
