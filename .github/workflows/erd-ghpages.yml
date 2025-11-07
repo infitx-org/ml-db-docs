@@ -11,8 +11,11 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
 
       # 1. Install the Liam ERD CLI
       - name: Install Liam ERD CLI
@@ -24,7 +27,8 @@ jobs:
 
       # 3. Publish the build artifacts (dist folder) to a static hosting service
       - name: Deploy to GitHub Pages
-        uses: actions-gh-pages/action@v2
+        uses: actions/deploy-pages@v4
+        id: deployment
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: dist
