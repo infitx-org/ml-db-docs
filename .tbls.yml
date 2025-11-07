@@ -47,9 +47,11 @@ er:
 
 # DSN (Database Source Name) to connect database
 # dsn: mysql://central_ledger:password@localhost:3306/central_ledger
-dsn: mysql://account_lookup:password@localhost:3306/account_lookup
+# dsn: mysql://account_lookup:password@localhost:3306/account_lookup
+dsn: mysql://als-msisdn-oracle:password@localhost:3306/als-msisdn-oracle
 
 # Path to generate document
 # Default is `dbdoc`
 # docPath: docs/central_ledger
-docPath: docs/account_lookup
+# docPath: docs/account_lookup
+docPath: docs/als-msisdn-oracle

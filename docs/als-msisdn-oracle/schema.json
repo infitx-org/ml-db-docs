@@ -1,0 +1,148 @@
+{
+  "name": "als-msisdn-oracle",
+  "tables": [
+    {
+      "name": "oracleMSISDN",
+      "type": "BASE TABLE",
+      "columns": [
+        {
+          "name": "id",
+          "type": "varchar(255)",
+          "nullable": false
+        },
+        {
+          "name": "subId",
+          "type": "varchar(255)",
+          "nullable": false,
+          "default": ""
+        },
+        {
+          "name": "fspId",
+          "type": "varchar(32)",
+          "nullable": false
+        }
+      ],
+      "indexes": [
+        {
+          "name": "PRIMARY",
+          "def": "PRIMARY KEY (id, subId) USING BTREE",
+          "table": "oracleMSISDN",
+          "columns": [
+            "id",
+            "subId"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "PRIMARY",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (id, subId)",
+          "table": "oracleMSISDN",
+          "columns": [
+            "id",
+            "subId"
+          ]
+        }
+      ],
+      "def": "CREATE TABLE `oracleMSISDN` (\n  `id` varchar(255) NOT NULL,\n  `subId` varchar(255) NOT NULL DEFAULT '',\n  `fspId` varchar(32) NOT NULL,\n  PRIMARY KEY (`id`,`subId`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci"
+    },
+    {
+      "name": "oracleMSISDN_migration",
+      "type": "BASE TABLE",
+      "columns": [
+        {
+          "name": "id",
+          "type": "int unsigned",
+          "nullable": false,
+          "extra_def": "auto_increment"
+        },
+        {
+          "name": "name",
+          "type": "varchar(255)",
+          "nullable": true
+        },
+        {
+          "name": "batch",
+          "type": "int",
+          "nullable": true
+        },
+        {
+          "name": "migration_time",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ],
+      "indexes": [
+        {
+          "name": "PRIMARY",
+          "def": "PRIMARY KEY (id) USING BTREE",
+          "table": "oracleMSISDN_migration",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "PRIMARY",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (id)",
+          "table": "oracleMSISDN_migration",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "def": "CREATE TABLE `oracleMSISDN_migration` (\n  `id` int unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(255) DEFAULT NULL,\n  `batch` int DEFAULT NULL,\n  `migration_time` timestamp NULL DEFAULT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci"
+    },
+    {
+      "name": "oracleMSISDN_migration_lock",
+      "type": "BASE TABLE",
+      "columns": [
+        {
+          "name": "index",
+          "type": "int unsigned",
+          "nullable": false,
+          "extra_def": "auto_increment"
+        },
+        {
+          "name": "is_locked",
+          "type": "int",
+          "nullable": true
+        }
+      ],
+      "indexes": [
+        {
+          "name": "PRIMARY",
+          "def": "PRIMARY KEY (index) USING BTREE",
+          "table": "oracleMSISDN_migration_lock",
+          "columns": [
+            "index"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "PRIMARY",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (index)",
+          "table": "oracleMSISDN_migration_lock",
+          "columns": [
+            "index"
+          ]
+        }
+      ],
+      "def": "CREATE TABLE `oracleMSISDN_migration_lock` (\n  `index` int unsigned NOT NULL AUTO_INCREMENT,\n  `is_locked` int DEFAULT NULL,\n  PRIMARY KEY (`index`)\n) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci"
+    }
+  ],
+  "driver": {
+    "name": "mysql",
+    "database_version": "9.5.0",
+    "meta": {
+      "dict": {
+        "Functions": "Stored procedures and functions"
+      }
+    }
+  }
+}
