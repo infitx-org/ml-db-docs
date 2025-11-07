@@ -3,7 +3,8 @@ const path = require('path');
 const fs = require('fs').promises;
 
 // const DOCS_FOLDER = path.join(__dirname, '../docs/central_ledger');
-const DOCS_FOLDER = path.join(__dirname, '../docs/account_lookup');
+// const DOCS_FOLDER = path.join(__dirname, '../docs/account_lookup');
+const DOCS_FOLDER = path.join(__dirname, '../docs/als-msisdn-oracle');
 const FOLDER_NAME = path.basename(DOCS_FOLDER);
 const TEMP_FILE = path.join(__dirname, 'combined.md');
 const OUTPUT_DIR = path.join(__dirname, '../pdfs');
