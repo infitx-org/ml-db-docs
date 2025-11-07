@@ -1,0 +1,30 @@
+name: Deploy ERD on every commit
+
+on:
+  push:
+    branches:
+      - main
+    # If you only want to trigger this when the schema file is updated:
+    # paths:
+    #   - docs/central_ledger/schema.json
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1. Install the Liam ERD CLI
+      - name: Install Liam ERD CLI
+        run: npm install -g @liam-hq/cli
+
+      # 2. Generate the ER diagram
+      - name: Generate ER Diagram
+        run: liam erd build --input docs/central_ledger/schema.json --format tbls
+
+      # 3. Publish the build artifacts (dist folder) to a static hosting service
+      - name: Deploy to GitHub Pages
+        uses: actions-gh-pages/action@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
