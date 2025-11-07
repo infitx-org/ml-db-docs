@@ -29,9 +29,15 @@ jobs:
       - name: Install Liam ERD CLI
         run: npm install -g @liam-hq/cli
 
-      # Generate the ER diagram
-      - name: Generate ER Diagram
-        run: liam erd build --input docs/central_ledger/schema.json --format tbls
+      # Generate the ER diagrams
+      - name: Generate ER Diagram for Central Ledger
+        run: liam erd build --input docs/central_ledger/schema.json --format tbls http://localhost:3000 --output-dir dist/central_ledger
+
+      - name: Generate ER Diagram for Account Lookup
+        run: liam erd build --input docs/account_lookup/schema.json --format tbls http://localhost:3000 --output-dir dist/account_lookup
+
+      - name: Generate ER Diagram for ALS MSISDN Oracle
+        run: liam erd build --input docs/als-msisdn-oracle/schema.json --format tbls http://localhost:3000 --output-dir dist/als-msisdn-oracle
 
       - name: Upload artifact
         id: deployment
