@@ -9,26 +9,40 @@ on:
     #   - docs/central_ledger/schema.json
 
 jobs:
-  build-and-deploy:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Install the Liam ERD CLI
+      - name: Install Liam ERD CLI
+        run: npm install -g @liam-hq/cli
+
+      # Generate the ER diagram
+      - name: Generate ER Diagram
+        run: liam erd build --input docs/central_ledger/schema.json --format tbls
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-
-      # 1. Install the Liam ERD CLI
-      - name: Install Liam ERD CLI
-        run: npm install -g @liam-hq/cli
-
-      # 2. Generate the ER diagram
-      - name: Generate ER Diagram
-        run: liam erd build --input docs/central_ledger/schema.json --format tbls
-
-      # 3. Publish the build artifacts (dist folder) to a static hosting service
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
         id: deployment
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
+        uses: actions/deploy-pages@v4 
